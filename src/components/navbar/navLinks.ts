@@ -7,7 +7,7 @@ export interface NavLink {
 export const navLinks: NavLink[] = [
     {
         name: 'Products',
-        href: '#products',
+        href: '/products',
         hasDropdown: true,
     },
     {

@@ -27,7 +27,7 @@ export function Navbar() {
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="z-50">
+                <a href="/" className="z-50">
                     <Logo variant="dark" size="sm" />
                 </a>
 
@@ -45,17 +45,6 @@ export function Navbar() {
                             )}
                         </a>
                     ))}
-                </div>
-
-                {/* Desktop CTA */}
-                <div className="hidden md:flex items-center gap-4">
-                    <a
-                        href="#contact"
-                        className="px-6 py-2.5 rounded-lg font-bold text-sm transition-all flex items-center gap-2 group bg-stone-900 text-white hover:bg-amber-600"
-                    >
-                        Get Started
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
                 </div>
 
                 {/* Mobile Hamburger */}
