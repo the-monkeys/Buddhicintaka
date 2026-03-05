@@ -19,33 +19,33 @@ const services = [
     },
     {
         title: "Platform Engineering",
-        description: "DevOps, containerisation, CI/CD pipeline setup, and infrastructure automation.",
+        description: "DevOps, containerization, CI/CD pipeline setup, and infrastructure automation.",
         items: ["Docker & Containers", "CI/CD Pipelines", "Infrastructure as Code", "Monitoring & Alerting"],
     },
     {
-        title: "IT Training",
+        title: "Training & Consultancy",
         description: "Technical training on modern software development practices for teams and individuals.",
         items: ["Go & TypeScript", "Cloud Architecture", "DevOps Practices", "Security Best Practices"],
     },
     {
-        title: "Application Security",
-        description: "Security audits, vulnerability assessment, and secure architecture design.",
-        items: ["Penetration Testing", "Code Reviews", "Compliance Audits", "Secure Architecture"],
+        title: "Outsourcing",
+        description: "Dedicated engineering teams and staff augmentation to help companies scale development capacity quickly.",
+        items: ["Dedicated Development Teams", "Staff Augmentation", "Project-Based Delivery", "Remote Engineering Support"],
     },
 ];
 
 const Services = () => {
     return (
-        <section id="services" className="py-20 sm:py-28 bg-[var(--bg-surface)] overflow-hidden">
+        <section id="services" className="py-20 sm:py-28 bg-(--bg-surface) overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="mb-16">
-                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+                    <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
                         Our Services
                     </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-on-light)] mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-(--text-on-light) mb-4">
                         How we help.
                     </h2>
-                    <p className="text-lg text-[var(--text-on-light-muted)] max-w-3xl leading-relaxed">
+                    <p className="text-lg text-(--text-on-light-muted) max-w-3xl leading-relaxed">
                         We leverage our deep open-source experience to help enterprises
                         build, scale, and maintain critical software infrastructure.
                     </p>
@@ -59,18 +59,18 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
-                            className="bg-[var(--bg-surface-muted)] border border-[var(--border-on-light)] rounded-xl p-7 hover:border-[var(--accent-border)] transition-all duration-200 group"
+                            className="bg-(--bg-surface-muted) border border-(--border-on-light) rounded-xl p-7 hover:border-(--accent-border) transition-all duration-200 group"
                         >
-                            <h3 className="text-lg font-bold text-[var(--text-on-light)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+                            <h3 className="text-lg font-bold text-(--text-on-light) mb-3 group-hover:text-accent transition-colors">
                                 {service.title}
                             </h3>
-                            <p className="text-sm text-[var(--text-on-light-muted)] mb-5 leading-relaxed">
+                            <p className="text-sm text-(--text-on-light-muted) mb-5 leading-relaxed">
                                 {service.description}
                             </p>
                             <ul className="space-y-2.5 mb-6">
                                 {service.items.map((item) => (
-                                    <li key={item} className="flex items-center text-sm text-[var(--text-on-light)]">
-                                        <CheckCircle2 className="w-4 h-4 text-[var(--accent)] mr-2.5 shrink-0 opacity-60" />
+                                    <li key={item} className="flex items-center text-sm text-(--text-on-light)">
+                                        <CheckCircle2 className="w-4 h-4 text-accent mr-2.5 shrink-0 opacity-60" />
                                         {item}
                                     </li>
                                 ))}
@@ -82,7 +82,7 @@ const Services = () => {
                 <div className="mt-12 text-center">
                     <a
                         href="/contact"
-                        className="inline-flex items-center text-[var(--text-on-light)] font-semibold hover:text-[var(--accent)] transition-colors group"
+                        className="inline-flex items-center text-(--text-on-light) font-semibold hover:text-accent transition-colors group"
                     >
                         Talk to us about your project
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

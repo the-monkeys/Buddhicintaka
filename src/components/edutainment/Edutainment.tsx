@@ -37,7 +37,7 @@ const Edutainment = () => {
                             className="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed"
                         >
                             We train the next generation of engineers through real
-                            open-source contribution. Supporting India's Skill India vision
+                            open-source contribution. Supporting India&apos;s Skill India vision
                             with structured internships that bridge academic knowledge and
                             enterprise-grade development.
                         </motion.p>
