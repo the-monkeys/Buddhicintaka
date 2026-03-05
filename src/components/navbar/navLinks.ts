@@ -12,19 +12,15 @@ export const navLinks: NavLink[] = [
     },
     {
         name: 'Services',
-        href: '#services',
+        href: '/#services',
         hasDropdown: true,
     },
     {
-        name: 'Open Source',
-        href: '#projects',
-    },
-    {
         name: 'Careers',
-        href: '#careers',
+        href: '/careers',
     },
     {
-        name: 'Contact',
-        href: '#contact',
+        name: 'Contact Us',
+        href: '/contact',
     },
 ];
