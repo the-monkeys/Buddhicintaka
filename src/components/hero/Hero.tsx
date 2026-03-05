@@ -103,7 +103,7 @@ export function Hero() {
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </a>
                         <a
-                            href="#contact"
+                            href="/contact"
                             className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-stone-700 border-2 border-stone-200 rounded-lg hover:border-amber-500 hover:text-amber-600 transition-all"
                         >
                             <MessageSquare className="mr-2 w-5 h-5" />

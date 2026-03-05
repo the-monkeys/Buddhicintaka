@@ -1,5 +1,4 @@
 import * as motion from "motion/react-client";
-import { ExternalLink, Github } from 'lucide-react';
 
 import { projectsData } from "./constants";
 
