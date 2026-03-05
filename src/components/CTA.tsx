@@ -22,7 +22,7 @@ const CTA = () => {
                             extraordinary?
                         </h2>
                         <p className="text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-                            Let's talk about your next project. We bring open-source
+                            Let&apos;s talk about your next project. We bring open-source
                             innovation and enterprise reliability to everything we build.
                         </p>
                     </div>

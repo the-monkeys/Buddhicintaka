@@ -26,32 +26,27 @@ export const ecosystemTree: EcosystemTree = {
                 {
                     label: "Monkeys",
                     description: "Content & Knowledge Platform",
-                    href: "/products#monkeys",
+                    href: "/products",
                 },
                 {
                     label: "Monkeys IAM",
                     description: "Identity & Access Management",
-                    href: "/products#iam",
+                    href: "/products",
                 },
                 {
                     label: "FreeRange Notify",
                     description: "Universal Notification Service",
-                    href: "/products#notify",
+                    href: "/products",
                 },
                 {
                     label: "Orbitor",
                     description: "Web Crawler & Search Engine",
-                    href: "/products#orbitor",
+                    href: "/products",
                 },
                 {
                     label: "A.P.E.",
                     description: "Secrets Management & Encryption",
-                    href: "/products#ape",
-                },
-                {
-                    label: "Capuchin",
-                    description: "Reference Full-Stack App",
-                    href: "/products#capuchin",
+                    href: "/products",
                 },
             ],
         },
@@ -100,13 +95,8 @@ export const ecosystemTree: EcosystemTree = {
                     href: "/contact",
                 },
                 {
-                    label: "IT Training",
+                    label: "Training & Consultancy",
                     description: "Modern software development practices",
-                    href: "/contact",
-                },
-                {
-                    label: "Application Security",
-                    description: "Audits, vulnerability assessment, secure architecture",
                     href: "/contact",
                 },
             ],

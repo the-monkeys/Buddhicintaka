@@ -1,4 +1,4 @@
-import { Shield, Bell, PenTool, Search, Lock, CheckSquare } from "lucide-react";
+import { Shield, Bell, PenTool, Search } from "lucide-react";
 
 export interface Product {
     id: string;
@@ -31,7 +31,7 @@ export const products: Product[] = [
             "Enterprise-grade IAM system with Zero Trust security, RBAC/ABAC/PBAC access control, MFA, OIDC/SAML federation, and comprehensive audit trails.",
         icon: Shield,
         tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
-        link: "https://github.com/the-monkeys/monkeys-identity",
+        link: "https://identity.monkeys.support/",
         repoUrl: "https://github.com/the-monkeys/monkeys-identity",
     },
     {
@@ -55,27 +55,5 @@ export const products: Product[] = [
         tags: ["Go", "Docker"],
         link: "https://github.com/the-monkeys",
         repoUrl: "https://github.com/the-monkeys",
-    },
-    {
-        id: "ape",
-        title: "A.P.E.",
-        shortDescription: "Secrets Management & Encryption",
-        description:
-            "Secure secrets management and encryption service for protecting sensitive application data.",
-        icon: Lock,
-        tags: ["Go", "PostgreSQL"],
-        link: "https://github.com/the-monkeys",
-        repoUrl: "https://github.com/the-monkeys",
-    },
-    {
-        id: "capuchin",
-        title: "Capuchin",
-        shortDescription: "Reference Full-Stack Application",
-        description:
-            "Professional-grade full-stack todo application serving as a reference implementation for modern development practices.",
-        icon: CheckSquare,
-        tags: ["Go", "React", "TypeScript", "Docker"],
-        link: "https://github.com/the-monkeys/capuchin",
-        repoUrl: "https://github.com/the-monkeys/capuchin",
-    },
+    }
 ];

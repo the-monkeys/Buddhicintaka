@@ -1,4 +1,4 @@
-import { Lightbulb, Gamepad2, Rocket, GraduationCap } from "lucide-react";
+import { Lightbulb, Rocket, GraduationCap } from "lucide-react";
 
 export const edutainmentTracks = [
     {
@@ -6,12 +6,6 @@ export const edutainmentTracks = [
         title: 'Learn by Doing',
         description:
             'Work on real open-source projects from day one. No simulations — real code, real impact.',
-    },
-    {
-        icon: Gamepad2,
-        title: 'Gamified Growth',
-        description:
-            'Earn badges, complete challenges, and level up through our structured learning paths.',
     },
     {
         icon: Rocket,

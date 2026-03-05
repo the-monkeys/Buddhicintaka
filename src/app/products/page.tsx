@@ -10,26 +10,27 @@ export const metadata: Metadata = {
 
 const ProductsPage = () => {
     return (
-        <section className="pt-32 pb-20 sm:pb-28 bg-[var(--bg-primary)]">
+        <section className="pt-32 pb-20 sm:pb-28 bg-background">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 {/* Header */}
                 <div className="mb-16 max-w-3xl">
-                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+                    <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
                         Our Products
                     </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--text-primary)] mb-6">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
                         Built open. Built to last.
                     </h1>
-                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                    <p className="text-(--text-secondary) text-lg leading-relaxed">
                         Every product we ship is open source, community-driven, and enterprise-ready.
                         Explore them below and join the community.
                     </p>
                 </div>
 
                 {/* Products Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {products.map((product, index) => {
                         const Icon = product.icon;
+                        
                         return (
                             <motion.div
                                 key={product.id}
@@ -38,19 +39,19 @@ const ProductsPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.08 }}
-                                className="bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-2xl p-8 hover:border-[var(--accent-border)] transition-all duration-300 flex flex-col h-full group"
+                                className="bg-(--bg-secondary) border border-(--border-primary) rounded-2xl p-8 hover:border-(--accent-border) transition-all duration-300 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                             >
-                                <div className="w-10 h-10 rounded-lg bg-[var(--accent-subtle)] flex items-center justify-center mb-5">
-                                    <Icon className="w-5 h-5 text-[var(--accent)]" />
+                                <div className="w-12 h-12 rounded-lg bg-(--accent-subtle) flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-background transition-all duration-300">
+                                    <Icon className="w-6 h-6 text-accent group-hover:text-background" />
                                 </div>
 
-                                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-1">
+                                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                                     {product.title}
                                 </h3>
-                                <p className="text-[var(--accent)] text-xs font-medium mb-3">
+                                <p className="text-accent text-xs font-medium mb-3 opacity-80">
                                     {product.shortDescription}
                                 </p>
-                                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6 grow">
+                                <p className="text-(--text-secondary) text-sm leading-relaxed mb-6 grow">
                                     {product.description}
                                 </p>
 
@@ -58,28 +59,28 @@ const ProductsPage = () => {
                                     {product.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="px-2.5 py-1 text-xs font-medium bg-[var(--bg-tertiary)] text-[var(--text-tertiary)] rounded-md border border-[var(--border-primary)]"
+                                            className="px-2.5 py-1 text-xs font-medium bg-(--bg-tertiary) text-(--text-tertiary) rounded-md border border-(--border-primary) group-hover:border-accent group-hover:border-opacity-50 transition-colors"
                                         >
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
 
-                                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-[var(--border-primary)]">
+                                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-(--border-primary) group-hover:border-accent group-hover:border-opacity-30 transition-colors">
                                     <a
                                         href={product.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1"
+                                        className="text-sm font-semibold text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
                                     >
                                         Visit
-                                        <ArrowUpRight className="w-3.5 h-3.5" />
+                                        <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </a>
                                     <a
                                         href={product.repoUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors inline-flex items-center gap-1"
+                                        className="text-sm font-semibold text-(--text-secondary) hover:text-foreground transition-colors inline-flex items-center gap-1"
                                     >
                                         <Github className="w-3.5 h-3.5" />
                                         Source
@@ -91,15 +92,15 @@ const ProductsPage = () => {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="text-center mt-16 pt-12 border-t border-[var(--border-primary)]">
-                    <p className="text-[var(--text-secondary)] mb-6">
+                <div className="text-center mt-16 pt-12 border-t border-(--border-primary)">
+                    <p className="text-(--text-secondary) mb-6">
                         All our projects live on GitHub. Stars and contributions welcome.
                     </p>
                     <a
                         href="https://github.com/the-monkeys"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-hover)] transition-all"
+                        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-accent rounded-lg hover:bg-accent-hover transition-all"
                     >
                         <Github className="w-4 h-4" />
                         View all on GitHub
