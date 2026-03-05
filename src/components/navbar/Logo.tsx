@@ -1,5 +1,5 @@
-interface LogoProps {
-    variant?: 'light' | 'dark' | 'amber';
+﻿interface LogoProps {
+    variant?: 'light' | 'dark' | 'accent';
     size?: 'sm' | 'md' | 'lg';
     className?: string;
 }
@@ -12,9 +12,9 @@ export const Logo = ({ variant = 'dark', size = 'md', className }: LogoProps) =>
     };
 
     const variantClasses = {
-        light: 'bg-white text-stone-900 border border-stone-200',
-        dark: 'bg-stone-900 text-white border border-stone-800',
-        amber: 'bg-amber-500 text-white border border-amber-400',
+        light: 'bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-primary)]',
+        dark: 'bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border-primary)]',
+        accent: 'bg-[var(--accent)] text-white border border-[var(--accent)]',
     };
 
     return (

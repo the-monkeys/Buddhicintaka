@@ -1,5 +1,5 @@
-import { ChevronDown } from 'lucide-react';
-import { NavLink } from './navLinks';
+﻿import { NavLink } from './navLinks';
+import { ArrowRight } from 'lucide-react';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -11,10 +11,10 @@ export function MobileMenu({ isOpen, links, onClose }: MobileMenuProps) {
     return (
         <div
             className={[
-                'absolute top-0 left-0 right-0',
-                'bg-white shadow-xl p-4 pt-24 pb-8',
-                'md:hidden flex flex-col gap-4',
-                'border-b border-stone-100 h-screen overflow-y-auto',
+                'fixed inset-0 z-40',
+                'bg-[var(--bg-primary)] p-6 pt-24 pb-8',
+                'md:hidden flex flex-col gap-2',
+                'overflow-y-auto',
                 'transition-all duration-300 ease-in-out',
                 isOpen
                     ? 'opacity-100 translate-y-0 pointer-events-auto'
@@ -25,23 +25,21 @@ export function MobileMenu({ isOpen, links, onClose }: MobileMenuProps) {
                 <a
                     key={link.name}
                     href={link.href}
-                    className="text-2xl font-bold text-stone-800 py-4 border-b border-stone-100 flex justify-between items-center"
+                    className="text-2xl font-bold text-[var(--text-primary)] py-4 border-b border-[var(--border-primary)] flex justify-between items-center hover:text-[var(--accent)] transition-colors"
                     onClick={onClose}
                 >
                     {link.name}
-                    {link.hasDropdown && (
-                        <ChevronDown className="w-5 h-5 text-stone-400" />
-                    )}
                 </a>
             ))}
 
             <div className="flex flex-col gap-4 mt-8">
                 <a
-                    href="#contact"
-                    className="text-center py-4 font-bold bg-amber-500 text-white rounded-xl text-lg shadow-lg shadow-amber-500/20 transition-opacity hover:opacity-90"
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 py-4 font-bold bg-[var(--accent)] text-white rounded-xl text-lg hover:bg-[var(--accent-hover)] transition-all"
                     onClick={onClose}
                 >
                     Get Started
+                    <ArrowRight className="w-4 h-4" />
                 </a>
             </div>
         </div>

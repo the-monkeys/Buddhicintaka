@@ -1,56 +1,74 @@
-import * as motion from "motion/react-client";
+﻿import * as motion from "motion/react-client";
 import Image from "next/image";
 
 const Partners = () => {
     return (
-        <section className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-                        Our Partners
-                    </h2>
-                    <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-                        Collaborating with industry leaders to drive innovation.
-                    </p>
+        <section className="py-16 sm:py-20 bg-[var(--bg-primary)]">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="text-center mb-12">
+                    <span className="text-[var(--text-tertiary)] text-xs font-semibold tracking-[0.2em] uppercase">
+                        Trusted By
+                    </span>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                            scale: 0.9,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            scale: 1,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
-                        className="group relative"
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16">
+                    <motion.a
+                        href="https://gem.gov.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
                     >
-                        <div className="absolute inset-0 bg-amber-100 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-                        <div className="relative z-10 bg-white p-8 rounded-2xl border border-stone-100 shadow-lg hover:shadow-xl transition-shadow text-center max-w-md">
-                            <Image
-                                src="/circuit-nation.png"
-                                width={96}
-                                height={96}
-                                className="bg-stone-900 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
-                                alt="Circuit Nation Logo"
-                                draggable="false"
-                            />
-                            <h3 className="text-2xl font-bold text-stone-900 mb-2">
-                                Circuit Nation
-                            </h3>
-                            <p className="text-stone-500 text-sm font-medium uppercase tracking-wider mb-4">
-                                Premier Media Partner
-                            </p>
-                            <p className="text-stone-600 leading-relaxed">
-                                India's leading F1 and racing sports media agency. Delivering
-                                high-speed content with our high-performance infrastructure.
-                            </p>
+                        <div className="w-10 h-10 bg-[var(--bg-tertiary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors font-bold text-sm">
+                            GeM
+                        </div>
+                        <div>
+                            <p className="text-sm font-semibold text-[var(--text-primary)]">Government e-Marketplace</p>
+                            <p className="text-xs text-[var(--text-tertiary)]">Registered Vendor</p>
+                        </div>
+                    </motion.a>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
+                    >
+                        <Image
+                            src="/circuit-nation.png"
+                            width={40}
+                            height={40}
+                            alt="Circuit Nation"
+                            className="rounded-lg"
+                            draggable={false}
+                        />
+                        <div>
+                            <p className="text-sm font-semibold text-[var(--text-primary)]">Circuit Nation</p>
+                            <p className="text-xs text-[var(--text-tertiary)]">Media Partner</p>
                         </div>
                     </motion.div>
+
+                    <motion.a
+                        href="https://github.com/the-monkeys"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
+                    >
+                        <div className="w-10 h-10 bg-[var(--bg-tertiary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors font-bold text-xs">
+                            41+
+                        </div>
+                        <div>
+                            <p className="text-sm font-semibold text-[var(--text-primary)]">Open Source Community</p>
+                            <p className="text-xs text-[var(--text-tertiary)]">GitHub Followers</p>
+                        </div>
+                    </motion.a>
                 </div>
             </div>
         </section>

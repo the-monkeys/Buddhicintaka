@@ -1,28 +1,91 @@
 @import "tailwindcss";
 
+/* ─── Dark theme (default) ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1A1A1A;
+  --bg-surface: #FFFFFF;
+  --bg-surface-muted: #F5F5F5;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --text-tertiary: #666666;
+  --text-on-light: #0A0A0A;
+  --text-on-light-muted: #555555;
+
+  --accent: #FF5542;
+  --accent-hover: #E64A39;
+  --accent-subtle: rgba(255, 85, 66, 0.1);
+  --accent-border: rgba(255, 85, 66, 0.3);
+
+  --border-primary: #222222;
+  --border-secondary: #333333;
+  --border-on-light: #E5E5E5;
+}
+
+/* ─── Light theme ─── */
+[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F7;
+  --bg-tertiary: #EEEEEE;
+  --bg-surface: #F0F0F0;
+  --bg-surface-muted: #E8E8E8;
+
+  --text-primary: #0A0A0A;
+  --text-secondary: #555555;
+  --text-tertiary: #888888;
+  --text-on-light: #0A0A0A;
+  --text-on-light-muted: #555555;
+
+  --accent: #FF5542;
+  --accent-hover: #E64A39;
+  --accent-subtle: rgba(255, 85, 66, 0.08);
+  --accent-border: rgba(255, 85, 66, 0.25);
+
+  --border-primary: #E0E0E0;
+  --border-secondary: #D0D0D0;
+  --border-on-light: #D0D0D0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Theme transition on key elements ─── */
+section,
+nav,
+footer,
+div {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
+}
+
+/* ─── Focus states for accessibility ─── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ─── Hero & Navbar custom animations ─── */
@@ -80,8 +143,15 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .animate-fade-in-up {

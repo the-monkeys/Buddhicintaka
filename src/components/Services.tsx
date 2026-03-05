@@ -1,158 +1,92 @@
-import * as motion from "motion/react-client";
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+﻿import * as motion from "motion/react-client";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+const services = [
+    {
+        title: "Custom Software Development",
+        description: "Full-stack web and mobile application development, API design, and microservices architecture.",
+        items: ["System Architecture Design", "Full-Stack Engineering", "API & Microservices", "Performance Optimization"],
+    },
+    {
+        title: "Identity & Access Management",
+        description: "Enterprise IAM solutions with SSO, MFA, and policy-based access control built on our own IAM platform.",
+        items: ["Zero Trust Security", "SSO & Federation", "RBAC / ABAC / PBAC", "Multi-Factor Authentication"],
+    },
+    {
+        title: "Notification Infrastructure",
+        description: "Multi-channel notification systems handling push, email, SMS, and real-time Server-Sent Events.",
+        items: ["Multi-Channel Delivery", "Real-Time SSE", "Multi-Tenant Support", "Prometheus Monitoring"],
+    },
+    {
+        title: "Platform Engineering",
+        description: "DevOps, containerisation, CI/CD pipeline setup, and infrastructure automation.",
+        items: ["Docker & Containers", "CI/CD Pipelines", "Infrastructure as Code", "Monitoring & Alerting"],
+    },
+    {
+        title: "IT Training",
+        description: "Technical training on modern software development practices for teams and individuals.",
+        items: ["Go & TypeScript", "Cloud Architecture", "DevOps Practices", "Security Best Practices"],
+    },
+    {
+        title: "Application Security",
+        description: "Security audits, vulnerability assessment, and secure architecture design.",
+        items: ["Penetration Testing", "Code Reviews", "Compliance Audits", "Secure Architecture"],
+    },
+];
 
 const Services = () => {
     return (
-        <section id="services" className="py-32 bg-stone-50 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="mb-20">
-                    <h2 className="text-4xl md:text-6xl font-bold text-stone-900 mb-6">
-                        Services & <span className="text-amber-600">Expertise</span>
+        <section id="services" className="py-20 sm:py-28 bg-[var(--bg-surface)] overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="mb-16">
+                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+                        Our Services
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-on-light)] mb-4">
+                        How we help.
                     </h2>
-                    <p className="text-xl text-stone-600 max-w-3xl leading-relaxed">
+                    <p className="text-lg text-[var(--text-on-light-muted)] max-w-3xl leading-relaxed">
                         We leverage our deep open-source experience to help enterprises
                         build, scale, and maintain critical software infrastructure.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Consulting Card */}
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                            x: -30,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            x: 0,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
-                        className="bg-white rounded-3xl overflow-hidden shadow-xl group"
-                    >
-                        <div className="h-64 bg-stone-900 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-linear-to-br from-amber-900/40 to-stone-900/90 z-10"></div>
-                            {/* Abstract Pattern */}
-                            <div
-                                className="absolute inset-0 opacity-30"
-                                style={{
-                                    backgroundImage:
-                                        'radial-gradient(#F59E0B 1px, transparent 1px)',
-                                    backgroundSize: '20px 20px',
-                                }}
-                            ></div>
-                            <div className="absolute bottom-8 left-8 z-20">
-                                <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-                                    Strategic
-                                </span>
-                                <h3 className="text-3xl font-bold text-white">Consulting</h3>
-                            </div>
-                        </div>
-
-                        <div className="p-10">
-                            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                                Strategic technology consulting to help you make the right
-                                decisions. From architecture reviews to tech stack selection and
-                                scalability planning.
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map((service, index) => (
+                        <motion.div
+                            key={service.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className="bg-[var(--bg-surface-muted)] border border-[var(--border-on-light)] rounded-xl p-7 hover:border-[var(--accent-border)] transition-all duration-200 group"
+                        >
+                            <h3 className="text-lg font-bold text-[var(--text-on-light)] mb-3 group-hover:text-[var(--accent)] transition-colors">
+                                {service.title}
+                            </h3>
+                            <p className="text-sm text-[var(--text-on-light-muted)] mb-5 leading-relaxed">
+                                {service.description}
                             </p>
-
-                            <ul className="space-y-4 mb-10">
-                                {[
-                                    'System Architecture Design',
-                                    'Performance Optimization',
-                                    'Security Audits',
-                                    'Cloud Migration Strategy',
-                                ].map((item) => (
-                                    <li
-                                        key={item}
-                                        className="flex items-center text-stone-800 font-medium"
-                                    >
-                                        <CheckCircle2 className="w-5 h-5 text-amber-500 mr-3 shrink-0" />
+                            <ul className="space-y-2.5 mb-6">
+                                {service.items.map((item) => (
+                                    <li key={item} className="flex items-center text-sm text-[var(--text-on-light)]">
+                                        <CheckCircle2 className="w-4 h-4 text-[var(--accent)] mr-2.5 shrink-0 opacity-60" />
                                         {item}
                                     </li>
                                 ))}
                             </ul>
+                        </motion.div>
+                    ))}
+                </div>
 
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors"
-                            >
-                                Get a Consultation <ArrowRight className="ml-2 w-5 h-5" />
-                            </a>
-                        </div>
-                    </motion.div>
-
-                    {/* Outsourcing Card */}
-                    <motion.div
-                        initial={{
-                            opacity: 0,
-                            x: 30,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            x: 0,
-                        }}
-                        viewport={{
-                            once: true,
-                        }}
-                        transition={{
-                            delay: 0.2,
-                        }}
-                        className="bg-white rounded-3xl overflow-hidden shadow-xl group"
+                <div className="mt-12 text-center">
+                    <a
+                        href="/contact"
+                        className="inline-flex items-center text-[var(--text-on-light)] font-semibold hover:text-[var(--accent)] transition-colors group"
                     >
-                        <div className="h-64 bg-amber-600 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-linear-to-br from-amber-500 to-amber-700 z-10"></div>
-                            {/* Abstract Pattern */}
-                            <div
-                                className="absolute inset-0 opacity-20"
-                                style={{
-                                    backgroundImage:
-                                        'linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff)',
-                                    backgroundSize: '60px 60px',
-                                    backgroundPosition: '0 0, 30px 30px',
-                                }}
-                            ></div>
-                            <div className="absolute bottom-8 left-8 z-20">
-                                <span className="bg-white text-amber-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-                                    Execution
-                                </span>
-                                <h3 className="text-3xl font-bold text-white">Outsourcing</h3>
-                            </div>
-                        </div>
-
-                        <div className="p-10">
-                            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                                Dedicated engineering teams that integrate seamlessly with your
-                                workflow. We provide full-stack development, DevOps, and QA
-                                expertise.
-                            </p>
-
-                            <ul className="space-y-4 mb-10">
-                                {[
-                                    'Dedicated Development Teams',
-                                    'Full-Stack Engineering',
-                                    'DevOps & Infrastructure',
-                                    'QA & Testing Automation',
-                                ].map((item) => (
-                                    <li
-                                        key={item}
-                                        className="flex items-center text-stone-800 font-medium"
-                                    >
-                                        <CheckCircle2 className="w-5 h-5 text-amber-500 mr-3 shrink-0" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors"
-                            >
-                                Build Your Team <ArrowRight className="ml-2 w-5 h-5" />
-                            </a>
-                        </div>
-                    </motion.div>
+                        Talk to us about your project
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
                 </div>
             </div>
         </section>

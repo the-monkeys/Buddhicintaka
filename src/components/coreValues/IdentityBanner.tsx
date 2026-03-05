@@ -1,85 +1,39 @@
-import * as motion from "motion/react-client";
-import { Logo } from '../navbar/Logo';
+﻿import * as motion from "motion/react-client";
+import { Logo } from "../navbar/Logo";
 
 const IdentityBanner = () => {
     return (
-        <section className="w-full flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2 bg-white py-16 px-8 md:px-16 flex items-center justify-center md:justify-start">
+        <section className="py-20 sm:py-28 bg-[var(--bg-secondary)]">
+            <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="w-12 h-[2px] bg-[var(--accent)] mb-10" />
                 <motion.h2
-                    initial={{
-                        opacity: 0,
-                        x: -20,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                    }}
-                    className="text-3xl md:text-5xl font-bold text-stone-900 leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] leading-tight mb-6"
                 >
-                    Community-driven. <br />
-                    <span className="text-amber-600">Enterprise-ready.</span>
+                    Community-driven.{" "}
+                    <br className="hidden sm:block" />
+                    Enterprise-ready.
                 </motion.h2>
-            </div>
-            <div className="w-full md:w-1/2 bg-amber-500 py-16 px-8 md:px-16 flex flex-col justify-center items-start text-white">
-                <motion.div
-                    initial={{
-                        opacity: 0,
-                        x: 20,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        x: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                    }}
-                    className="mb-6"
-                >
-                    <span className="text-2xl md:text-3xl font-bold opacity-90">
-                        We are
-                    </span>
-                </motion.div>
-                <motion.div
-                    initial={{
-                        opacity: 0,
-                        scale: 0.95,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        scale: 1,
-                    }}
-                    viewport={{
-                        once: true,
-                    }}
-                    transition={{
-                        delay: 0.15,
-                    }}
-                >
-                    <Logo variant="light" size="lg" className="shadow-lg" />
-                </motion.div>
                 <motion.p
-                    initial={{
-                        opacity: 0,
-                        y: 10,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                    }}
-                    transition={{
-                        delay: 0.3,
-                    }}
-                    className="text-lg md:text-xl font-medium opacity-90 mt-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="text-lg md:text-xl text-[var(--text-secondary)] mb-10 max-w-2xl leading-relaxed"
                 >
                     Building the future of open software with bare-metal performance and
-                    ethical impact.
+                    ethical impact. 100% local content, built entirely in India.
                 </motion.p>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                >
+                    <Logo variant="light" size="sm" />
+                </motion.div>
             </div>
         </section>
     );
