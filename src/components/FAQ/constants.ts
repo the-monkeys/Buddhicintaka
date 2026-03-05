@@ -17,7 +17,7 @@ export const faqData = [
     {
         question: 'Do you provide support for your open-source tools?',
         answer:
-            'We offer community support via GitHub and Discord. for enterprise clients, we provide dedicated SLAs, priority support, and consulting services to ensure your success.',
+            'We offer community support via GitHub and Discord. For enterprise clients, we provide dedicated SLAs, priority support, and consulting services to ensure your success.',
     },
     {
         question: 'How can we get started with a project?',

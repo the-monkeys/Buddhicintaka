@@ -1,44 +1,37 @@
-import * as motion from "motion/react-client";
+﻿import * as motion from "motion/react-client";
 import { ourPrinciples } from "./ourPrinciples";
 
 const Principles = () => {
     return (
-        <section className="py-24 bg-stone-50 relative overflow-hidden">
-            {/* Watermark */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none select-none">
-                <span className="absolute top-10 -left-10 text-[10rem] md:text-[15rem] font-bold text-amber-100/40 whitespace-nowrap leading-none">
-                    our principles
-                </span>
-            </div>
+        <section className="py-20 sm:py-28 bg-[var(--bg-primary)]">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="mb-16">
+                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+                        Our Principles
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
+                        What drives us.
+                    </h2>
+                </div>
 
-            <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
                     {ourPrinciples.map((item, index) => (
                         <motion.div
                             key={item.number}
-                            initial={{
-                                opacity: 0,
-                                y: 30,
-                            }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            viewport={{
-                                once: true,
-                            }}
-                            transition={{
-                                delay: index * 0.1,
-                            }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
                             className="group"
                         >
-                            <div className="text-6xl md:text-7xl font-bold text-amber-500 mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span className="text-5xl md:text-6xl font-bold text-[var(--text-tertiary)]/30 mb-4 block">
                                 {item.number}
-                            </div>
-                            <h3 className="text-xl font-bold text-stone-900 mb-4 group-hover:text-amber-600 transition-colors">
+                            </span>
+                            <div className="w-6 h-[2px] bg-[var(--accent)] mb-5" />
+                            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--accent)] transition-colors">
                                 {item.title}
                             </h3>
-                            <p className="text-stone-600 leading-relaxed">
+                            <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
                                 {item.description}
                             </p>
                         </motion.div>
@@ -47,6 +40,6 @@ const Principles = () => {
             </div>
         </section>
     );
-}
+};
 
 export default Principles;

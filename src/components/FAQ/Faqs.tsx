@@ -1,71 +1,58 @@
-"use client";
+﻿"use client";
 
-import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-
-import { faqData } from './constants';
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { faqData } from "./constants";
 
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-24 bg-stone-50">
-            <div className="max-w-3xl mx-auto px-4 md:px-8">
+        <section className="py-20 sm:py-28 bg-[var(--bg-primary)]">
+            <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
-                        Frequently Asked Questions
+                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+                        FAQ
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+                        Common questions.
                     </h2>
-                    <p className="text-lg text-stone-600">
+                    <p className="text-[var(--text-secondary)] text-lg">
                         Everything you need to know about our products and services.
                     </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {faqData.map((faq, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-xl border border-stone-200 overflow-hidden transition-all duration-300 hover:border-amber-300"
+                            className={`bg-[var(--bg-secondary)] rounded-xl border overflow-hidden transition-all duration-300`}
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
                             >
-                                <span className="text-lg font-semibold text-stone-900">
+                                <span className="text-base font-semibold text-[var(--text-primary)] pr-4">
                                     {faq.question}
                                 </span>
-                                <span
-                                    className={`p-2 rounded-full transition-colors ${openIndex === index ? 'bg-amber-100 text-amber-600' : 'bg-stone-100 text-stone-500'}`}
-                                >
-                                    {openIndex === index ? (
-                                        <Minus className="w-4 h-4" />
-                                    ) : (
-                                        <Plus className="w-4 h-4" />
-                                    )}
+                                <span className={`p-1.5 rounded-full transition-colors shrink-0`}>
+                                    {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                                 </span>
                             </button>
 
                             <AnimatePresence>
                                 {openIndex === index && (
                                     <motion.div
-                                        initial={{
-                                            height: 0,
-                                            opacity: 0,
-                                        }}
-                                        animate={{
-                                            height: 'auto',
-                                            opacity: 1,
-                                        }}
-                                        exit={{
-                                            height: 0,
-                                            opacity: 0,
-                                        }}
-                                        transition={{
-                                            duration: 0.3,
-                                        }}
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
                                     >
-                                        <div className="px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100 pt-4">
-                                            {faq.answer}
+                                        <div className="px-6 pb-6 border-l-[3px] border-[var(--accent)] ml-6">
+                                            <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                                                {faq.answer}
+                                            </p>
                                         </div>
                                     </motion.div>
                                 )}
