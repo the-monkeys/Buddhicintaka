@@ -43,7 +43,7 @@ export function Hero() {
                     >
                         We build software
                         <br />
-                        that runs the world.
+                        from the ground up.
                     </motion.h1>
 
                     {/* Subtitle */}

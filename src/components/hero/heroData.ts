@@ -1,16 +1,16 @@
 export const heroStats = [
-    { value: "19+", label: "Open Source Repos" },
+    { value: "19+", label: "Open Source" },
     { value: "29+", label: "Contributors" },
     { value: "100%", label: "Made in India" },
 ] as const;
 
 export const networkNodes = [
     { x: 10, y: 15 }, { x: 28, y: 10 }, { x: 48, y: 20 },
-    { x: 68, y: 8 },  { x: 88, y: 18 }, { x: 5, y: 35 },
+    { x: 68, y: 8 }, { x: 88, y: 18 }, { x: 5, y: 35 },
     { x: 22, y: 40 }, { x: 42, y: 32 }, { x: 62, y: 38 },
     { x: 82, y: 30 }, { x: 15, y: 55 }, { x: 35, y: 58 },
     { x: 55, y: 50 }, { x: 75, y: 55 }, { x: 92, y: 48 },
-    { x: 8, y: 72 },  { x: 30, y: 75 }, { x: 50, y: 68 },
+    { x: 8, y: 72 }, { x: 30, y: 75 }, { x: 50, y: 68 },
     { x: 70, y: 72 }, { x: 90, y: 65 }, { x: 18, y: 88 },
     { x: 40, y: 85 }, { x: 58, y: 90 }, { x: 78, y: 82 },
     { x: 95, y: 88 },
