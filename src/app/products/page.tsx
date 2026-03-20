@@ -55,17 +55,6 @@ const ProductsPage = () => {
                                     {product.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {product.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="px-2.5 py-1 text-xs font-medium bg-(--bg-tertiary) text-(--text-tertiary) rounded-md border border-(--border-primary) group-hover:border-accent group-hover:border-opacity-50 transition-colors"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
                                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-(--border-primary) group-hover:border-accent group-hover:border-opacity-30 transition-colors">
                                     <a
                                         href={product.link}

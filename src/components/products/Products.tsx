@@ -53,17 +53,6 @@ const Products = () => {
                                 {product.shortDescription}
                             </p>
 
-                            <div className="flex flex-wrap gap-2 mb-6">
-                                {product.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-2.5 py-1 bg-[var(--bg-surface-muted)] text-[var(--text-on-light-muted)] text-xs font-medium rounded"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-
                             <span className="inline-flex items-center text-sm text-[var(--text-tertiary)] font-medium group-hover:text-[var(--accent)] transition-colors">
                                 Learn more
                                 <ArrowRight className="ml-1.5 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

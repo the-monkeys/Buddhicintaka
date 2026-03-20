@@ -1,4 +1,4 @@
-import { Hero } from "../components/hero/Hero";
+import Hero from "../components/hero/Hero";
 import IdentityBanner from "../components/coreValues/IdentityBanner";
 import Principles from "../components/coreValues/Principles";
 import EcosystemTree from "../components/tree/EcosystemTree";

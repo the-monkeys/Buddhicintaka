@@ -1,77 +1,43 @@
-﻿import * as motion from "motion/react-client";
-import Image from "next/image";
+﻿import Image from "next/image";
+
+import ScrollReveal from "./animation/ScrollReveal";
 
 const Partners = () => {
     return (
-        <section className="py-16 sm:py-20 bg-[var(--bg-primary)]">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="text-center mb-12">
-                    <span className="text-[var(--text-tertiary)] text-xs font-semibold tracking-[0.2em] uppercase">
-                        Trusted By
-                    </span>
-                </div>
+        <div className="w-full mt-12 overflow-hidden">
+            <div className="flex flex-row items-stretch justify-between gap-4 w-full">
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16">
-                    <motion.a
-                        href="https://gem.gov.in"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
-                    >
-                        <div className="w-10 h-10 bg-[var(--bg-tertiary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors font-bold text-sm">
-                            GeM
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold text-[var(--text-primary)]">Government e-Marketplace</p>
-                            <p className="text-xs text-[var(--text-tertiary)]">Registered Vendor</p>
-                        </div>
-                    </motion.a>
+                <ScrollReveal
+                    delay={0.2}
+                    className="flex-1 group flex items-center justify-center gap-3 px-4 py-4 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm hover:border-brand/30 transition-all hover:shadow-md"
+                >
+                    <div className="w-8 h-8 bg-slate-100 rounded-lg shrink-0 flex items-center justify-center text-slate-600 group-hover:text-brand transition-colors font-bold text-[10px]">
+                        GeM
+                    </div>
+                    <div className="hidden sm:block">
+                        <p className="text-xs font-bold text-slate-900 leading-tight">Government e-Marketplace</p>
+                        <p className="text-[10px] text-slate-500 whitespace-nowrap">Registered Firm</p>
+                    </div>
+                </ScrollReveal>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
-                    >
-                        <Image
-                            src="/circuit-nation.png"
-                            width={40}
-                            height={40}
-                            alt="Circuit Nation"
-                            className="rounded-lg"
-                            draggable={false}
-                        />
-                        <div>
-                            <p className="text-sm font-semibold text-[var(--text-primary)]">Circuit Nation</p>
-                            <p className="text-xs text-[var(--text-tertiary)]">Media Partner</p>
-                        </div>
-                    </motion.div>
-
-                    <motion.a
-                        href="https://github.com/the-monkeys"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="group flex items-center gap-4 px-6 py-4 rounded-xl border border-[var(--border-primary)] hover:border-[var(--accent-border)] transition-all"
-                    >
-                        <div className="w-10 h-10 bg-[var(--bg-tertiary)] rounded-lg flex items-center justify-center text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors font-bold text-xs">
-                            41+
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold text-[var(--text-primary)]">Open Source Community</p>
-                            <p className="text-xs text-[var(--text-tertiary)]">GitHub Followers</p>
-                        </div>
-                    </motion.a>
-                </div>
+                <ScrollReveal
+                    delay={0.2}
+                    className="flex-1 group flex items-center justify-center gap-3 px-4 py-4 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm hover:border-brand/30 transition-all hover:shadow-md"
+                >
+                    <Image
+                        src="/circuit-nation.png"
+                        width={32}
+                        height={32}
+                        alt="Circuit Nation"
+                        className="rounded-lg transition-all shrink-0"
+                    />
+                    <div className="hidden sm:block">
+                        <p className="text-xs font-bold text-slate-900 leading-tight">Circuit Nation</p>
+                        <p className="text-[10px] text-slate-500 whitespace-nowrap">Media Partner</p>
+                    </div>
+                </ScrollReveal>
             </div>
-        </section>
+        </div>
     );
 };
 

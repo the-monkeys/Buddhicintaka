@@ -1,31 +1,7 @@
 @import "tailwindcss";
 
-/* ─── Dark theme (default) ─── */
+/* ─── Light theme (only theme) ─── */
 :root {
-  --bg-primary: #0A0A0A;
-  --bg-secondary: #111111;
-  --bg-tertiary: #1A1A1A;
-  --bg-surface: #FFFFFF;
-  --bg-surface-muted: #F5F5F5;
-
-  --text-primary: #FFFFFF;
-  --text-secondary: #A0A0A0;
-  --text-tertiary: #666666;
-  --text-on-light: #0A0A0A;
-  --text-on-light-muted: #555555;
-
-  --accent: #FF5542;
-  --accent-hover: #E64A39;
-  --accent-subtle: rgba(255, 85, 66, 0.1);
-  --accent-border: rgba(255, 85, 66, 0.3);
-
-  --border-primary: #222222;
-  --border-secondary: #333333;
-  --border-on-light: #E5E5E5;
-}
-
-/* ─── Light theme ─── */
-[data-theme="light"] {
   --bg-primary: #FFFFFF;
   --bg-secondary: #F7F7F7;
   --bg-tertiary: #EEEEEE;
@@ -51,8 +27,16 @@
 @theme inline {
   --color-background: var(--bg-primary);
   --color-foreground: var(--text-primary);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-brand: var(--accent);
+  --color-brand-hover: var(--accent-hover);
+  --color-secondary: var(--text-secondary);
+  --color-tertiary: var(--text-tertiary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-border-primary: var(--border-primary);
+  --color-border-secondary: var(--border-secondary);
+  --color-accent-border: var(--accent-border);
+  --color-accent-subtle: var(--accent-subtle);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
