@@ -3,7 +3,7 @@ import IdentityBanner from "../components/coreValues/IdentityBanner";
 import Principles from "../components/coreValues/Principles";
 import EcosystemTree from "../components/tree/EcosystemTree";
 import Products from "../components/products/Products";
-import Services from "../components/Services";
+import Services from "../components/services/Services";
 import BlockQuote from "../components/BlockQuote";
 import Infrastructure from "../components/Infrastructure/Infra";
 import Partners from "../components/Partners";
@@ -15,17 +15,13 @@ export default function Home() {
   return (
     <div>
       <Hero />
-
-      <BlockQuote
-        quote="We believe software should be transparent, community-driven, and built to last — not locked behind walls."
-        attribution="Founding Principle — Buddhicintaka"
-      />
-
+      <Services />
+      
       <IdentityBanner />
       <Principles />
       <EcosystemTree />
       <Products />
-      <Services />
+      
       <Infrastructure />
       <Partners />
       <Edutainment />

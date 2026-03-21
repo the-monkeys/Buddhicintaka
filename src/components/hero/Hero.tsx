@@ -9,7 +9,7 @@ const Hero = () => {
     return (
         <section className="w-full flex flex-col lg:flex-row items-stretch min-h-screen">
             
-            <div className="lg:w-1/2 flex flex-col justify-between pt-12 lg:pt-20 px-6 lg:px-12 bg-[#F4EDE5]">
+            <div className="lg:w-1/2 flex flex-col justify-between pt-12 lg:pt-20 px-6 lg:px-12 bg-bg-secondary">
                 
                 <div className="hidden lg:block flex-1" />
 
@@ -20,22 +20,20 @@ const Hero = () => {
                         >
                             <div className="w-1.5 h-1.5 rounded-full bg-brand" />
                             <span className="text-brand font-semibold tracking-[0.15em] uppercase text-xs">
-                                Community First · Built to Scale
+                                Community Born · Built to Scale
                             </span>
                         </ScrollReveal>
                         
                         <ScrollReveal delay={0.1}
                             className="text-4xl lg:text-6xl font-display font-bold leading-[1.05] mb-6 text-black tracking-tight"
                         >
-                            Simple Foundations<span className="text-brand">.</span><br />
-                            Ethical Scale<span className="text-brand">.</span><br />
-                            Zero Bloat<span className="text-brand">.</span>
+                            Architecting Lean & High-Performance Systems with Ethical Precision<span className="text-brand">.</span>
                         </ScrollReveal>
                         
                         <ScrollReveal delay={0.1}
                             className="text-base sm:text-lg text-slate-800 mb-8 leading-relaxed"
                         >
-                            {`Complexity shouldn't slow you down. We build refined, honest software that powers your vision from first code to global scale. No hidden friction, no "enterprise" overhead. Just the compact, high-impact engineering you need to build what’s next.`}
+                            Built on a foundation of high-traffic systems, we deliver simple, compact, and powerful software necessary for your sustainable growth.
                         </ScrollReveal>
                         
                         <ScrollReveal delay={0.1} className="flex flex-wrap gap-4">
