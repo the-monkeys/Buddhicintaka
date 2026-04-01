@@ -1,4 +1,5 @@
 import Hero from "../components/hero/Hero";
+import ProductSection from "../components/products/ProductSection";
 import IdentityBanner from "../components/coreValues/IdentityBanner";
 import Principles from "../components/coreValues/Principles";
 import EcosystemTree from "../components/tree/EcosystemTree";
@@ -16,6 +17,7 @@ export default function Home() {
     <div>
       <Hero />
       <Services />
+      <ProductSection />
       
       <IdentityBanner />
       <Principles />

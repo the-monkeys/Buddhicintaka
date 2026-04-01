@@ -65,27 +65,27 @@ export default function Services() {
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {services.map((service) => (
-                        <div key={service.id} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] shrink-0 snap-start">
-                            <ScrollReveal className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
-                                <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center mb-8 shadow-lg shadow-[#FF5722]/30 group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                    <service.icon className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
-                                <p className="text-slate-600 mb-8 leading-relaxed grow">
-                                    {service.description}
-                                </p>
-                                <Link href="https://buddhicintaka.com/" target="_blank" className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-[#FF5722] transition-colors group/link mt-auto">
-                                    Learn more <ArrowUpRight className="w-4 h-4 text-brand group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                                </Link>
-                            </ScrollReveal>
-                        </div>
+                            <div key={service.id} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] shrink-0 snap-start">
+                                <ScrollReveal className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+                                    <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center mb-8 shadow-lg shadow-brand/30 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                        <service.icon className="w-8 h-8 text-white" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                                    <p className="text-slate-600 mb-8 leading-relaxed grow">
+                                        {service.description}
+                                    </p>
+                                    <Link href="/services" className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-brand-hover transition-colors group/link mt-auto">
+                                        Learn more <ArrowUpRight className="w-4 h-4 text-brand group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                                    </Link>
+                                </ScrollReveal>
+                            </div>
                         ))}
                     </div>
 
                     <button 
                         onClick={() => scroll("right")}
                         disabled={!canScrollRight}
-                        className={`hidden lg:flex w-12 h-12 rounded-full items-center justify-center transition-all shrink-0 ${canScrollRight ? 'bg-brand text-white hover:bg-brand-hover shadow-lg shadow-[#FF5722]/30 cursor-pointer' : 'bg-slate-200 text-slate-400 cursor-not-allowed opacity-50'}`}
+                        className={`hidden lg:flex w-12 h-12 rounded-full items-center justify-center transition-all shrink-0 ${canScrollRight ? 'bg-brand text-white hover:bg-brand-hover shadow-lg shadow-brand/30 cursor-pointer' : 'bg-slate-200 text-slate-400 cursor-not-allowed opacity-50'}`}
                         aria-label="Next services"
                     >
                         <ChevronRight className="w-5 h-5" />
