@@ -1,7 +1,8 @@
 export const heroStats = [
-    { value: "19+", label: "Open Source" },
+    { value: "19+", label: "Open-source projects" },
     { value: "29+", label: "Contributors" },
     { value: "100%", label: "Made in India" },
+    { value: "Bihar", label: "Headquartered" },
 ] as const;
 
 export const networkNodes = [

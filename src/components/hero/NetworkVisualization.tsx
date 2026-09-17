@@ -7,7 +7,7 @@ export function NetworkVisualization() {
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
         >
-            {/* Connection lines — drawn via CSS stroke-dashoffset trick */}
+            {/* Connection lines - drawn via CSS stroke-dashoffset trick */}
             {networkConnections.map(([from, to], i) => {
                 const a = networkNodes[from];
                 const b = networkNodes[to];
@@ -19,9 +19,9 @@ export function NetworkVisualization() {
                         y1={a.y}
                         x2={b.x}
                         y2={b.y}
-                        stroke="#D97706"
-                        strokeWidth="0.08"
-                        strokeOpacity="0.35"
+                        className="stroke-[var(--accent)]"
+                        strokeWidth="0.12"
+                        strokeOpacity="0.5"
                         strokeDasharray={len}
                         strokeDashoffset={len}
                         style={{
@@ -37,10 +37,9 @@ export function NetworkVisualization() {
                     key={`n-${i}`}
                     cx={node.x}
                     cy={node.y}
-                    r="0.7"
-                    fill={i % 3 === 0 ? '#F59E0B' : '#D97706'}
-                    fillOpacity={i % 3 === 0 ? 0.6 : 0.35}
-                    className="animate-node-pop"
+                    r="0.8"
+                    className={`fill-[var(--accent)] animate-node-pop`}
+                    fillOpacity={i % 3 === 0 ? 0.7 : 0.45}
                     style={{ animationDelay: `${0.3 + i * 0.04}s` }}
                 />
             ))}
@@ -55,9 +54,8 @@ export function NetworkVisualization() {
                         cy={node.y}
                         r="1.5"
                         fill="none"
-                        stroke="#F59E0B"
-                        strokeWidth="0.12"
-                        className="animate-pulse-ring"
+                        className="stroke-[var(--accent)] animate-pulse-ring"
+                        strokeWidth="0.15"
                         style={{ animationDelay: `${2 + i * 0.6}s` }}
                     />
                 );

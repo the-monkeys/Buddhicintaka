@@ -1,0 +1,35 @@
+# Buddhicintaka (OPC) Private Limited
+
+> A technology company based in Muzaffarpur, Bihar, India. We design, develop, and operate software products used across India. We do not claim to be the largest or number-one firm in India.
+
+- Legal name: Buddhicintaka (OPC) Private Limited
+- CIN: U62090BR2025OPC073988
+- Udyam: UDYAM-BR-23-0115125
+- Registered office: Phulwaria, Paroo, Muzaffarpur 843107, Bihar, India
+- Email: mail.themonkeys.life@gmail.com
+- Phone: +91 62030 96513
+- Motto: Inspire, Inform, Innovate
+- Class-I Local Supplier under the Public Procurement (Preference to Make in India) Order, with 100% local content
+- Registered vendor on the Government e-Marketplace (GeM)
+- GitHub organisation: https://github.com/the-monkeys
+
+## Products
+
+- [Monkeys](https://monkeys.com.co): Open-source community and content platform for research, articles, events, groups, and Studio. Source: https://github.com/the-monkeys/the_monkeys
+- [Aasriva](https://aasriva.in): Marketplace for Indian manufacturers and local artisans. Joint venture of Buddhicintaka and OSDuo Tech LLP.
+
+## Company website
+
+- [Home](https://buddhicintaka.com): Software company from Muzaffarpur, Bihar, building for India
+- [About](https://buddhicintaka.com/about): Legal entity, address, CIN, Udyam, and how we work
+- [Products](https://buddhicintaka.com/products): Monkeys and Aasriva
+- [Monkeys](https://buddhicintaka.com/products/monkeys): Product page for the Monkeys platform
+- [Aasriva](https://buddhicintaka.com/products/aasriva): Product page for the Aasriva marketplace
+- [Careers](https://buddhicintaka.com/careers): Roles at a remote-first company based in Bihar
+- [Contact](https://buddhicintaka.com/contact): Email, phone, and registered office
+
+## Optional
+
+- [GitHub](https://github.com/the-monkeys)
+- [X](https://x.com/monkeys_com_co)
+- [Instagram](https://www.instagram.com/monkeys_com_co/)

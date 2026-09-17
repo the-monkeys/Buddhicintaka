@@ -1,45 +1,86 @@
-﻿import { NavLink } from './navLinks';
-import { ArrowRight } from 'lucide-react';
+﻿"use client";
+
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { megaMenus, topLinks } from "../../data/megaMenu";
 
 interface MobileMenuProps {
     isOpen: boolean;
-    links: NavLink[];
     onClose: () => void;
 }
 
-export function MobileMenu({ isOpen, links, onClose }: MobileMenuProps) {
-    return (
-        <div
-            className={[
-                'fixed inset-0 z-40',
-                'bg-[var(--bg-primary)] p-6 pt-24 pb-8',
-                'md:hidden flex flex-col gap-2',
-                'overflow-y-auto',
-                'transition-all duration-300 ease-in-out',
-                isOpen
-                    ? 'opacity-100 translate-y-0 pointer-events-auto'
-                    : 'opacity-0 -translate-y-4 pointer-events-none',
-            ].join(' ')}
-        >
-            {links.map((link) => (
-                <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-2xl font-bold text-[var(--text-primary)] py-4 border-b border-[var(--border-primary)] flex justify-between items-center hover:text-[var(--accent)] transition-colors"
-                    onClick={onClose}
-                >
-                    {link.name}
-                </a>
-            ))}
+export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+    const [openId, setOpenId] = useState<string | null>(null);
 
-            <div className="flex flex-col gap-4 mt-8">
+    if (!isOpen) return null;
+
+    return (
+        <div className="lg:hidden mt-2 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <div className="px-5 py-2">
+                {megaMenus.map((menu) => {
+                    const expanded = openId === menu.id;
+                    const links =
+                        menu.kind === "bar"
+                            ? menu.barLinks ?? []
+                            : [
+                                  ...menu.columns.flatMap((column) => [
+                                      { name: column.title, href: column.href },
+                                      ...column.links,
+                                  ]),
+                                  ...(menu.extras?.links ?? []),
+                              ];
+
+                    return (
+                        <div key={menu.id} className="border-b border-black/5">
+                            <button
+                                type="button"
+                                onClick={() => setOpenId(expanded ? null : menu.id)}
+                                className="w-full flex items-center justify-between py-4 text-left text-lg font-medium text-[#1a1a1a]"
+                                aria-expanded={expanded}
+                            >
+                                {menu.label}
+                                <ChevronDown
+                                    className={[
+                                        "w-4 h-4 text-[#5c5c5c] transition-transform",
+                                        expanded ? "rotate-180" : "",
+                                    ].join(" ")}
+                                />
+                            </button>
+                            {expanded && (
+                                <div className="pb-4 space-y-3">
+                                    {links.map((link) => (
+                                        <a
+                                            key={`${menu.id}-${link.name}-${link.href}`}
+                                            href={link.href}
+                                            onClick={onClose}
+                                            className="block text-[#5c5c5c]"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
+
+                {topLinks.map((link) => (
+                    <a
+                        key={link.name}
+                        href={link.href}
+                        onClick={onClose}
+                        className="block py-4 text-lg font-medium text-[#1a1a1a] border-b border-black/5"
+                    >
+                        {link.name}
+                    </a>
+                ))}
+
                 <a
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 py-4 font-bold bg-[var(--accent)] text-white rounded-xl text-lg hover:bg-[var(--accent-hover)] transition-all"
                     onClick={onClose}
+                    className="mt-6 mb-4 flex items-center justify-center py-3 font-semibold text-white rounded-full bg-[var(--cta)]"
                 >
-                    Get Started
-                    <ArrowRight className="w-4 h-4" />
+                    Consult an expert
                 </a>
             </div>
         </div>

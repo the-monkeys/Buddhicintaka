@@ -1,7 +1,7 @@
-# BUDDHICINTAKA — Website Redesign Plan
+# BUDDHICINTAKA - Website Redesign Plan
 
 **Date:** 2026-03-05  
-**Goal:** Transform the current site into a premium, enterprise-grade website comparable to Kyndryl.com / Microsoft.com — clean, confident, professional — using the brand accent `#FF5542` (rgb 255, 85, 66) sparingly for maximum impact.
+**Goal:** Transform the current site into a premium, enterprise-grade website - clean, confident, professional - using the brand accent `#FF5542` (rgb 255, 85, 66) sparingly for maximum impact.
 
 ---
 
@@ -24,16 +24,16 @@
 
 ## 1. Design Philosophy
 
-**Reference:** Kyndryl (dark, confident, spacious), Microsoft (structured, clean, purposeful)
+**Reference:** Spacious, confident enterprise layout; structured, clean, purposeful
 
 | Principle | Detail |
 |---|---|
-| **Whitespace is design** | 80–120px section padding. Let content breathe. No cramming. |
+| **Whitespace is design** | 80-120px section padding. Let content breathe. No cramming. |
 | **Accent = emphasis, not theme** | `#FF5542` appears ONLY on primary CTAs, active states, key data points, and the occasional highlight line. Everything else is neutral. |
-| **Typography-driven hierarchy** | Large bold headings (48–72px desktop), generous line-height, clear visual hierarchy via weight + size alone. |
+| **Typography-driven hierarchy** | Large bold headings (48-72px desktop), generous line-height, clear visual hierarchy via weight + size alone. |
 | **Flat + subtle depth** | No heavy shadows. Use 1px borders, subtle background shifts (`gray-50` → `white`), and transparent overlays. |
 | **Motion = meaning** | Animations only on scroll-reveal, hover feedback, and page transitions. No gratuitous movement. |
-| **Dark mode first** | Primary palette is dark backgrounds (`#0A0A0A`, `#111`, `#1A1A1A`) with white/light text — matches Kyndryl's premium aesthetic. Light sections used strategically for contrast. |
+| **Dark mode first** | Primary palette is dark backgrounds (`#0A0A0A`, `#111`, `#1A1A1A`) with white/light text. Light sections used strategically for contrast. |
 
 ---
 
@@ -44,7 +44,7 @@
 ```css
 :root {
   /* Background tiers */
-  --bg-primary: #0A0A0A;        /* Main background — near-black */
+  --bg-primary: #0A0A0A;        /* Main background - near-black */
   --bg-secondary: #111111;       /* Cards, elevated surfaces */
   --bg-tertiary: #1A1A1A;        /* Subtle differentiation */
   --bg-surface: #FFFFFF;          /* Light sections for contrast breaks */
@@ -57,7 +57,7 @@
   --text-on-light: #0A0A0A;      /* Text on white/light backgrounds */
   --text-on-light-muted: #555555;
 
-  /* Accent — THE orange */
+  /* Accent - THE orange */
   --accent: #FF5542;
   --accent-hover: #E64A39;
   --accent-subtle: rgba(255, 85, 66, 0.1);  /* Background tint */
@@ -84,9 +84,9 @@
 | Card borders | `--border-secondary` |
 | Active nav item | `--accent` underline (2px) |
 | Data numbers (stats) | `--accent` |
-| Icons | `--text-tertiary` default; `--accent` on hover or for emphasis (max 1–2 per section) |
+| Icons | `--text-tertiary` default; `--accent` on hover or for emphasis (max 1-2 per section) |
 
-**Rule of thumb:** If you remove all `#FF5542` from a page and it still looks clean and professional, the balance is right. The orange should be a surprise — not wallpaper.
+**Rule of thumb:** If you remove all `#FF5542` from a page and it still looks clean and professional, the balance is right. The orange should be a surprise - not wallpaper.
 
 ---
 
@@ -95,8 +95,8 @@
 Replace current Geist + Arial fallback with a more corporate-grade system:
 
 ```
-Headings: Inter (700/800 weight) — or keep Geist Sans (it's excellent)
-Body: Inter (400) — or Geist Sans (400)
+Headings: Inter (700/800 weight) - or keep Geist Sans (it's excellent)
+Body: Inter (400) - or Geist Sans (400)
 Mono: Geist Mono (for code/technical text)
 ```
 
@@ -113,8 +113,8 @@ Mono: Geist Mono (for code/technical text)
 
 ### Line Heights
 
-- Headings: 1.1–1.2
-- Body: 1.6–1.7
+- Headings: 1.1-1.2
+- Body: 1.6-1.7
 - Captions: 1.4
 
 ---
@@ -158,11 +158,11 @@ Mono: Geist Mono (for code/technical text)
 ```
 /                   → Homepage (hero + value prop + products preview + CTA)
 /products           → All products with detail sections
-/products/[slug]    → Individual product page (future — not in v1)
-/services           → NEW — dedicated services page (Consulting, Outsourcing, Training, etc.)
+/products/[slug]    → Individual product page (future - not in v1)
+/services           → NEW - dedicated services page (Consulting, Outsourcing, Training, etc.)
 /careers            → Careers + open positions
 /contact            → Contact form + company info
-/about              → NEW (optional v2) — team, story, timeline
+/about              → NEW (optional v2) - team, story, timeline
 ```
 
 ### Navbar Structure
@@ -231,13 +231,13 @@ Reorganize into 4 columns:
 └─────────────────────────────────────────────────────────┘
 ```
 
-- Keep `NetworkVisualization` SVG but make it much more subtle (opacity 5–10%)
+- Keep `NetworkVisualization` SVG but make it much more subtle (opacity 5-10%)
 - Stats numbers in `#FF5542`, labels in `--text-secondary`
 - Import `heroStats` from `heroData.ts` (fix the dead export)
 - Primary CTA → `/products`, Secondary CTA → `/contact`
 - badge uses `--accent-subtle` background + `--accent` text
 - Full viewport height (`100vh` or `100svh`)
-- Left-aligned text (not centered) — more corporate feel
+- Left-aligned text (not centered) - more corporate feel
 
 ### 6.2 Identity Banner
 
@@ -259,7 +259,7 @@ Reorganize into 4 columns:
 └─────────────────────────────────────────────────────────┘
 ```
 
-- No amber background — use `--bg-secondary`
+- No amber background - use `--bg-secondary`
 - `#FF5542` only on the decorative top line
 - Generous padding (120px vertical)
 
@@ -287,14 +287,14 @@ Reorganize into 4 columns:
 
 - Numbers in `--text-tertiary` (gray)
 - Small `#FF5542` dash under each number (24px wide, 2px tall)
-- Cards: no border, no background — typography-only layout
-- Remove the giant watermark — it's visually noisy
+- Cards: no border, no background - typography-only layout
+- Remove the giant watermark - it's visually noisy
 - 1 col (mobile) → 2 col (tablet) → 4 col (desktop)
 
 ### 6.4 Products Section (Homepage Preview)
 
 **Current:** 3-card grid with icons  
-**Redesign:** Show top 4–5 products as a horizontal scrollable row (mobile) or grid (desktop). Each card is minimal:
+**Redesign:** Show top 4-5 products as a horizontal scrollable row (mobile) or grid (desktop). Each card is minimal:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -398,7 +398,7 @@ If kept, simplify to a horizontal stat/feature bar:
 ```
 
 - Grayscale logos, `#FF5542` tint on hover
-- If only 1 partner currently, keep it minimal — or combine with the stats strip
+- If only 1 partner currently, keep it minimal - or combine with the stats strip
 
 ### 6.8 Edutainment / Skill India Section
 
@@ -432,13 +432,13 @@ If kept, simplify to a horizontal stat/feature bar:
 ### 6.9 FAQ Section
 
 **Current:** Accordion with expand/collapse  
-**Redesign:** Keep accordion — it's a solid pattern. Elevate styling:
+**Redesign:** Keep accordion - it's a solid pattern. Elevate styling:
 
 - Question text: 18px, semi-bold, white
 - Answer text: 16px, `--text-secondary`
 - Divider between items: `--border-primary`
 - Active item indicator: `#FF5542` left border (3px)
-- Expand icon: `+` / `−` instead of chevron (Kyndryl-style)
+- Expand icon: `+` / `-` instead of chevron
 - Fix grammar in FAQ #4
 
 ### 6.10 CTA Section
@@ -464,11 +464,11 @@ If kept, simplify to a horizontal stat/feature bar:
 
 - **Fix "Start a Project" dead button** → `<a href="/contact">`
 - "Explore Careers" already works → `/careers`
-- Keep "Together" without random amber color — all white
+- Keep "Together" without random amber color - all white
 
 ---
 
-## 7. Product & Core Values Tree (NEW — Key Feature)
+## 7. Product & Core Values Tree (NEW - Key Feature)
 
 ### Tree Visualization
 
@@ -517,12 +517,12 @@ Products branch:                Values branch:           Services branch:
 - Render as an actual tree/org-chart with SVG connection lines
 - Root node ("BUDDHICINTAKA") at top center with `#FF5542` accent border
 - Three branches: Products, Values, Services
-- Leaf nodes are clickable — Products link to `/products#[name]`, Services link to `/services`
+- Leaf nodes are clickable - Products link to `/products#[name]`, Services link to `/services`
 - Connection lines in `--border-secondary`, node backgrounds in `--bg-secondary`
 - Hover: node border → `#FF5542`, subtle glow
 
 **Tablet (md):**
-- Tree still visible but compressed — horizontal branches become slight cascading layout
+- Tree still visible but compressed - horizontal branches become slight cascading layout
 
 **Mobile (sm):**
 - Falls back to a collapsible accordion/list view:
@@ -595,7 +595,7 @@ export const ecosystemTree = {
 | Location | Image Type | Purpose |
 |---|---|---|
 | Hero background | Abstract SVG (current network) at 5% opacity | Subtle tech feel without distraction |
-| Products page | Screenshot/mockup per product | Show what you've built — credibility |
+| Products page | Screenshot/mockup per product | Show what you've built - credibility |
 | Partners/Trusted By | Grayscale partner logos | Social proof |
 | Careers page | Team/workspace photos or illustration | Human touch |
 | About section (v2) | Team photos | Trust building |
@@ -605,7 +605,7 @@ export const ecosystemTree = {
 - Use Next.js `<Image>` with width/height/alt for all images (already done for partner)
 - WebP format preferred for performance
 - Fallback: Use abstract geometric SVG patterns or lucide icons as placeholders
-- **No stock photos** — use real screenshots of your products or clean abstract graphics
+- **No stock photos** - use real screenshots of your products or clean abstract graphics
 
 ### Quote Placement
 
@@ -615,24 +615,24 @@ Add a testimonial/quote block between major sections:
 ┌──────────────────────────────────────────────────────────┐
 │  bg: --bg-tertiary                                       │
 │                                                          │
-│  "Open source isn't just our development model —         │
+│  "Open source isn't just our development model -         │
 │   it's our business model."                              │
-│                                        — Dave, Founder   │
+│                                        - Dave, Founder   │
 │                                                          │
 │  ── (thin #FF5542 line)                                  │
 └──────────────────────────────────────────────────────────┘
 ```
 
 Suggested placements:
-1. **After Hero, before Identity Banner** — a bold founder quote
-2. **After Products, before Services** — a community/user quote
-3. **Before CTA** — a mission statement quote
+1. **After Hero, before Identity Banner** - a bold founder quote
+2. **After Products, before Services** - a community/user quote
+3. **Before CTA** - a mission statement quote
 
 Each quote section is a simple, reusable `<BlockQuote>` component:
 - Large italic text (24px on desktop)
 - Attribution in `--text-tertiary`
 - `#FF5542` decorative line (48px wide, 2px tall)
-- Generous vertical padding (80–100px)
+- Generous vertical padding (80-100px)
 
 ---
 
@@ -651,12 +651,12 @@ Using Tailwind's default breakpoints:
 ### Key Responsive Rules
 
 1. **Container:** `max-w-7xl mx-auto px-6 sm:px-8 lg:px-12` on all sections
-2. **Mobile nav:** Hamburger menu (existing) — improve animation
+2. **Mobile nav:** Hamburger menu (existing) - improve animation
 3. **Hero:** Stack vertically on mobile, full `100svh`
 4. **Grids:** 1-col → 2-col → 3 or 4-col
 5. **Tree:** Chart (desktop) → Accordion list (mobile)
 6. **Typography:** Scale down per the typography table above
-7. **Section padding:** `py-16 sm:py-20 lg:py-28` — generous on all screens
+7. **Section padding:** `py-16 sm:py-20 lg:py-28` - generous on all screens
 8. **Footer:** Stack columns vertically on mobile
 9. **Touch targets:** Min 44px height on all interactive elements (mobile)
 10. **Images:** Use responsive `sizes` prop on `<Image>` components
@@ -698,7 +698,7 @@ Using Tailwind's default breakpoints:
 | Edutainment: "Partner With Us" | `href="#contact"` | → `/contact` |
 | Navbar: Dropdown chevrons | Visual indicator, no dropdown | Remove `hasDropdown` or implement |
 
-**Total dead clicks: 28+** — all must be resolved before launch.
+**Total dead clicks: 28+** - all must be resolved before launch.
 
 ---
 
@@ -707,10 +707,10 @@ Using Tailwind's default breakpoints:
 ### Per-Page Metadata
 
 ```typescript
-// src/app/layout.tsx — default
+// src/app/layout.tsx - default
 export const metadata: Metadata = {
   title: {
-    default: "Buddhicintaka — Inspire, Inform, Innovate",
+    default: "Buddhicintaka - Inspire, Inform, Innovate",
     template: "%s | Buddhicintaka",
   },
   description: "Technology company building production-grade open-source software products. Identity management, notification services, and content platforms.",
@@ -748,7 +748,7 @@ export const metadata: Metadata = {
 
 Work in this sequence to minimize breakage and maximize visible progress:
 
-### Phase 1 — Foundation & Bug Fixes (Day 1)
+### Phase 1 - Foundation & Bug Fixes (Day 1)
 
 | Step | Task | Files |
 |---|---|---|
@@ -767,7 +767,7 @@ Work in this sequence to minimize breakage and maximize visible progress:
 | 1.13 | Add SEO metadata to all pages | `layout.tsx`, `products/page.tsx`, `careers/page.tsx`, `contact/page.tsx` |
 | 1.14 | Consolidate product data into single source | Create `src/data/products.ts`, update both product components |
 
-### Phase 2 — Visual Overhaul (Day 2–3)
+### Phase 2 - Visual Overhaul (Day 2-3)
 
 | Step | Task | Files |
 |---|---|---|
@@ -784,7 +784,7 @@ Work in this sequence to minimize breakage and maximize visible progress:
 | 2.11 | Redesign CTA (dark, clean, functional) | `CTA.tsx` |
 | 2.12 | Redesign Footer (4-column, all real links) | `Footer.tsx` |
 
-### Phase 3 — New Features (Day 4)
+### Phase 3 - New Features (Day 4)
 
 | Step | Task | Files |
 |---|---|---|
@@ -796,7 +796,7 @@ Work in this sequence to minimize breakage and maximize visible progress:
 | 3.6 | Redesign `/contact` page (real company info, functional form) | `contact/page.tsx` |
 | 3.7 | Rename `Infastructure` → `Infrastructure` folder | File system |
 
-### Phase 4 — Polish (Day 5)
+### Phase 4 - Polish (Day 5)
 
 | Step | Task | Files |
 |---|---|---|

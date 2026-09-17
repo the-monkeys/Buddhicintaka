@@ -2,10 +2,10 @@
 import { Server, HardDrive, Shield, Zap } from "lucide-react";
 
 const features = [
-    { icon: Server, title: "Self-Hosted", description: "We own our hardware. No third-party cloud dependencies." },
-    { icon: Zap, title: "Bare Metal", description: "Direct hardware access for maximum throughput and low latency." },
-    { icon: HardDrive, title: "Data Sovereign", description: "Your data stays on our infrastructure, under our control." },
-    { icon: Shield, title: "Zero Cloud", description: "Resilient architecture independent of public cloud providers." },
+    { icon: Server, title: "Self-Hosted", description: "We manage our own hardware for core services." },
+    { icon: Zap, title: "Bare Metal", description: "Direct hardware access for better throughput and low latency." },
+    { icon: HardDrive, title: "Data Sovereignty", description: "Data stays on infrastructure we control." },
+    { icon: Shield, title: "Minimal Cloud", description: "Core services run independently of public cloud providers." },
 ];
 
 const Infrastructure = () => {

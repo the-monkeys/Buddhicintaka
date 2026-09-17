@@ -13,7 +13,7 @@ const IdentityBanner = () => {
                 >
                     Community-driven.{" "}
                     <br className="hidden sm:block" />
-                    Enterprise-ready.
+                    Built in the open.
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ const IdentityBanner = () => {
                     transition={{ delay: 0.1 }}
                     className="text-lg md:text-xl text-(--text-secondary) mb-10 max-w-2xl leading-relaxed"
                 >
-                    Building the future of open software with bare-metal performance and
+                    Building software and supplying technology with self-hosted infrastructure and
                     ethical impact. 100% local content, built entirely in India.
                 </motion.p>
             </div>

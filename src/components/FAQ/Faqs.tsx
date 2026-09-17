@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
@@ -9,31 +9,31 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-20 sm:py-28 bg-[var(--bg-primary)]">
-            <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="text-center mb-16">
-                    <span className="text-[var(--accent)] text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
+        <section className="py-24 sm:py-32 bg-[var(--bg-primary)]" id="faq">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                <div className="mb-12 max-w-3xl">
+                    <p className="section-label mb-5">
                         FAQ
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+                    </p>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[var(--text-primary)] mb-4 tracking-tight">
                         Common questions.
                     </h2>
                     <p className="text-[var(--text-secondary)] text-lg">
-                        Everything you need to know about our products and services.
+                        Platforms, training, consultancy, and social media - the usual questions.
                     </p>
                 </div>
 
-                <div className="space-y-3">
+                <div>
                     {faqData.map((faq, index) => (
                         <div
                             key={index}
-                            className={`bg-[var(--bg-secondary)] rounded-xl border overflow-hidden transition-all duration-300`}
+                            className="border-t border-[var(--border-primary)] last:border-b overflow-hidden"
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
+                                className="w-full flex items-center justify-between py-6 text-left focus:outline-none cursor-pointer"
                             >
-                                <span className="text-base font-semibold text-[var(--text-primary)] pr-4">
+                                <span className="text-lg font-medium text-[var(--text-primary)] pr-4">
                                     {faq.question}
                                 </span>
                                 <span className={`p-1.5 rounded-full transition-colors shrink-0`}>
@@ -49,7 +49,7 @@ const FAQ = () => {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <div className="px-6 pb-6 border-l-[3px] border-[var(--accent)] ml-6">
+                                        <div className="pb-6 pl-6 border-l-[3px] border-[var(--accent)]">
                                             <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
                                                 {faq.answer}
                                             </p>

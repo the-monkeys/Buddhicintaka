@@ -22,7 +22,7 @@ const BlockQuote = ({ quote, attribution, role }: BlockQuoteProps) => {
                 </blockquote>
                 <div>
                     <span className="text-[var(--text-secondary)] text-sm font-medium">
-                        — {attribution}
+                        - {attribution}
                     </span>
                     {role && (
                         <span className="text-[var(--text-tertiary)] text-sm ml-2">
