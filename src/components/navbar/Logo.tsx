@@ -1,34 +1,27 @@
 ﻿interface LogoProps {
-    variant?: 'light' | 'dark' | 'accent';
-    size?: 'sm' | 'md' | 'lg';
+    inverted?: boolean;
+    size?: "sm" | "md" | "lg";
     className?: string;
 }
 
-export const Logo = ({ variant = 'dark', size = 'md', className }: LogoProps) => {
+export const Logo = ({ size = "md", className }: LogoProps) => {
     const sizeClasses = {
-        sm: 'px-4 py-1.5 text-xs tracking-[0.2em]',
-        md: 'px-5 py-2 text-sm tracking-[0.2em]',
-        lg: 'px-8 py-3 text-base tracking-[0.25em]',
-    };
-
-    const variantClasses = {
-        light: 'bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-primary)]',
-        dark: 'bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border-primary)]',
-        accent: 'bg-[var(--accent)] text-white border border-[var(--accent)]',
+        sm: "text-[1.35rem]",
+        md: "text-2xl",
+        lg: "text-3xl",
     };
 
     return (
-        <div
+        <span
             className={[
-                'inline-flex items-center justify-center rounded-full font-extrabold uppercase select-none whitespace-nowrap',
+                "inline-flex items-center font-semibold tracking-tight select-none whitespace-nowrap text-[var(--brand)]",
                 sizeClasses[size],
-                variantClasses[variant],
                 className,
             ]
                 .filter(Boolean)
-                .join(' ')}
+                .join(" ")}
         >
             BUDDHICINTAKA
-        </div>
+        </span>
     );
 };

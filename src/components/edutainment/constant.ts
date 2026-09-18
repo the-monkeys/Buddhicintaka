@@ -1,22 +1,28 @@
-import { Lightbulb, Rocket, GraduationCap } from "lucide-react";
+import { Lightbulb, Rocket, GraduationCap, Sparkles } from "lucide-react";
 
-export const edutainmentTracks = [
+export const trainingTracks = [
+    {
+        icon: GraduationCap,
+        title: "Tech classes",
+        description:
+            "Structured courses for teams and learners covering modern software development, from fundamentals to delivery.",
+    },
+    {
+        icon: Sparkles,
+        title: "AI & modern tech workshops",
+        description:
+            "Hands-on sessions for students and professionals on AI, APIs, and the tools used in production teams.",
+    },
     {
         icon: Lightbulb,
-        title: 'Learn by Doing',
+        title: "Learn by building",
         description:
-            'Work on real open-source projects from day one. No simulations — real code, real impact.',
+            "Workshops are practical. Participants leave with working examples, not slide decks they will never reopen.",
     },
     {
         icon: Rocket,
-        title: 'Mentorship',
+        title: "Campus & company programmes",
         description:
-            'Pair with senior engineers who guide you through architecture, code reviews, and career growth.',
-    },
-    {
-        icon: GraduationCap,
-        title: 'Industry Ready',
-        description:
-            'Graduate with a portfolio of real contributions, certifications, and enterprise experience.',
+            "We run cohorts for institutions and organisations that want their people ready for real engineering work.",
     },
 ];

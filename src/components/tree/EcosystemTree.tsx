@@ -22,7 +22,7 @@ const EcosystemTree = () => {
                         Everything we are.
                     </h2>
                     <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
-                        Products, values, and services — all rooted in one mission.
+                        Products, values, and services - all rooted in one mission.
                     </p>
                 </div>
 

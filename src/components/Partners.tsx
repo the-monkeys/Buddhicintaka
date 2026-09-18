@@ -7,7 +7,7 @@ const Partners = () => {
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="text-center mb-12">
                     <span className="text-[var(--text-tertiary)] text-xs font-semibold tracking-[0.2em] uppercase">
-                        Trusted By
+                        Partners & Community
                     </span>
                 </div>
 

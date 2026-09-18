@@ -1,114 +1,82 @@
 ﻿import { Metadata } from "next";
-import * as motion from "motion/react-client";
-import { ArrowUpRight, Github } from "lucide-react";
-import { products } from "../../data/products";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { CollectionJsonLd } from "../../components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Products",
-    description: "Explore Buddhicintaka's open-source products — IAM, notification services, web crawlers, content platforms, and more.",
+    description:
+        "Products from Buddhicintaka in Muzaffarpur, Bihar: Monkeys, an open-source content platform, and Aasriva, a marketplace for Indian manufacturers and artisans.",
+    alternates: { canonical: "/products" },
+    openGraph: {
+        title: "Products | Buddhicintaka",
+        description:
+            "Monkeys and Aasriva, software products from Buddhicintaka in Muzaffarpur, Bihar.",
+        url: "/products",
+        locale: "en_IN",
+    },
 };
 
-const ProductsPage = () => {
+const catalog = [
+    {
+        name: "Monkeys",
+        href: "/products/monkeys",
+        image: "/work/monkeys-landing.png",
+        summary:
+            "Open-source community and content platform for research, articles, events, groups, and Studio.",
+    },
+    {
+        name: "Aasriva",
+        href: "/products/aasriva",
+        image: "/work/aasriva-shop.png",
+        summary:
+            "Marketplace for Indian manufacturers and local artisans. A joint venture with OSDuo Tech LLP.",
+    },
+];
+
+export default function ProductsPage() {
     return (
-        <section className="pt-32 pb-20 sm:pb-28 bg-background">
+        <section className="pt-28 pb-24 sm:pb-32 bg-[var(--bg-primary)]">
+            <CollectionJsonLd
+                name="Products"
+                description="Products from Buddhicintaka in Muzaffarpur, Bihar: Monkeys, an open-source content platform, and Aasriva, a marketplace for Indian manufacturers and artisans."
+                path="/products"
+                items={catalog.map((item) => ({
+                    name: item.name,
+                    path: item.href,
+                }))}
+            />
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                {/* Header */}
-                <div className="mb-16 max-w-3xl">
-                    <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase block mb-4">
-                        Our Products
-                    </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6">
-                        Built open. Built to last.
-                    </h1>
-                    <p className="text-(--text-secondary) text-lg leading-relaxed">
-                        Every product we ship is open source, community-driven, and enterprise-ready.
-                        Explore them below and join the community.
-                    </p>
-                </div>
-
-                {/* Products Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {products.map((product, index) => {
-                        const Icon = product.icon;
-                        
-                        return (
-                            <motion.div
-                                key={product.id}
-                                id={product.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.08 }}
-                                className="bg-(--bg-secondary) border border-(--border-primary) rounded-2xl p-8 hover:border-(--accent-border) transition-all duration-300 flex flex-col h-full group hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-                            >
-                                <div className="w-12 h-12 rounded-lg bg-(--accent-subtle) flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-background transition-all duration-300">
-                                    <Icon className="w-6 h-6 text-accent group-hover:text-background" />
-                                </div>
-
-                                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
-                                    {product.title}
-                                </h3>
-                                <p className="text-accent text-xs font-medium mb-3 opacity-80">
-                                    {product.shortDescription}
-                                </p>
-                                <p className="text-(--text-secondary) text-sm leading-relaxed mb-6 grow">
-                                    {product.description}
-                                </p>
-
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {product.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="px-2.5 py-1 text-xs font-medium bg-(--bg-tertiary) text-(--text-tertiary) rounded-md border border-(--border-primary) group-hover:border-accent group-hover:border-opacity-50 transition-colors"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-(--border-primary) group-hover:border-accent group-hover:border-opacity-30 transition-colors">
-                                    <a
-                                        href={product.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sm font-semibold text-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
-                                    >
-                                        Visit
-                                        <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                    </a>
-                                    <a
-                                        href={product.repoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sm font-semibold text-(--text-secondary) hover:text-foreground transition-colors inline-flex items-center gap-1"
-                                    >
-                                        <Github className="w-3.5 h-3.5" />
-                                        Source
-                                    </a>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-
-                {/* Bottom CTA */}
-                <div className="text-center mt-16 pt-12 border-t border-(--border-primary)">
-                    <p className="text-(--text-secondary) mb-6">
-                        All our projects live on GitHub. Stars and contributions welcome.
-                    </p>
-                    <a
-                        href="https://github.com/the-monkeys"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-accent rounded-lg hover:bg-accent-hover transition-all"
-                    >
-                        <Github className="w-4 h-4" />
-                        View all on GitHub
-                    </a>
+                <p className="section-label mb-5">Products</p>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-[var(--text-primary)] mb-16 tracking-tight leading-[1.1] max-w-3xl">
+                    What we build.
+                </h1>
+                <div className="grid md:grid-cols-2 gap-12">
+                    {catalog.map((product) => (
+                        <a key={product.name} href={product.href} className="group block">
+                            <div className="relative aspect-[16/10] overflow-hidden bg-[var(--bg-tertiary)] mb-6">
+                                <Image
+                                    src={product.image}
+                                    alt={product.name}
+                                    fill
+                                    className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                            </div>
+                            <h2 className="text-2xl sm:text-3xl font-medium text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand)] transition-colors">
+                                {product.name}
+                            </h2>
+                            <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
+                                {product.summary}
+                            </p>
+                            <span className="inline-flex items-center gap-2 text-[var(--brand)] font-semibold">
+                                Learn more
+                                <ArrowRight className="w-4 h-4" />
+                            </span>
+                        </a>
+                    ))}
                 </div>
             </div>
         </section>
     );
-};
-
-export default ProductsPage;
+}

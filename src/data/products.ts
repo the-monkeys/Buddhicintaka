@@ -1,4 +1,4 @@
-import { Shield, Bell, PenTool, Search } from "lucide-react";
+import { Shield, Bell, PenTool, Search, Store } from "lucide-react";
 
 export interface Product {
     id: string;
@@ -15,20 +15,31 @@ export const products: Product[] = [
     {
         id: "monkeys",
         title: "Monkeys",
-        shortDescription: "Content & Knowledge Platform",
+        shortDescription: "Open-source community and content platform",
         description:
-            "Community-driven content platform for publishing meaningful, accurate articles across science, technology, and more. Quality-first, not volume-first.",
+            "Open-source community and content platform by Buddhicintaka. Write research, articles, and blogs. Schedule events. Create groups. Share from Studio. Invite co-authors and co-hosts.",
         icon: PenTool,
         tags: ["Next.js", "TypeScript", "Go"],
         link: "https://monkeys.com.co",
         repoUrl: "https://github.com/the-monkeys/the_monkeys",
     },
     {
+        id: "aasriva",
+        title: "Aasriva",
+        shortDescription: "Marketplace for Indian manufacturers and local artisans",
+        description:
+            "A marketplace for Indian manufacturers and local artisans to sell pan India. Joint venture of Buddhicintaka and OSDuo Tech LLP.",
+        icon: Store,
+        tags: ["Marketplace", "Vendors", "Shipping"],
+        link: "https://aasriva.in",
+        repoUrl: "https://aasriva.in/vendor-register/",
+    },
+    {
         id: "iam",
         title: "Monkeys IAM",
         shortDescription: "Identity & Access Management",
         description:
-            "Enterprise-grade IAM system with Zero Trust security, RBAC/ABAC/PBAC access control, MFA, OIDC/SAML federation, and comprehensive audit trails.",
+            "IAM system with Zero Trust security, RBAC/ABAC/PBAC access control, MFA, OIDC/SAML federation, and audit trails.",
         icon: Shield,
         tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
         link: "https://identity.monkeys.support/",
@@ -39,7 +50,7 @@ export const products: Product[] = [
         title: "FreeRange Notify",
         shortDescription: "Universal Notification Service",
         description:
-            "Generic, pluggable notification service with multi-channel delivery — push, email, SMS, and real-time Server-Sent Events. Multi-tenant with API key auth.",
+            "Generic, pluggable notification service with multi-channel delivery - push, email, SMS, and real-time Server-Sent Events. Multi-tenant with API key auth.",
         icon: Bell,
         tags: ["Go", "Fiber", "Redis", "Elasticsearch"],
         link: "https://freerangenotify.vercel.app",
@@ -50,7 +61,7 @@ export const products: Product[] = [
         title: "Orbitor",
         shortDescription: "Web Crawler & Search Engine",
         description:
-            "Fast, scalable web crawler and search engine inspired by Perplexity. Built for speed and accuracy.",
+            "Fast, scalable web crawler and search engine. Built for speed and accuracy.",
         icon: Search,
         tags: ["Go", "Docker"],
         link: "https://github.com/the-monkeys",

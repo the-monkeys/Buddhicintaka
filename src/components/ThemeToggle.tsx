@@ -1,38 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 
-export function ThemeToggle() {
-    const [theme, setTheme] = useState<"dark" | "light">("dark");
-    const [mounted, setMounted] = useState(false);
+const listeners = new Set<() => void>();
 
-    useEffect(() => {
-        setMounted(true);
-        const stored = localStorage.getItem("theme") as "dark" | "light" | null;
-        if (stored) {
-            setTheme(stored);
-            document.documentElement.setAttribute("data-theme", stored);
-        }
-    }, []);
+function subscribe(callback: () => void) {
+    listeners.add(callback);
+    return () => listeners.delete(callback);
+}
+
+function getTheme(): "dark" | "light" {
+    const stored = localStorage.getItem("theme");
+    return stored === "dark" || stored === "light" ? stored : "light";
+}
+
+function emit() {
+    listeners.forEach((listener) => listener());
+}
+
+export function ThemeToggle({ inverted = false }: { inverted?: boolean }) {
+    const theme = useSyncExternalStore(subscribe, getTheme, () => "light");
 
     const toggle = () => {
         const next = theme === "dark" ? "light" : "dark";
-        setTheme(next);
-        document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
+        document.documentElement.setAttribute("data-theme", next);
+        emit();
     };
-
-    // Prevent hydration mismatch — render nothing until mounted
-    if (!mounted) {
-        return <div className="w-9 h-9" />;
-    }
 
     return (
         <button
             onClick={toggle}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            className="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-border)] transition-all cursor-pointer"
+            className={[
+                "w-9 h-9 flex items-center justify-center border transition-colors cursor-pointer",
+                inverted
+                    ? "border-white/30 text-white/80 hover:text-white hover:border-white"
+                    : "border-[var(--border-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-border)]",
+            ].join(" ")}
         >
             {theme === "dark" ? (
                 <Sun className="w-4 h-4" />
