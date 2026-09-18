@@ -48,16 +48,27 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             </button>
                             {expanded && (
                                 <div className="pb-4 space-y-3">
-                                    {links.map((link) => (
-                                        <a
-                                            key={`${menu.id}-${link.name}-${link.href}`}
-                                            href={link.href}
-                                            onClick={onClose}
-                                            className="block text-[#5c5c5c]"
-                                        >
-                                            {link.name}
-                                        </a>
-                                    ))}
+                                    {links.map((link) => {
+                                        const external =
+                                            link.href.startsWith("http") ||
+                                            link.href.startsWith("mailto:");
+                                        return (
+                                            <a
+                                                key={`${menu.id}-${link.name}-${link.href}`}
+                                                href={link.href}
+                                                onClick={onClose}
+                                                className="block text-[#5c5c5c]"
+                                                {...(external
+                                                    ? {
+                                                          target: "_blank",
+                                                          rel: "noopener noreferrer",
+                                                      }
+                                                    : {})}
+                                            >
+                                                {link.name}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </div>

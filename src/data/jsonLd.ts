@@ -59,12 +59,20 @@ export function organizationGraph() {
                           },
                       }
                     : {}),
-                sameAs: [...SAME_AS],
+                sameAs: [...SAME_AS, "https://monkeys.com.co/buddhicintaka"],
+                founder: {
+                    "@type": "Person",
+                    name: "Dave",
+                    jobTitle: "Managing Director",
+                    url: `${SITE_URL}/leadership`,
+                },
                 knowsAbout: [
                     "Software development",
                     "Open source",
                     "Content platforms",
                     "Marketplaces",
+                    "Government e-Marketplace",
+                    "Orbitor AI",
                     COMPANY_LOCALITY,
                     COMPANY_REGION,
                     COMPANY_COUNTRY_NAME,
@@ -135,5 +143,88 @@ export function aboutPageJsonLd() {
             addressCountry: COMPANY_COUNTRY,
             name: COMPANY_ADDRESS_ONE_LINE,
         },
+    };
+}
+
+export function breadcrumbJsonLd(
+    items: { name: string; path: string }[],
+) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: items.map((item, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: item.name,
+            item: `${SITE_URL}${item.path === "/" ? "" : item.path}`,
+        })),
+    };
+}
+
+export function serviceJsonLd(
+    name: string,
+    description: string,
+    path: string,
+) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name,
+        description,
+        url: `${SITE_URL}${path}`,
+        provider: { "@id": orgId },
+        areaServed: {
+            "@type": "Country",
+            name: COMPANY_COUNTRY_NAME,
+        },
+    };
+}
+
+export function webPageJsonLd(
+    name: string,
+    description: string,
+    path: string,
+) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name,
+        description,
+        url: `${SITE_URL}${path}`,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": orgId },
+        inLanguage: "en-IN",
+    };
+}
+
+export function collectionIndexJsonLd(
+    name: string,
+    description: string,
+    path: string,
+    items: { name: string; path: string }[],
+) {
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                name,
+                description,
+                url: `${SITE_URL}${path}`,
+                isPartOf: { "@id": websiteId },
+                about: { "@id": orgId },
+                inLanguage: "en-IN",
+            },
+            {
+                "@type": "ItemList",
+                name,
+                itemListElement: items.map((item, index) => ({
+                    "@type": "ListItem",
+                    position: index + 1,
+                    name: item.name,
+                    url: `${SITE_URL}${item.path}`,
+                })),
+            },
+        ],
     };
 }

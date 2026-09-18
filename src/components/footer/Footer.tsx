@@ -25,17 +25,26 @@ const Footer = () => {
                         <h3 className="text-white text-sm font-semibold mb-4">What we do</h3>
                         <ul className="space-y-3 text-sm">
                             <li><a href="/products" className="hover:text-white">Products</a></li>
-                            <li><a href="/about" className="hover:text-white">Consulting</a></li>
-                            <li><a href="/about" className="hover:text-white">Technology</a></li>
-                            <li><a href="/about" className="hover:text-white">Industries</a></li>
+                            <li><a href="/consulting" className="hover:text-white">Consulting</a></li>
+                            <li><a href="/technology" className="hover:text-white">Technology</a></li>
+                            <li><a href="/industries" className="hover:text-white">Industries</a></li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-white text-sm font-semibold mb-4">Insights</h3>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="/about" className="hover:text-white">Newsroom</a></li>
-                            <li><a href="/about" className="hover:text-white">Articles</a></li>
-                            <li><a href="/about" className="hover:text-white">Press releases</a></li>
+                            <li>
+                                <a
+                                    href="https://monkeys.com.co/buddhicintaka"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                >
+                                    Articles
+                                </a>
+                            </li>
+                            <li><a href="/press" className="hover:text-white">Press releases</a></li>
+                            <li><a href="/investors" className="hover:text-white">Investors</a></li>
                         </ul>
                     </div>
                 </div>

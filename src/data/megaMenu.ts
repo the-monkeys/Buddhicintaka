@@ -14,6 +14,7 @@ export interface MegaSpotlight {
     title: string;
     description: string;
     href: string;
+    art?: "consulting" | "people";
 }
 
 export interface MegaPanel {
@@ -34,12 +35,12 @@ export const megaMenus: MegaPanel[] = [
         columns: [
             {
                 title: "Consulting services",
-                href: "/about",
+                href: "/consulting",
                 links: [
-                    { name: "Agentic modernization", href: "/about" },
-                    { name: "Business workflow transformation", href: "/about" },
-                    { name: "Cybersecurity", href: "/about" },
-                    { name: "People and performance", href: "/about" },
+                    { name: "Agentic modernization", href: "/consulting/agentic-modernization" },
+                    { name: "Business workflow transformation", href: "/consulting/workflow-transformation" },
+                    { name: "Cybersecurity", href: "/consulting/cybersecurity" },
+                    { name: "People and performance", href: "/consulting/people-and-performance" },
                 ],
             },
             {
@@ -52,50 +53,54 @@ export const megaMenus: MegaPanel[] = [
             },
             {
                 title: "Technology services",
-                href: "/about",
+                href: "/technology",
                 links: [
-                    { name: "Applications", href: "/about" },
-                    { name: "Artificial intelligence and data", href: "/about" },
-                    { name: "Cloud", href: "/about" },
-                    { name: "Cyber resilience", href: "/about" },
-                    { name: "Digital workplace", href: "/about" },
-                    { name: "Mainframe", href: "/about" },
-                    { name: "Networks", href: "/about" },
+                    { name: "Applications", href: "/technology/applications" },
+                    { name: "Artificial intelligence and data", href: "/technology/ai-and-data" },
+                    { name: "Cloud", href: "/technology/cloud" },
+                    { name: "Cyber resilience", href: "/technology/cyber-resilience" },
+                    { name: "Digital workplace", href: "/technology/digital-workplace" },
+                    { name: "Mainframe", href: "/technology/mainframe" },
+                    { name: "Networks", href: "/technology/networks" },
                 ],
             },
             {
                 title: "Industries",
-                href: "/about",
+                href: "/industries",
                 links: [
-                    { name: "Automotive", href: "/about" },
-                    { name: "Banking and financial markets", href: "/about" },
-                    { name: "Chemical, oil and gas", href: "/about" },
-                    { name: "Consumer and retail", href: "/about" },
-                    { name: "Government", href: "/about" },
-                    { name: "Healthcare", href: "/about" },
-                    { name: "Insurance", href: "/about" },
-                    { name: "Manufacturing", href: "/about" },
-                    { name: "Technology, media and telecom", href: "/about" },
-                    { name: "Travel and transportation", href: "/about" },
-                    { name: "Utilities", href: "/about" },
+                    // { name: "Automotive", href: "/about" },
+                    // { name: "Banking and financial markets", href: "/about" },
+                    // { name: "Chemical, oil and gas", href: "/about" },
+                    { name: "Consumer and retail", href: "/industries/consumer-and-retail" },
+                    { name: "Government", href: "/industries/government" },
+                    // { name: "Healthcare", href: "/about" },
+                    // { name: "Insurance", href: "/about" },
+                    { name: "Manufacturing", href: "/industries/manufacturing" },
+                    {
+                        name: "Technology, media and telecom",
+                        href: "/industries/technology-media-telecom",
+                    },
+                    // { name: "Travel and transportation", href: "/about" },
+                    // { name: "Utilities", href: "/about" },
                 ],
             },
         ],
         extras: {
             title: "How we work",
-            href: "/about",
+            href: "/how-we-work",
             links: [
-                { name: "Collaborative", href: "/about" },
-                { name: "Bridge", href: "/about" },
-                { name: "Vital", href: "/about" },
+                { name: "Collaborative", href: "/how-we-work/collaborative" },
+                { name: "Bridge", href: "/how-we-work/bridge" },
+                { name: "Vital", href: "/how-we-work/vital" },
             ],
         },
         spotlight: {
             label: "Spotlight",
-            title: "People Readiness Report 2026",
+            title: "What we can take on",
             description:
-                "Workforce readiness has become one of the most important factors determining AI success.",
-            href: "/about",
+                "Software, training, security, and AI workflows from Muzaffarpur, used across India.",
+            href: "/consulting",
+            art: "consulting",
         },
     },
     {
@@ -108,18 +113,19 @@ export const megaMenus: MegaPanel[] = [
                 href: "/about",
                 links: [
                     { name: "About us", href: "/about" },
-                    { name: "Leadership", href: "/about" },
-                    { name: "Our culture", href: "/about" },
-                    { name: "History", href: "/about" },
+                    { name: "Leadership", href: "/leadership" },
+                    { name: "Our culture", href: "/company/culture" },
+                    { name: "History", href: "/company/history" },
                 ],
             },
             {
                 title: "People",
-                href: "/careers",
+                href: "/team",
                 links: [
                     { name: "Careers", href: "/careers" },
-                    { name: "Early careers", href: "/careers" },
-                    { name: "Life here", href: "/careers" },
+                    { name: "Early careers", href: "/early-careers" },
+                    { name: "Team", href: "/team" },
+                    // { name: "Life here", href: "/careers" },
                 ],
             },
             {
@@ -127,24 +133,25 @@ export const megaMenus: MegaPanel[] = [
                 href: "/contact",
                 links: [
                     { name: "Contact", href: "/contact" },
-                    { name: "Newsroom", href: "/about" },
-                    { name: "Investors", href: "/about" },
+                    // { name: "Newsroom", href: "/about" },
+                    { name: "Investors", href: "/investors" },
                 ],
             },
         ],
         extras: {
             title: "How we work",
-            href: "/about",
+            href: "/company/purpose",
             links: [
-                { name: "Our purpose", href: "/about" },
-                { name: "Inclusion", href: "/about" },
+                { name: "Our purpose", href: "/company/purpose" },
+                { name: "Inclusion", href: "/company/inclusion" },
             ],
         },
         spotlight: {
             label: "Spotlight",
-            title: "Most loved workplace",
-            description: "Join a global network of consultants, architects, and engineers.",
+            title: "Work with us",
+            description: "Remote-first roles at a software company based in Muzaffarpur, Bihar.",
             href: "/careers",
+            art: "people",
         },
     },
     {
@@ -153,16 +160,16 @@ export const megaMenus: MegaPanel[] = [
         kind: "bar",
         columns: [],
         barLinks: [
-            { name: "Newsroom", href: "/about" },
-            { name: "Articles", href: "/about" },
-            { name: "Press releases", href: "/about" },
-            { name: "Topics", href: "/about" },
-            { name: "Investors", href: "/about" },
+            // { name: "Newsroom", href: "/about" },
+            { name: "Articles", href: "https://monkeys.com.co/buddhicintaka" },
+            { name: "Press releases", href: "/press" },
+            // { name: "Topics", href: "/about" },
+            { name: "Investors", href: "/investors" },
         ],
     },
 ];
 
 export const topLinks: MegaLink[] = [
-    { name: "News", href: "/about" },
+    // { name: "News", href: "/about" },
     { name: "Careers", href: "/careers" },
 ];

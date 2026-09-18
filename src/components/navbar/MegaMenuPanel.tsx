@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { ChevronRight, X } from "lucide-react";
 import type { MegaColumn, MegaLink, MegaPanel } from "../../data/megaMenu";
+import { SpotlightArt } from "./SpotlightArt";
 
 interface MegaMenuPanelProps {
     panel: MegaPanel;
@@ -132,17 +133,23 @@ export function MegaMenuPanel({ panel, onClose }: MegaMenuPanelProps) {
                     <MenuLink
                         href={panel.spotlight.href}
                         onClick={onClose}
-                        className="m-5 min-h-[320px] bg-[#1a1a1a] text-white flex flex-col justify-end p-5"
+                        className="relative m-5 min-h-[320px] bg-[#1a1a1a] text-white flex flex-col justify-end p-5 overflow-hidden"
                     >
-                        <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/70 mb-3">
-                            {panel.spotlight.label}
-                        </p>
-                        <h3 className="text-lg font-medium mb-2 leading-snug">
-                            {panel.spotlight.title}
-                        </h3>
-                        <p className="text-sm text-white/85 leading-relaxed">
-                            {panel.spotlight.description}
-                        </p>
+                        <div className="absolute inset-0 pointer-events-none">
+                            <SpotlightArt variant={panel.spotlight.art} />
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#1a1a1a] to-transparent pointer-events-none" />
+                        <div className="relative z-10">
+                            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/70 mb-3">
+                                {panel.spotlight.label}
+                            </p>
+                            <h3 className="text-lg font-medium mb-2 leading-snug">
+                                {panel.spotlight.title}
+                            </h3>
+                            <p className="text-sm text-white/85 leading-relaxed">
+                                {panel.spotlight.description}
+                            </p>
+                        </div>
                     </MenuLink>
                 )}
             </div>

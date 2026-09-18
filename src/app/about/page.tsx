@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "../../components/JsonLd";
-import { aboutPageJsonLd } from "../../data/jsonLd";
+import { aboutPageJsonLd, breadcrumbJsonLd } from "../../data/jsonLd";
 import {
     COMPANY_ADDRESS_LINES,
     COMPANY_DESCRIPTION,
@@ -70,6 +70,12 @@ const pillars = [
 export default function AboutPage() {
     return (
         <div>
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "About", path: "/about" },
+                ])}
+            />
             <JsonLd data={aboutPageJsonLd()} />
 
             <section className="grid lg:grid-cols-12 lg:min-h-[100svh]">

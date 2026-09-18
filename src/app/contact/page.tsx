@@ -1,5 +1,14 @@
 import { Metadata } from "next";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { JsonLd } from "../../components/JsonLd";
+import { breadcrumbJsonLd } from "../../data/jsonLd";
+import {
+    COMPANY_ADDRESS_ONE_LINE,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_PHONE_E164,
+    SITE_URL,
+} from "../../data/company";
 
 export const metadata: Metadata = {
     title: "Contact",
@@ -18,6 +27,29 @@ export const metadata: Metadata = {
 const Contact = () => {
     return (
         <section className="pt-28 pb-20 sm:pb-28 bg-[var(--bg-primary)]">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "Contact", path: "/contact" },
+                ])}
+            />
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "ContactPage",
+                    name: `Contact ${COMPANY_LEGAL_NAME}`,
+                    url: `${SITE_URL}/contact`,
+                    inLanguage: "en-IN",
+                    mainEntity: {
+                        "@type": "Organization",
+                        name: COMPANY_LEGAL_NAME,
+                        email: COMPANY_EMAIL,
+                        telephone: COMPANY_PHONE_E164,
+                        url: SITE_URL,
+                        address: COMPANY_ADDRESS_ONE_LINE,
+                    },
+                }}
+            />
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 <div className="grid md:grid-cols-2 gap-16">
                     <div>

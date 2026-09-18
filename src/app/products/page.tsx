@@ -1,6 +1,7 @@
 ﻿import { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { CollectionJsonLd } from "../../components/JsonLd";
 
 export const metadata: Metadata = {
     title: "Products",
@@ -36,6 +37,15 @@ const catalog = [
 export default function ProductsPage() {
     return (
         <section className="pt-28 pb-24 sm:pb-32 bg-[var(--bg-primary)]">
+            <CollectionJsonLd
+                name="Products"
+                description="Products from Buddhicintaka in Muzaffarpur, Bihar: Monkeys, an open-source content platform, and Aasriva, a marketplace for Indian manufacturers and artisans."
+                path="/products"
+                items={catalog.map((item) => ({
+                    name: item.name,
+                    path: item.href,
+                }))}
+            />
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 <p className="section-label mb-5">Products</p>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-[var(--text-primary)] mb-16 tracking-tight leading-[1.1] max-w-3xl">

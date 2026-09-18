@@ -146,15 +146,24 @@ export function Navbar() {
                 {activePanel?.kind === "bar" && (
                     <div className="hidden lg:block mt-2 bg-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
                         <div className="h-12 px-8 flex items-center gap-7">
-                            {activePanel.barLinks?.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-sm text-[#1a1a1a] hover:text-[var(--brand)]"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
+                            {activePanel.barLinks?.map((link) => {
+                                const external =
+                                    link.href.startsWith("http") ||
+                                    link.href.startsWith("mailto:");
+                                return (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        className="text-sm text-[#1a1a1a] hover:text-[var(--brand)]"
+                                        onClick={() => setOpenMenu(null)}
+                                        {...(external
+                                            ? { target: "_blank", rel: "noopener noreferrer" }
+                                            : {})}
+                                    >
+                                        {link.name}
+                                    </a>
+                                );
+                            })}
                         </div>
                     </div>
                 )}
