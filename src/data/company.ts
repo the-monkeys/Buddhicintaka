@@ -24,24 +24,25 @@ export const COMPANY_ADDRESS_LINES = [
 export const COMPANY_ADDRESS_ONE_LINE =
     "Phulwaria, Paroo, Muzaffarpur 843107, Bihar, India";
 
-export const COMPANY_EMAIL = "mail.themonkeys.life@gmail.com";
+export const COMPANY_EMAIL = "monkey.admin@monkeys.com.co";
 export const COMPANY_PHONE_DISPLAY = "+91 62030 96513";
 export const COMPANY_PHONE_E164 = "+916203096513";
 
-export const COMPANY_MOTTO = "Inspire, Inform, Innovate.";
+export const COMPANY_MOTTO = "Inspire, inform and innovate.";
 
 export const COMPANY_DESCRIPTION =
-    "Buddhicintaka (OPC) Private Limited is a technology company in Muzaffarpur, Bihar. We design, develop, and operate software products used across India, including Monkeys and Aasriva.";
+    "Buddhicintaka is a technology company founded in Bihar. We develop software platforms, maintain the Monkeys open-source community and provide cloud and AI engineering services.";
 
 export const COMPANY_DEFAULT_TITLE =
-    "Buddhicintaka | Software from Muzaffarpur, Bihar";
+    "Buddhicintaka | Software and AI Technology Company in Bihar";
+
+export const COMPANY_X_HANDLE = "@buddhicintaka";
+export const COMPANY_X_URL = `https://x.com/${COMPANY_X_HANDLE.slice(1)}`;
 
 export const SAME_AS = [
     "https://github.com/the-monkeys",
-    "https://monkeys.com.co",
-    "https://aasriva.in",
-    "https://x.com/monkeys_com_co",
-    "https://www.instagram.com/monkeys_com_co/",
+    COMPANY_X_URL,
+    "https://www.linkedin.com/company/buddhicintaka-private-limited/",
 ] as const;
 
 export const PRODUCTS = {
@@ -49,6 +50,7 @@ export const PRODUCTS = {
         name: "Monkeys",
         url: "https://monkeys.com.co",
         source: "https://github.com/the-monkeys/the_monkeys",
+        social: "https://x.com/monkeys_com_co",
         description:
             "Open-source community and content platform for research, articles, events, groups, and Studio.",
     },

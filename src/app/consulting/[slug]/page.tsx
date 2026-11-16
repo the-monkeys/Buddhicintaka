@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../../data/pageMetadata";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TopicPageLayout } from "../../../components/services/TopicPageLayout";
@@ -15,17 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const page = getConsultingPage(slug);
     if (!page) return {};
-    return {
-        title: page.title,
-        description: page.description,
-        alternates: { canonical: `/consulting/${page.slug}` },
-        openGraph: {
-            title: `${page.title} | Buddhicintaka`,
-            description: page.description,
-            url: `/consulting/${page.slug}`,
-            locale: "en_IN",
-        },
-    };
+    return pageMetadata(`/consulting/${page.slug}`, page.title, page.description);
 }
 
 export default async function ConsultingTopicPage({ params }: PageProps) {
@@ -39,6 +30,7 @@ export default async function ConsultingTopicPage({ params }: PageProps) {
             title={page.title}
             lede={page.lede}
             focus={page.focus}
+            related={page.related}
             path={`/consulting/${page.slug}`}
             parent={{ name: "Consulting", path: "/consulting" }}
         />

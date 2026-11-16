@@ -1,67 +1,116 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { heroSlides } from "../../data/homeContent";
+import { ActionLink } from "../ActionLink";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { Pause, Play } from "lucide-react";
+import { featuredProducts } from "../../data/homeContent";
+import styles from "./Hero.module.css";
+
+const slideNames = ["Company", ...featuredProducts.map((product) => product.name)];
+const motionPreference = "(prefers-reduced-motion: reduce)";
+
+function subscribeToMotionPreference(notify: () => void) {
+    const query = window.matchMedia(motionPreference);
+    query.addEventListener("change", notify);
+    return () => query.removeEventListener("change", notify);
+}
 
 export function Hero() {
-    const [index, setIndex] = useState(0);
-    const slide = heroSlides[index];
+    const [active, setActive] = useState(0);
+    const [playback, setPlayback] = useState<boolean | null>(null);
+    const prefersReducedMotion = useSyncExternalStore(
+        subscribeToMotionPreference,
+        () => window.matchMedia(motionPreference).matches,
+        () => true,
+    );
+    const playing = playback ?? !prefersReducedMotion;
 
     useEffect(() => {
+        if (!playing) return;
         const timer = window.setInterval(() => {
-            setIndex((current) => (current + 1) % heroSlides.length);
-        }, 3000);
+            if (!document.hidden) setActive((index) => (index + 1) % slideNames.length);
+        }, 7000);
         return () => window.clearInterval(timer);
-    }, [index]);
+    }, [playing]);
+
+    function selectSlide(index: number) {
+        setActive(index);
+        setPlayback(false);
+    }
 
     return (
-        <section className="relative min-h-[78vh] lg:min-h-[82vh] overflow-hidden text-white">
-            {heroSlides.map((item, i) => (
-                <Image
-                    key={item.image}
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    priority={i === 0}
-                    className={[
-                        "object-cover object-center transition-opacity duration-700",
-                        i === index ? "opacity-100" : "opacity-0",
-                    ].join(" ")}
-                    sizes="100vw"
-                />
-            ))}
-            <div className="absolute inset-0 bg-black/15" />
-
-            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col justify-center min-h-[78vh] lg:min-h-[82vh] pt-28 pb-16">
-                <div className="max-w-xl bg-white/20 backdrop-blur-md p-8 sm:p-10">
-                    <h1 className="text-4xl sm:text-5xl font-medium leading-[1.12] tracking-tight mb-5">
-                        {slide.title}
-                    </h1>
-                    <p className="text-sm sm:text-base text-white/95 leading-relaxed mb-8">
-                        {slide.body}
-                    </p>
-                    <a
-                        href={slide.href}
-                        className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white border border-white hover:bg-white hover:text-black transition-colors"
-                    >
-                        {slide.cta}
-                    </a>
-                </div>
-
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                    {heroSlides.map((item, i) => (
+        <section className={styles.hero} aria-label="Company and products" aria-roledescription="carousel">
+            <div className={styles.stage} aria-live={playing ? "off" : "polite"} onFocusCapture={() => setPlayback(false)}>
+                <article
+                    className={styles.slide}
+                    data-active={active === 0}
+                    inert={active !== 0}
+                    aria-hidden={active !== 0}
+                    aria-label="1 of 3, Company"
+                    aria-roledescription="slide"
+                >
+                    <Image src="/hero/server-racks.webp" alt="Rows of server racks at the NERSC computing facility" fill preload sizes="100vw" className={styles.photo} />
+                    <div className={styles.shade} />
+                    <div className={styles.content}>
+                        <div className={styles.copy}>
+                            <h1>Software platforms<br />and AI systems</h1>
+                            <p>We build publishing platforms, marketplaces, and tools that automate business workflows.</p>
+                            <ActionLink href="/about">About Buddhicintaka</ActionLink>
+                        </div>
+                    </div>
+                    <a className={styles.credit} href="/hero/photo-credit.txt">Photo credit</a>
+                </article>
+                {featuredProducts.map((product, index) => {
+                    const isActive = active === index + 1;
+                    return (
+                        <article
+                            key={product.href}
+                            className={`${styles.slide} ${styles.productSlide}`}
+                            data-product={product.name}
+                            data-active={isActive}
+                            inert={!isActive}
+                            aria-hidden={!isActive}
+                            aria-label={`${index + 2} of 3, ${product.name}`}
+                            aria-roledescription="slide"
+                        >
+                            <div className={`${styles.content} ${styles.productContent}`}>
+                                <div className={styles.copy}>
+                                    <h2>{product.name}</h2>
+                                    <p>{product.summary}</p>
+                                    <ActionLink href={product.href}>Explore {product.name}</ActionLink>
+                                </div>
+                                <div className={styles.screen}>
+                                    <Image
+                                        src={product.image}
+                                        alt={product.alt}
+                                        fill
+                                        sizes="(min-width: 1400px) 760px, (min-width: 768px) 55vw, 90vw"
+                                        className={styles.productImage}
+                                    />
+                                </div>
+                            </div>
+                        </article>
+                    );
+                })}
+            </div>
+            <div className={styles.controls}>
+                <div className={styles.rail}>
+                    {slideNames.map((name, index) => (
                         <button
-                            key={item.title}
-                            type="button"
-                            aria-label={`Show slide ${i + 1}`}
-                            onClick={() => setIndex(i)}
-                            className={[
-                                "h-2.5 w-2.5 rounded-full border border-white",
-                                i === index ? "bg-white" : "bg-transparent",
-                            ].join(" ")}
-                        />
+                            type="button" key={name} className={styles.selector}
+                            aria-label={`Show ${name} slide`} aria-current={active === index ? "true" : undefined}
+                            onClick={() => selectSlide(index)}
+                        >
+                            {name}
+                        </button>
                     ))}
+                    <button
+                        type="button" className={styles.playback} aria-label={playing ? "Pause slideshow" : "Play slideshow"}
+                        onClick={() => setPlayback(!playing)}
+                    >
+                        {playing ? <Pause size={17} aria-hidden="true" /> : <Play size={17} aria-hidden="true" />}
+                    </button>
                 </div>
             </div>
         </section>

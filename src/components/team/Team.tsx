@@ -20,17 +20,19 @@ const Team = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="grid md:grid-cols-12 gap-10 lg:gap-16 items-center"
+                    className={member.image ? "grid md:grid-cols-12 gap-10 lg:gap-16 items-center" : "max-w-3xl"}
                 >
-                    <div className="md:col-span-5 relative aspect-[4/5]">
-                        <Image
-                            src={member.image}
-                            alt={member.name}
-                            fill
-                            className="object-cover object-[50%_18%]"
-                            sizes="(max-width: 768px) 100vw, 40vw"
-                        />
-                    </div>
+                    {member.image && (
+                        <div className="md:col-span-5 relative aspect-[4/5]">
+                            <Image
+                                src={member.image}
+                                alt={member.name}
+                                fill
+                                className="object-cover object-[50%_18%]"
+                                sizes="(max-width: 768px) 100vw, 40vw"
+                            />
+                        </div>
+                    )}
                     <div className="md:col-span-7">
                         <blockquote className="text-2xl sm:text-3xl font-medium text-[var(--text-primary)] leading-snug mb-8">
                             &ldquo;The next era of technology in Bihar will be defined by

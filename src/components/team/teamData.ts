@@ -1,7 +1,7 @@
 export interface TeamMember {
     name: string;
     role: string;
-    image: string; // path in /public/team/
+    image?: string; // path in /public/team/
     github?: string;
     linkedin?: string;
 }
@@ -11,7 +11,6 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Dave",
         role: "Managing Director & CEO",
-        image: "/team/dave.jpg",
         github: "https://github.com/the-monkeys",
     },
     // Add more team members as you get their photos:
@@ -35,7 +34,7 @@ export const workShowcase: WorkShowcase[] = [
     {
         title: "Monkeys Platform",
         description: "Community-driven content platform for meaningful articles.",
-        image: "/work/Gemini_Generated_Image_pwpr82pwpr82pwpr.png",
+        image: "/work/monkeys-landing.png",
         link: "https://monkeys.com.co",
     },
     {

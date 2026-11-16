@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { ActionLink } from "../ActionLink";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { megaMenus, topLinks } from "../../data/megaMenu";
@@ -15,7 +16,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="lg:hidden mt-2 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <div id="mobile-navigation" className="lg:hidden mt-2 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-h-[calc(100dvh-6rem)] overflow-y-auto">
             <div className="px-5 py-2">
                 {megaMenus.map((menu) => {
                     const expanded = openId === menu.id;
@@ -27,7 +28,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                       { name: column.title, href: column.href },
                                       ...column.links,
                                   ]),
-                                  ...(menu.extras?.links ?? []),
+                                  ...(menu.extras ? [{ name: menu.extras.title, href: menu.extras.href }, ...menu.extras.links] : []),
                               ];
 
                     return (
@@ -86,13 +87,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     </a>
                 ))}
 
-                <a
-                    href="/contact"
-                    onClick={onClose}
-                    className="mt-6 mb-4 flex items-center justify-center py-3 font-semibold text-white rounded-full bg-[var(--cta)]"
-                >
-                    Consult an expert
-                </a>
+                <div className="mt-6 mb-4">
+                    <ActionLink href="/contact" onClick={onClose}>Talk to us</ActionLink>
+                </div>
             </div>
         </div>
     );

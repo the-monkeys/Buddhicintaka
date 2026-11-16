@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import * as motion from "motion/react-client";
 import { products } from "../../data/products";
@@ -17,10 +18,10 @@ const Products = () => {
                             built in the open from Bihar.
                         </p>
                     </div>
-                    <a href="/products" className="accent-link whitespace-nowrap">
+                    <Link href="/products" className="accent-link whitespace-nowrap">
                         View all platforms
                         <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border-primary)]">

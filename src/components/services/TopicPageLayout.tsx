@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
-import type { OfferItem } from "../../data/consulting";
-import { whatWeOffer } from "../../data/consulting";
+import Link from "next/link";
+import { ActionLink } from "../ActionLink";
+import type { OfferItem, TopicPage } from "../../data/consulting";
 import { JsonLd } from "../JsonLd";
 import { breadcrumbJsonLd, serviceJsonLd } from "../../data/jsonLd";
 
@@ -9,6 +9,7 @@ interface TopicPageLayoutProps {
     title: string;
     lede: string;
     focus: OfferItem[];
+    related: TopicPage["related"];
     path: string;
     parent: { name: string; path: string };
 }
@@ -18,6 +19,7 @@ export function TopicPageLayout({
     title,
     lede,
     focus,
+    related,
     path,
     parent,
 }: TopicPageLayoutProps) {
@@ -40,15 +42,7 @@ export function TopicPageLayout({
                     <p className="text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-10">
                         {lede}
                     </p>
-                    <a
-                        href="/contact"
-                        className="inline-flex items-center gap-2 pl-6 pr-2 py-2.5 text-sm font-semibold text-white rounded-full bg-[var(--cta)] hover:bg-[var(--cta-hover)] transition-colors"
-                    >
-                        Talk to us
-                        <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                            <ArrowRight className="w-4 h-4" />
-                        </span>
-                    </a>
+                    <ActionLink href="/contact">Talk to us</ActionLink>
                 </div>
             </section>
 
@@ -73,43 +67,12 @@ export function TopicPageLayout({
                 </div>
             </section>
 
-            <section className="bg-[var(--bg-primary)] py-20 sm:py-28">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--text-primary)] max-w-2xl mb-4">
-                        What we can take on
-                    </h2>
-                    <p className="text-lg text-[var(--text-secondary)] max-w-2xl mb-14 leading-relaxed">
-                        The same set of services on every one of these pages.
-                        Pick a starting point. We still do the rest.
-                    </p>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
-                        {whatWeOffer.map((item) => (
-                            <div key={item.title}>
-                                <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2">
-                                    {item.title}
-                                </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed">
-                                    {item.body}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="bg-[var(--bg-primary)] pb-24 sm:pb-32">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <a
-                        href="/contact"
-                        className="inline-flex items-center gap-2 pl-6 pr-2 py-2.5 text-sm font-semibold text-white rounded-full bg-[var(--cta)] hover:bg-[var(--cta-hover)] transition-colors"
-                    >
-                        Write to us
-                        <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                            <ArrowRight className="w-4 h-4" />
-                        </span>
-                    </a>
-                </div>
-            </section>
+            <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-4 px-6 py-16 sm:px-8 lg:px-12">
+                <ActionLink href="/contact">Talk to us</ActionLink>
+                <Link href={related.href} className="font-medium underline underline-offset-4">
+                    {related.label}
+                </Link>
+            </div>
         </div>
     );
 }

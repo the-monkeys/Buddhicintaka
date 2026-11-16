@@ -3,6 +3,7 @@ import {
     COMPANY_COUNTRY,
     COMPANY_COUNTRY_NAME,
     COMPANY_DESCRIPTION,
+    COMPANY_MOTTO,
     COMPANY_EMAIL,
     COMPANY_GST,
     COMPANY_LEGAL_NAME,
@@ -31,12 +32,17 @@ export function organizationGraph() {
                 alternateName: COMPANY_SHORT_NAME,
                 legalName: COMPANY_LEGAL_NAME,
                 url: SITE_URL,
-                logo: `${SITE_URL}/opengraph-image`,
+                logo: `${SITE_URL}/icon`,
                 image: `${SITE_URL}/opengraph-image`,
                 description: COMPANY_DESCRIPTION,
                 email: COMPANY_EMAIL,
                 telephone: COMPANY_PHONE_E164,
+                slogan: COMPANY_MOTTO,
                 foundingDate: "2025",
+                foundingLocation: {
+                    "@type": "Place",
+                    name: "Muzaffarpur, Bihar, India",
+                },
                 areaServed: {
                     "@type": "Country",
                     name: COMPANY_COUNTRY_NAME,
@@ -73,9 +79,11 @@ export function organizationGraph() {
                     "Marketplaces",
                     "Government e-Marketplace",
                     "Orbitor AI",
-                    COMPANY_LOCALITY,
-                    COMPANY_REGION,
-                    COMPANY_COUNTRY_NAME,
+                    "Cloud infrastructure",
+                    "AI engineering",
+                    "Identity and access management",
+                    "Notification infrastructure",
+                    "Technical education",
                 ],
             },
             {
@@ -107,7 +115,7 @@ export function monkeysProductJsonLd() {
         },
         publisher: { "@id": orgId },
         isAccessibleForFree: true,
-        sameAs: [PRODUCTS.monkeys.source],
+        sameAs: [PRODUCTS.monkeys.source, PRODUCTS.monkeys.social],
     };
 }
 

@@ -48,6 +48,11 @@ export function CompanyStoryLayout({
                             <p className="text-[var(--text-secondary)] leading-relaxed">
                                 {item.body}
                             </p>
+                            {item.link && (
+                                <a href={item.link.href} className="mt-4 inline-block font-medium underline underline-offset-4">
+                                    {item.link.label}
+                                </a>
+                            )}
                         </div>
                     ))}
                 </div>

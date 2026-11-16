@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "../../components/JsonLd";
@@ -5,19 +6,11 @@ import { breadcrumbJsonLd } from "../../data/jsonLd";
 import { PRESS_STORY_TITLE, pressReleases } from "../../data/press";
 import { SITE_URL } from "../../data/company";
 
-export const metadata: Metadata = {
-    title: "Press releases",
-    description:
-        "Press coverage of Buddhicintaka building Orbitor AI for analysis and fact-checking.",
-    alternates: { canonical: "/press" },
-    openGraph: {
-        title: "Press releases | Buddhicintaka",
-        description:
-            "Coverage of Buddhicintaka building Orbitor AI for analysis and fact-checking.",
-        url: "/press",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/press",
+    "Orbitor AI press releases and media coverage",
+    "Read the published coverage of Orbitor AI, Buddhicintaka’s project for information analysis and fact-checking, and follow the story to its original outlets.",
+);
 
 export default function PressPage() {
     return (
@@ -31,16 +24,19 @@ export default function PressPage() {
             <JsonLd
                 data={{
                     "@context": "https://schema.org",
-                    "@type": "NewsArticle",
-                    headline: PRESS_STORY_TITLE,
+                    "@type": "CollectionPage",
+                    name: "Orbitor AI press coverage",
                     url: `${SITE_URL}/press`,
-                    inLanguage: "en-IN",
-                    publisher: {
-                        "@type": "Organization",
-                        name: "Buddhicintaka (OPC) Private Limited",
-                        url: SITE_URL,
+                    about: { "@id": `${SITE_URL}/#organization` },
+                    mainEntity: {
+                        "@type": "ItemList",
+                        itemListElement: pressReleases.map((item, index) => ({
+                            "@type": "ListItem",
+                            position: index + 1,
+                            name: item.outlet,
+                            url: item.href,
+                        })),
                     },
-                    sameAs: pressReleases.map((item) => item.href),
                 }}
             />
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

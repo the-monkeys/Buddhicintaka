@@ -1,0 +1,149 @@
+.hero {
+    padding-top: 4rem;
+    background: #192425;
+    color: white;
+}
+
+.stage, .slide {
+    display: grid;
+}
+
+.stage {
+    isolation: isolate;
+}
+
+.slide {
+    position: relative;
+    grid-area: 1 / 1;
+    min-width: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 650ms ease;
+}
+
+.slide[data-active="true"] {
+    z-index: 1;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.photo {
+    object-fit: cover;
+    object-position: center 52%;
+}
+
+.shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(9 22 25 / 85%) 0%, rgb(9 22 25 / 55%) 38%, rgb(9 22 25 / 4%) 78%),
+                linear-gradient(0deg, rgb(8 17 18 / 40%), transparent 48%);
+}
+
+.content, .rail {
+    width: min(100%, 88rem);
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+}
+
+.content {
+    position: relative;
+    min-height: clamp(30rem, 67svh, 46rem);
+    display: grid;
+    align-items: center;
+    padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.copy { max-width: 35rem; }
+
+.copy h1, .copy h2 {
+    margin: 0;
+    font-size: clamp(3.25rem, 6.4vw, 6.6rem);
+    font-weight: 500;
+    line-height: .99;
+    letter-spacing: -.055em;
+    overflow-wrap: break-word;
+}
+
+.copy p {
+    max-width: 30rem;
+    margin-block: 1.5rem 1.8rem;
+    font-size: clamp(1rem, 1.32vw, 1.25rem);
+    line-height: 1.55;
+}
+
+.slide:first-child .copy { max-width: 50rem; }
+
+.credit {
+    position: absolute;
+    right: clamp(1.25rem, 5vw, 5rem);
+    bottom: .85rem;
+    padding: .2rem .4rem;
+    color: #fff;
+    background: rgb(9 18 21 / 70%);
+    font-size: .75rem;
+}
+
+.credit:hover { text-decoration: underline; }
+
+.productSlide { background: #382a29; }
+.productSlide[data-product="Aasriva"] { background: #29433f; }
+
+.productContent {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.screen {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 29rem;
+    overflow: hidden;
+    background: #181818;
+    border: 1px solid rgb(255 255 255 / 22%);
+    border-radius: .4rem;
+    box-shadow: 0 1.4rem 3rem rgb(0 0 0 / 22%);
+}
+
+.productSlide[data-product="Aasriva"] .screen { background: #fff; }
+.productImage { object-fit: contain; }
+
+.controls { background: #182323; }
+.rail {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    align-items: stretch;
+    gap: clamp(.55rem, 2vw, 2.25rem);
+}
+
+.selector {
+    min-height: 3.6rem;
+    border-top: 3px solid #53605e;
+    color: #c8d0ce;
+    text-align: left;
+    font-weight: 500;
+    font-size: clamp(.85rem, 1.2vw, 1rem);
+}
+
+.selector[aria-current="true"] { border-color: #ff7463; color: white; }
+.selector:hover, .playback:hover { color: white; background: rgb(255 255 255 / 6%); }
+.selector, .playback { cursor: pointer; }
+.playback { width: 2.8rem; display: grid; place-items: center; }
+
+@media (min-width: 640px) {
+    .hero { padding-top: 4.5rem; }
+}
+
+@media (max-width: 767px) {
+    .productContent { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-content: center; }
+    .content { min-height: 26rem; padding-block: 2.5rem; }
+    .screen { max-height: 13rem; }
+    .copy p { margin-block: 1.1rem 1.35rem; }
+    .shade { background: linear-gradient(90deg, rgb(9 22 25 / 78%), rgb(9 22 25 / 28%)), linear-gradient(0deg, rgb(8 17 18 / 35%), transparent); }
+    .photo { object-position: 60% center; }
+    .credit { font-size: .7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide { transition: none; }
+}

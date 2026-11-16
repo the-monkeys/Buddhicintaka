@@ -1,22 +1,15 @@
+import { pageMetadata } from "../../../data/pageMetadata";
 import { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "../../../components/JsonLd";
 import { aasrivaProductJsonLd } from "../../../data/jsonLd";
 
-export const metadata: Metadata = {
-    title: "Aasriva",
-    description:
-        "Aasriva is a marketplace for Indian manufacturers and local artisans, built by Buddhicintaka in Bihar as a joint venture with OSDuo Tech LLP.",
-    alternates: { canonical: "/products/aasriva" },
-    openGraph: {
-        title: "Aasriva | Buddhicintaka",
-        description:
-            "Marketplace for Indian manufacturers and artisans. A Buddhicintaka joint venture with OSDuo Tech LLP.",
-        url: "/products/aasriva",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/products/aasriva",
+    "Aasriva marketplace for manufacturers and artisans",
+    "Explore Aasriva, our marketplace with OSDuo Tech LLP. See how vendors register, list products, manage orders and arrange shipping across India.",
+);
 
 const features = [
     {

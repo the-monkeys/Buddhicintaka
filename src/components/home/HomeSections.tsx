@@ -1,130 +1,56 @@
-import {
-    awards,
-    howWeHelp as help,
-    insights,
-    partners,
-    stories,
-    testimonials,
-} from "../../data/homeContent";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { COMPANY_MOTTO } from "../../data/company";
+import { PRESS_STORY_TITLE } from "../../data/press";
+
+const services = [
+    { name: "Software development", href: "/technology/applications", detail: "Web applications, APIs and ongoing maintenance." },
+    { name: "AI and automation", href: "/technology/ai-and-data", detail: "Document search, drafting tools and workflow automation." },
+    { name: "Consulting", href: "/consulting", detail: "Architecture reviews, engineering advice and hands-on training." },
+];
 
 export default function HomeSections() {
     return (
         <>
-            <section
-                className="bg-white py-16 sm:py-20"
-                style={{ colorScheme: "only light" }}
-            >
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid md:grid-cols-3 gap-10 md:gap-14">
-                    {stories.map((story) => (
-                        <a key={story.title} href={story.href} className="group">
-                            <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-[#6b6b6b] mb-2">
-                                {story.label}
-                            </p>
-                            <span className="block w-8 h-[2px] bg-[#ff4f3a] mb-4" />
-                            <h2 className="text-xl sm:text-2xl font-medium text-[#1a1a1a] leading-snug group-hover:text-[#ff4f3a] transition-colors">
-                                {story.title}
-                            </h2>
-                        </a>
-                    ))}
-                </div>
-            </section>
-
-            <section className="bg-[var(--bg-primary)] py-28 sm:py-36">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-medium tracking-tight leading-[1.08] text-[var(--text-primary)] max-w-5xl">
-                        A technology company from Muzaffarpur, Bihar.
-                    </h2>
-                    <p className="mt-8 text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)] max-w-2xl">
-                        We build software products used across India, including Monkeys
-                        and Aasriva. Work happens in India, for customers and communities
-                        across the country.
-                    </p>
-                </div>
-            </section>
-
-            <section className="bg-white py-20 sm:py-24">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {awards.map((item, i) => (
-                        <div key={item}>
-                            <p className="text-sm text-[var(--text-tertiary)] mb-3">
-                                0{i + 1}
-                            </p>
-                            <p className="text-[var(--text-primary)] leading-relaxed">
-                                {item}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className="bg-[var(--bg-primary)] py-28 sm:py-36">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid lg:grid-cols-12 gap-12">
-                    <div className="lg:col-span-5">
-                        <h2 className="text-4xl sm:text-5xl font-medium tracking-tight leading-[1.1] text-[var(--text-primary)]">
-                            Progress, one customer at a time
-                        </h2>
-                    </div>
-                    <div className="lg:col-span-6 lg:col-start-7">
-                        <p className="text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)]">
-                            We work hand-in-hand with customers and strategic partners to
-                            run and transform essential systems.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section className="bg-white py-28 sm:py-36">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <p className="text-sm text-[var(--text-tertiary)] mb-4">
-                        how we help
-                    </p>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.08] text-[var(--text-primary)] max-w-4xl">
-                        Continuous innovation + operational excellence
-                    </h2>
-                    <div className="mt-16 grid md:grid-cols-2 gap-x-16 gap-y-14">
-                        {help.map((item) => (
-                            <div key={item.n}>
-                                <p className="text-sm text-[var(--text-tertiary)] mb-3">
-                                    {item.n}
-                                </p>
-                                <h3 className="text-2xl font-medium text-[var(--text-primary)] mb-3">
-                                    {item.title}
+            <section id="services" className="scroll-mt-24 bg-[var(--bg-secondary)] py-16 sm:py-20">
+                <div className="max-w-[88rem] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
+                    <h2 className="text-3xl sm:text-5xl font-medium tracking-tight">Our services</h2>
+                    <div className="mt-10 grid gap-8 md:grid-cols-3 lg:gap-12">
+                        {services.map((service) => (
+                            <Link key={service.href} href={service.href} className="group border-t border-[var(--border-secondary)] pt-5">
+                                <h3 className="flex items-center justify-between gap-2 text-xl font-medium group-hover:underline underline-offset-4">
+                                    {service.name} <ArrowRight size={16} aria-hidden="true" />
                                 </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed">
-                                    {item.body}
-                                </p>
-                            </div>
+                                <p className="mt-2 text-[var(--text-secondary)] leading-relaxed">{service.detail}</p>
+                            </Link>
                         ))}
                     </div>
+                    <Link href="/consulting#offerings" className="mt-8 inline-flex items-center gap-2 font-medium underline underline-offset-4">
+                        View all services <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
                 </div>
             </section>
-
-            <section className="bg-[#1a1a1a] text-white py-28 sm:py-36">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <blockquote className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] max-w-4xl">
-                        We believe software should be transparent, community-driven,
-                        and built to last, not locked behind walls.
-                    </blockquote>
-                    <p className="mt-8 text-sm tracking-[0.16em] uppercase text-white/50">
-                        Founding Principle
+            <section className="bg-[#1a1a1a] text-white py-20 sm:py-28">
+                <div className="max-w-[88rem] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
+                    <p className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] max-w-4xl">
+                        {COMPANY_MOTTO}
                     </p>
-                    <p className="mt-2 text-white/75">Buddhicintaka</p>
+                    <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+                        Founded in Bihar, Buddhicintaka builds software for publishing, identity
+                        and notifications. Our engineers maintain the Monkeys open-source community
+                        and develop cloud and AI applications for organisations.
+                    </p>
+                    <Link href="/about" className="mt-6 inline-flex items-center gap-2 font-medium underline underline-offset-4">
+                        About Buddhicintaka <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
                 </div>
             </section>
-
-            <section className="bg-[var(--bg-primary)] py-24 sm:py-28">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--text-primary)] mb-10">
-                        Trusted by our innovation partners
-                    </h2>
-                    <div className="flex flex-wrap gap-x-10 gap-y-4 text-[var(--text-secondary)]">
-                        <span>Microsoft</span>
-                        <span>Google</span>
-                        <span>Amazon</span>
-                        <span>Cisco</span>
-                        <span>Red Hat</span>
-                        <span>VMware</span>
-                    </div>
+            <section className="bg-[var(--bg-secondary)] py-16 sm:py-20">
+                <div className="max-w-[88rem] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
+                    <h2 className="text-3xl sm:text-5xl font-medium tracking-tight">In the press</h2>
+                    <Link href="/press" className="mt-6 inline-flex items-center gap-3 font-medium underline underline-offset-4">
+                        {PRESS_STORY_TITLE} <ArrowRight size={18} className="shrink-0" aria-hidden="true" />
+                    </Link>
                 </div>
             </section>
         </>

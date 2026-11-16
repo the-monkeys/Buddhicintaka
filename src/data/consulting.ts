@@ -5,48 +5,56 @@ export interface OfferItem {
 
 export const whatWeOffer: OfferItem[] = [
     {
-        title: "Custom software and web platforms",
-        body: "Design, build, and run web applications in Go, TypeScript, and Next.js, including admin tools, APIs, and customer-facing products.",
+        title: "Custom software and product development",
+        body: "We build web and mobile applications, customer portals, dashboards, APIs and backend services. We also extend existing products and develop internal tools for the people who run them.",
     },
     {
-        title: "Product engineering",
-        body: "Ship live products such as Monkeys and Aasriva, and take on similar builds: content platforms, marketplaces, and vendor portals.",
+        title: "Systems integration and data engineering",
+        body: "We connect applications through APIs and build data pipelines for reporting. For example, an approved request can update the finance system and notify the person who submitted it.",
     },
     {
-        title: "Identity and access",
-        body: "Authentication, organisation accounts, roles, and policy-based access, including work based on our IAM stack.",
+        title: "Cloud hosting and DevOps",
+        body: "We review usage and hosting costs, compare infrastructure options and plan migrations. We set up servers, containers, deployment pipelines, monitoring and backups, with ongoing operations where needed.",
+    },
+    {
+        title: "Maintenance, contracts and tenders",
+        body: "We take on software development contracts, annual maintenance agreements and eligible tenders or RFPs. Support can cover bug fixes, dependency upgrades, performance improvements and new releases.",
+    },
+    {
+        title: "AI development and workflow automation",
+        body: "We build knowledge assistants that cite approved documents, extract data from forms and reports, and develop agents that carry out routine steps with human approval. We evaluate pilots on agreed examples before expanding them.",
+    },
+    {
+        title: "Identity and application security",
+        body: "We review architecture and code and implement authentication, single sign-on, multi-factor authentication and access policies. Monkeys Identity is our open-source identity and access project.",
     },
     {
         title: "Notifications and messaging",
-        body: "Email, push, SMS, and live updates so people hear about orders, events, and system changes when they should.",
+        body: "FreeRange Notify delivers application alerts by email, SMS, push and live in-app updates. We help teams connect reminders, order updates and operational alerts to their own systems.",
     },
     {
-        title: "Application security",
-        body: "Reviews of application architecture and code, hardening of auth, and secure defaults on software we deliver.",
+        title: "Technical AI training",
+        body: "Engineering students, faculty and software teams work with transformers, attention, small-model training, fine-tuning and evaluation. Applied sessions cover retrieval-augmented generation, AI agents and deployment.",
     },
     {
-        title: "AI features and workflow automation",
-        body: "Add practical AI to existing tools: drafting, document Q&A, routing, and automations around the software we build.",
+        title: "Practical AI training",
+        body: "Students, faculty and professionals can learn without a programming background. Sessions cover research, drafting, summarising documents, checking outputs and handling information responsibly.",
     },
     {
-        title: "Tech classes and training",
-        body: "Structured courses for teams on Go, TypeScript, full-stack delivery, and day-to-day engineering practice.",
+        title: "Engineering education and open-source collaboration",
+        body: "We teach full-stack development, Go APIs, cloud and DevOps, and data structures and algorithms with Java. We offer workshops, faculty development and project mentoring, including supervised contributions to Monkeys.",
     },
     {
-        title: "Workshops for campuses and professionals",
-        body: "Hands-on sessions on modern web, APIs, and practical AI for colleges, companies, and working groups.",
+        title: "Architecture and delivery consulting",
+        body: "We review existing systems, agree on requirements and define what a team needs to build, integrate or replace. Engagements can start with a technical assessment or a limited pilot.",
     },
     {
-        title: "Architecture and delivery consultancy",
-        body: "A clear build plan: what to ship first, how the pieces connect, and how to keep the system maintainable.",
+        title: "Social media management",
+        body: "We manage Instagram and X accounts for businesses and institutions, including content planning and publishing.",
     },
     {
-        title: "Instagram and X for companies",
-        body: "Account management and a consistent posting rhythm for organisations that do not want an in-house social team.",
-    },
-    {
-        title: "GeM-aligned software work",
-        body: "Software development, training, and application security work as a registered Government e-Marketplace vendor.",
+        title: "Government procurement and IT hardware",
+        body: "Through the Government e-Marketplace, we participate in eligible bids for software, training and application security. We also supply branded IT hardware and coordinate manufacturer warranty support.",
     },
 ];
 
@@ -56,15 +64,16 @@ export interface TopicPage {
     description: string;
     lede: string;
     focus: OfferItem[];
+    related: { label: string; href: string };
 }
 
 export const consultingPages: TopicPage[] = [
     {
         slug: "agentic-modernization",
-        title: "Agentic modernization",
-        description:
-            "Add practical AI to the software people already use: drafting, document Q&A, routing, and automations. Buddhicintaka, Muzaffarpur, Bihar.",
-        lede: "We put AI where work already happens. That means features inside your apps, not a separate science project.",
+        title: "AI agents for existing applications",
+        description: "Build supervised AI agents into existing applications for document search, drafting and request routing. Define approvals and evaluate results before deployment.",
+        lede: "We add AI to the tools your team already uses. A pilot starts with a specific task, the documents it can use and the decisions a person must approve.",
+        related: { label: "AI and document processing", href: "/technology/ai-and-data" },
         focus: [
             {
                 title: "AI inside existing tools",
@@ -82,10 +91,10 @@ export const consultingPages: TopicPage[] = [
     },
     {
         slug: "workflow-transformation",
-        title: "Business workflow transformation",
-        description:
-            "Replace spreadsheet and email loops with web apps, APIs, and notifications. Custom software from Buddhicintaka in Bihar.",
-        lede: "Most stuck work is a process with no home. We give it a screen, an API, and a notification when something moves.",
+        title: "Business workflow automation",
+        description: "Replace spreadsheet and email handoffs with approval workflows, internal dashboards and integrations that track requests from submission to completion.",
+        lede: "A shared request portal lets people submit a request, review the decision and track its status. We connect it to the systems that already hold the relevant records.",
+        related: { label: "Application development", href: "/technology/applications" },
         focus: [
             {
                 title: "Internal tools",
@@ -97,16 +106,16 @@ export const consultingPages: TopicPage[] = [
             },
             {
                 title: "Integrations",
-                body: "Connect the new app to mail, payments, shipping, or the systems you already pay for, without a sprawl of one-off scripts.",
+                body: "Connect the new app to mail, payments, shipping, or the systems you already pay for, through documented interfaces.",
             },
         ],
     },
     {
         slug: "cybersecurity",
-        title: "Cybersecurity",
-        description:
-            "Application security, identity, and access control for software we design and review. Buddhicintaka, Muzaffarpur, Bihar.",
-        lede: "We treat security as part of the build: who can sign in, what they can do, and how the application is put together.",
+        title: "Application security consulting",
+        description: "Review authentication, access controls and software architecture. Get concrete engineering changes and a delivery plan for the application your team operates.",
+        lede: "We review how people sign in, what information they can access and where controls belong in an application's design.",
+        related: { label: "Monkeys Identity", href: "/products/monkeys-identity" },
         focus: [
             {
                 title: "Identity and access",
@@ -124,22 +133,22 @@ export const consultingPages: TopicPage[] = [
     },
     {
         slug: "people-and-performance",
-        title: "People and performance",
-        description:
-            "Tech classes, campus workshops, and team training in modern web, Go, TypeScript, and practical AI. Buddhicintaka, Bihar.",
-        lede: "Software sticks when people can run it. We teach the stack we use, in rooms and on calls, for campuses and companies.",
+        title: "AI training for engineers and non-technical teams",
+        description: "Compare technical AI courses in transformers, model training and evaluation with practical AI workshops for students, faculty and professionals.",
+        lede: "We design courses for students, faculty and working teams. The technical track covers how AI systems are built. The practical track focuses on using AI in everyday work.",
+        related: { label: "Workshops and early careers", href: "/early-careers" },
         focus: [
             {
-                title: "Team courses",
-                body: "Go, TypeScript, Next.js, and delivery habits your engineers can use on Monday.",
+                title: "Engineering track",
+                body: "Participants work with transformers, attention, model training and evaluation. They can also build a document search application, connect an agent to tools and deploy a model.",
             },
             {
-                title: "Campus and professional workshops",
-                body: "Short, hands-on sessions on APIs, modern web, and practical AI for students and working groups.",
+                title: "Non-technical track",
+                body: "Participants practise research, drafting, summarisation and fact-checking with AI tools. Exercises cover privacy and reviewing results before using them.",
             },
             {
-                title: "Learn while we build",
-                body: "Pair with your team on a live codebase so the training is the project, not a slide deck.",
+                title: "Workshops and mentoring",
+                body: "We offer faculty development, software engineering workshops and supervised open-source projects. We agree on prerequisites, exercises and delivery format with each group.",
             },
         ],
     },
@@ -148,64 +157,64 @@ export const consultingPages: TopicPage[] = [
 export const howWeWorkPages: TopicPage[] = [
     {
         slug: "collaborative",
-        title: "Collaborative",
-        description:
-            "How Buddhicintaka works with your team: shared repos, clear reviews, and software you can keep after we leave.",
-        lede: "We work in the open with your people. You see the code, the decisions, and the next change.",
+        title: "Software project planning and reviews",
+        description: "See how we turn a client's requirements into agreed milestones, testable deliverables and working software their team can review.",
+        lede: "We start with the people who use the system. Together we identify the problem, agree on the scope and decide how to test the result.",
+        related: { label: "Architecture and delivery consulting", href: "/consulting#offerings" },
         focus: [
             {
-                title: "Shared workspace",
-                body: "Repositories, reviews, and a written trail of what changed and why.",
+                title: "Discovery",
+                body: "We review the existing process, the systems involved and the people who will use the software.",
             },
             {
-                title: "Your team stays in the loop",
-                body: "We do not disappear behind a black box. Pairing and walkthroughs are part of delivery.",
+                title: "Scope and milestones",
+                body: "We agree on the deliverables, the expected effort and what a working result should look like.",
             },
             {
-                title: "Handover that works",
-                body: "Docs and ownership so you can run the system after the build, including open-source pieces where they fit.",
+                title: "Reviews",
+                body: "Clients can review working software and give feedback while changes are still small. We record decisions alongside the work.",
             },
         ],
     },
     {
         slug: "bridge",
-        title: "Bridge",
-        description:
-            "Software from Muzaffarpur, Bihar, used across India. Buddhicintaka connects local delivery with nationwide products.",
-        lede: "We are based in Muzaffarpur and we ship for use across India. Local delivery, national reach.",
+        title: "Remote software development from Patna and Bangalore",
+        description: "Learn how our fully remote engineering team coordinates code reviews, client walkthroughs and open-source contributions across Patna and Bangalore.",
+        lede: "Our developers work remotely. Most are based in Patna, Bihar, and Bangalore. Shared repositories and written reviews keep work moving across locations.",
+        related: { label: "Meet our engineering community", href: "/team" },
         focus: [
             {
-                title: "Built in India",
-                body: "Programming, application work, security, and training are done in India. Class-I local supplier, 100% local content.",
+                title: "Day-to-day engineering",
+                body: "Developers use issues to describe work and pull requests to explain proposed changes. Maintainers review the changes before they are merged.",
             },
             {
-                title: "Products already live nationwide",
-                body: "Monkeys and Aasriva are used beyond Bihar. New work can follow the same pattern.",
+                title: "Working with clients",
+                body: "Walkthroughs give the client team time to try a feature, ask questions and agree on the next change.",
             },
             {
-                title: "Public and private work",
-                body: "GeM-registered vendor for software, training, and application security, plus direct product and consulting work.",
+                title: "Open-source contributions",
+                body: "Monkeys contributors use the same public repositories to report issues, improve documentation and submit code for review.",
             },
         ],
     },
     {
         slug: "vital",
-        title: "Vital",
-        description:
-            "Identity, notifications, and platforms that have to keep running. Essential software from Buddhicintaka.",
-        lede: "We focus on the systems people notice when they break: login, messages, and the product in production.",
+        title: "Software handover and maintenance",
+        description: "Learn what clients receive at release, from tested code and deployment instructions to documentation, maintenance and agreed support terms.",
+        lede: "At handover, the team taking ownership needs the source code, deployment instructions and a clear understanding of support arrangements.",
+        related: { label: "Cloud operations and deployment", href: "/technology/cloud" },
         focus: [
             {
-                title: "Identity that holds",
-                body: "Accounts, roles, and access rules designed so the wrong person does not walk in.",
+                title: "Testing and release",
+                body: "We test the agreed workflows and deploy the application to the chosen infrastructure.",
             },
             {
-                title: "Notifications that arrive",
-                body: "The message after an order, an event, or a failure, through channels you choose.",
+                title: "Documentation",
+                body: "We document how to configure, run and maintain the software so the team can operate it after launch.",
             },
             {
-                title: "Software that stays up",
-                body: "Operate and maintain what we ship, with logs, backups, and a path to fix what fails.",
+                title: "Ongoing maintenance",
+                body: "Where support is agreed, we handle fixes, dependency updates, performance reviews and subsequent releases.",
             },
         ],
     },

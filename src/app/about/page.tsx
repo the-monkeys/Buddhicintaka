@@ -1,3 +1,5 @@
+import { pageMetadata } from "../../data/pageMetadata";
+import Link from "next/link";
 import { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -5,24 +7,17 @@ import { JsonLd } from "../../components/JsonLd";
 import { aboutPageJsonLd, breadcrumbJsonLd } from "../../data/jsonLd";
 import {
     COMPANY_ADDRESS_LINES,
-    COMPANY_DESCRIPTION,
     COMPANY_GST,
     COMPANY_LEGAL_NAME,
+    COMPANY_MOTTO,
     PRODUCTS,
 } from "../../data/company";
 
-export const metadata: Metadata = {
-    title: "About",
-    description: COMPANY_DESCRIPTION,
-    alternates: { canonical: "/about" },
-    openGraph: {
-        title: "About Buddhicintaka",
-        description: COMPANY_DESCRIPTION,
-        url: "/about",
-        type: "website",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/about",
+    "About our technology company in Bihar",
+    "Founded in Muzaffarpur in 2025, Buddhicintaka builds publishing, notification and identity platforms. Meet the company and its engineering team in Patna and Bangalore.",
+);
 
 const shipped = [
     {
@@ -78,40 +73,38 @@ export default function AboutPage() {
             />
             <JsonLd data={aboutPageJsonLd()} />
 
-            <section className="grid lg:grid-cols-12 lg:min-h-[100svh]">
-                <div className="lg:col-span-5 flex flex-col justify-end px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 pb-14 lg:py-24">
-                    <h1 className="text-[2.7rem] sm:text-5xl md:text-6xl xl:text-[4.35rem] font-medium tracking-tight leading-[1.05] text-[var(--text-primary)] max-w-md">
-                        From Muzaffarpur.
-                        <br />
-                        Built for India.
+            <section className="pt-28 pb-14 sm:pt-36 sm:pb-20">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+                    <h1 className="text-[clamp(2.15rem,10vw,2.7rem)] sm:text-5xl md:text-6xl xl:text-[4.35rem] font-medium tracking-tight leading-[1.05] text-[var(--text-primary)]">
+                        About Buddhicintaka
                     </h1>
                     <span className="mt-8 block w-10 h-[2px] bg-[var(--brand)]" />
-                    <p className="mt-8 text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)] max-w-md">
-                        {COMPANY_LEGAL_NAME} designs, develops, and operates
-                        software from Bihar. The work is used across the
-                        country.
+                    <p className="mt-8 text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)] max-w-2xl">
+                        {COMPANY_LEGAL_NAME} is a technology company founded in Muzaffarpur,
+                        Bihar, in 2025. We develop Monkeys, FreeRange Notify and Monkeys
+                        Identity, and work with OSDuo Tech LLP on the Aasriva marketplace.
                     </p>
-                </div>
-                <div className="lg:col-span-7 relative h-[62vh] sm:h-[70vh] lg:h-auto lg:min-h-[100svh]">
-                    <Image
-                        src="/team/dave.jpg"
-                        alt="Dave, Managing Director of Buddhicintaka"
-                        fill
-                        priority
-                        className="object-cover object-[82%_16%]"
-                        sizes="(max-width: 1024px) 100vw, 58vw"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent" />
-                    <p className="absolute bottom-5 left-5 sm:left-8 text-sm text-white">
-                        Dave, Managing Director
+                    <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-secondary)]">
+                        We describe Buddhicintaka as Bihar’s largest technology company.
+                        Our fully remote team works primarily from Patna and Bangalore,
+                        building products, maintaining open-source projects and teaching
+                        the engineering skills behind them.
                     </p>
+                    <nav aria-label="About the company" className="mt-6 flex max-w-2xl flex-wrap gap-x-6 gap-y-3 font-medium underline underline-offset-4">
+                        <Link href="/products">Our products</Link>
+                        <Link href="/leadership">Leadership</Link>
+                        <Link href="/company/history">Company history</Link>
+                        <Link href="/how-we-work">How we work</Link>
+                        <Link href="/company/culture">Culture</Link>
+                        <Link href="/company/inclusion">Inclusion</Link>
+                    </nav>
                 </div>
             </section>
 
             <section className="bg-[var(--bg-secondary)] py-24 sm:py-32">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] text-[var(--text-primary)] max-w-2xl mb-14">
-                        Two products, already live.
+                        Our products
                     </h2>
                     <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
                         {shipped.map((item) => (
@@ -155,13 +148,13 @@ export default function AboutPage() {
 
             <section className="bg-[#1a1a1a] text-white py-24 sm:py-32">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <blockquote className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] max-w-4xl">
-                        We believe software should be transparent, community-driven,
-                        and built to last, not locked behind walls.
-                    </blockquote>
-                    <p className="mt-8 text-sm tracking-[0.16em] uppercase text-white/50">
-                        Founding Principle
+                    <p className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.15] max-w-4xl">
+                        {COMPANY_MOTTO}
                     </p>
+                    <p className="mt-8 text-sm tracking-[0.16em] uppercase text-white/50">
+                        Our motto
+                    </p>
+                    <Link href="/company/purpose" className="mt-6 inline-block underline underline-offset-4">Our purpose</Link>
                 </div>
             </section>
 
@@ -185,7 +178,7 @@ export default function AboutPage() {
                         ) : null}
                     </div>
                     <div className="lg:col-span-5 lg:col-start-8">
-                        <a
+                        <Link
                             href="/contact"
                             className="inline-flex items-center gap-2 pl-6 pr-2 py-2.5 text-sm font-semibold text-white rounded-full bg-[var(--cta)] hover:bg-[var(--cta-hover)] transition-colors"
                         >
@@ -193,7 +186,7 @@ export default function AboutPage() {
                             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                                 <ArrowRight className="w-4 h-4" />
                             </span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

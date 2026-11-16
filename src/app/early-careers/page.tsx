@@ -1,23 +1,19 @@
+import { notFound } from "next/navigation";
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
 import { CompanyStoryLayout } from "../../components/company/CompanyStoryLayout";
 import { getCompanyStory } from "../../data/people";
 
 const page = getCompanyStory("early-careers");
 
-export const metadata: Metadata = {
-    title: page?.title ?? "Early careers",
-    description: page?.description,
-    alternates: { canonical: "/early-careers" },
-    openGraph: {
-        title: "Early careers | Buddhicintaka",
-        description: page?.description,
-        url: "/early-careers",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/early-careers",
+    "Engineering workshops and early careers",
+    "Start contributing to open-source software, explore AI training tracks or find early-career opportunities with our remote engineering team.",
+);
 
 export default function EarlyCareersPage() {
-    if (!page) return null;
+    if (!page) notFound();
     return (
         <CompanyStoryLayout
             eyebrow={page.eyebrow}

@@ -1,28 +1,26 @@
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { EnquiryForm } from "./EnquiryForm";
 import { JsonLd } from "../../components/JsonLd";
 import { breadcrumbJsonLd } from "../../data/jsonLd";
 import {
+    COMPANY_ADDRESS_LINES,
     COMPANY_ADDRESS_ONE_LINE,
     COMPANY_EMAIL,
+    COMPANY_X_HANDLE,
+    COMPANY_X_URL,
     COMPANY_LEGAL_NAME,
+    COMPANY_PHONE_DISPLAY,
     COMPANY_PHONE_E164,
     SITE_URL,
 } from "../../data/company";
 
-export const metadata: Metadata = {
-    title: "Contact",
-    description:
-        "Contact Buddhicintaka (OPC) Private Limited in Phulwaria, Paroo, Muzaffarpur, Bihar. Email, phone, and registered office.",
-    alternates: { canonical: "/contact" },
-    openGraph: {
-        title: "Contact | Buddhicintaka",
-        description:
-            "Email, phone, and registered office of Buddhicintaka in Muzaffarpur, Bihar.",
-        url: "/contact",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/contact",
+    "Contact our software engineering team",
+    "Email Buddhicintaka about a software project, training or cloud services. Find our phone number, registered office in Bihar and official X account.",
+);
 
 const Contact = () => {
     return (
@@ -51,14 +49,14 @@ const Contact = () => {
                 }}
             />
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="grid md:grid-cols-2 gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
                     <div>
                         <p className="section-label mb-5">Contact</p>
                         <h1 className="text-4xl md:text-5xl font-medium text-[var(--text-primary)] mb-6 tracking-tight">
                             Get in touch.
                         </h1>
                         <p className="text-lg text-[var(--text-secondary)] mb-12 leading-relaxed">
-                            Write to us, call, or visit.
+                            For project enquiries, email us or call. You can also connect with Buddhicintaka on X.
                         </p>
 
                         <div className="space-y-8">
@@ -66,15 +64,15 @@ const Contact = () => {
                                 <div className="w-12 h-12 bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent)] shrink-0">
                                     <Mail className="w-5 h-5" />
                                 </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                <div className="min-w-0">
+                                    <h2 className="text-lg font-bold text-[var(--text-primary)] mb-1">
                                         Email
-                                    </h4>
+                                    </h2>
                                     <a
-                                        href="mailto:mail.themonkeys.life@gmail.com"
-                                        className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+                                        href={`mailto:${COMPANY_EMAIL}`}
+                                        className="[overflow-wrap:anywhere] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                                     >
-                                        mail.themonkeys.life@gmail.com
+                                        {COMPANY_EMAIL}
                                     </a>
                                 </div>
                             </div>
@@ -83,15 +81,15 @@ const Contact = () => {
                                 <div className="w-12 h-12 bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent)] shrink-0">
                                     <Phone className="w-5 h-5" />
                                 </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                <div className="min-w-0">
+                                    <h2 className="text-lg font-bold text-[var(--text-primary)] mb-1">
                                         Phone
-                                    </h4>
+                                    </h2>
                                     <a
-                                        href="tel:+916203096513"
-                                        className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+                                        href={`tel:${COMPANY_PHONE_E164}`}
+                                        className="[overflow-wrap:anywhere] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
                                     >
-                                        +91 62030 96513
+                                        {COMPANY_PHONE_DISPLAY}
                                     </a>
                                     <p className="text-sm text-[var(--text-tertiary)] mt-1">
                                         Mon-Fri, 9am-6pm IST
@@ -100,70 +98,35 @@ const Contact = () => {
                             </div>
 
                             <div className="flex items-start gap-6">
+                                <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-[var(--accent-subtle)] text-[var(--accent)]">
+                                    <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                                </div>
+                                <div className="min-w-0">
+                                    <h2 className="mb-1 text-lg font-bold">X (Twitter)</h2>
+                                    <a href={COMPANY_X_URL} className="text-[var(--text-secondary)] hover:underline">
+                                        {COMPANY_X_HANDLE}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-6">
                                 <div className="w-12 h-12 bg-[var(--accent-subtle)] flex items-center justify-center text-[var(--accent)] shrink-0">
                                     <MapPin className="w-5 h-5" />
                                 </div>
-                                <div>
-                                    <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                <div className="min-w-0">
+                                    <h2 className="text-lg font-bold text-[var(--text-primary)] mb-1">
                                         Office
-                                    </h4>
+                                    </h2>
                                     <p className="text-[var(--text-secondary)]">
-                                        Phulwaria, Paroo<br />
-                                        Muzaffarpur<br />
-                                        Bihar 843107, India
+                                        {COMPANY_ADDRESS_LINES.map((line) => <span key={line} className="block">{line}</span>)}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-[var(--bg-secondary)] p-8 md:p-10 border border-[var(--border-primary)]">
-                        <form className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm font-medium text-[var(--text-secondary)]">
-                                        Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        className="w-full px-4 py-3 rounded-lg border border-[var(--border-primary)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-subtle)] outline-none transition-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]"
-                                        placeholder="Your name"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-medium text-[var(--text-secondary)]">
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        className="w-full px-4 py-3 rounded-lg border border-[var(--border-primary)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-subtle)] outline-none transition-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]"
-                                        placeholder="you@organisation.com"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-[var(--text-secondary)]">
-                                    Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    rows={6}
-                                    className="w-full px-4 py-3 rounded-lg border border-[var(--border-primary)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-subtle)] outline-none transition-all bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] resize-none"
-                                    placeholder="How can we help?"
-                                ></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="w-full py-4 bg-[var(--cta)] text-white font-semibold rounded-full hover:bg-[var(--cta-hover)] transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                            >
-                                Send message
-                                <Send className="w-4 h-4" />
-                            </button>
-                        </form>
+                    <div className="min-w-0 bg-[var(--bg-secondary)] p-5 sm:p-8 lg:p-10 border border-[var(--border-primary)]">
+                        <EnquiryForm />
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ export interface Product {
     tags: string[];
     link: string;
     repoUrl: string;
+    detail?: { slug: string; features: { title: string; body: string }[] };
 }
 
 export const products: Product[] = [
@@ -36,10 +37,18 @@ export const products: Product[] = [
     },
     {
         id: "iam",
-        title: "Monkeys IAM",
+        detail: {
+            slug: "monkeys-identity",
+            features: [
+                { title: "Organisation accounts", body: "Applications can manage users and permissions for separate organisations. Teams can define access by role, policy and attributes." },
+                { title: "Sign-in and federation", body: "The service supports single sign-on through OIDC and SAML, as well as multi-factor authentication for accounts." },
+                { title: "Sessions and auditing", body: "Administrators can track sessions and devices and use audit records to review changes in access." },
+            ],
+        },
+        title: "Monkeys Identity",
         shortDescription: "Identity & Access Management",
         description:
-            "IAM system with Zero Trust security, RBAC/ABAC/PBAC access control, MFA, OIDC/SAML federation, and audit trails.",
+            "Identity and access management for applications, including single sign-on, multi-factor authentication and policy-based permissions.",
         icon: Shield,
         tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
         link: "https://identity.monkeys.support/",
@@ -47,10 +56,18 @@ export const products: Product[] = [
     },
     {
         id: "notify",
+        detail: {
+            slug: "freerange-notify",
+            features: [
+                { title: "Delivery channels", body: "Applications can send order updates, reminders and service alerts by email, SMS and push. Server-sent events deliver updates while someone is using the application." },
+                { title: "Application integration", body: "Each application connects through an API key. Teams can register devices and manage notification preferences for their users." },
+                { title: "Operations", body: "The service exposes metrics for Prometheus and Grafana so teams can monitor their notification infrastructure." },
+            ],
+        },
         title: "FreeRange Notify",
         shortDescription: "Universal Notification Service",
         description:
-            "Generic, pluggable notification service with multi-channel delivery - push, email, SMS, and real-time Server-Sent Events. Multi-tenant with API key auth.",
+            "Application notifications by email, SMS, push and live in-app updates. Teams can integrate the service with their own products through an API.",
         icon: Bell,
         tags: ["Go", "Fiber", "Redis", "Elasticsearch"],
         link: "https://freerangenotify.vercel.app",
@@ -68,3 +85,7 @@ export const products: Product[] = [
         repoUrl: "https://github.com/the-monkeys",
     }
 ];
+
+export const developerProducts = products.flatMap((product) =>
+    product.detail ? [{ ...product, detail: product.detail }] : [],
+);

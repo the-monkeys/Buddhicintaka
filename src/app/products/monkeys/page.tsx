@@ -1,22 +1,15 @@
+import { pageMetadata } from "../../../data/pageMetadata";
 import { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "../../../components/JsonLd";
 import { monkeysProductJsonLd } from "../../../data/jsonLd";
 
-export const metadata: Metadata = {
-    title: "Monkeys",
-    description:
-        "Monkeys is an open-source community and content platform by Buddhicintaka in Muzaffarpur, Bihar, for research, articles, events, groups, and Studio.",
-    alternates: { canonical: "/products/monkeys" },
-    openGraph: {
-        title: "Monkeys | Buddhicintaka",
-        description:
-            "Open-source community and content platform by Buddhicintaka in Muzaffarpur, Bihar.",
-        url: "/products/monkeys",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/products/monkeys",
+    "Monkeys open-source publishing and community platform",
+    "Discover Monkeys for publishing, collaborative writing, groups and events. Explore the live platform and its public source repositories.",
+);
 
 const features = [
     {

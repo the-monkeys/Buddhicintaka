@@ -1,22 +1,15 @@
+import { pageMetadata } from "../../data/pageMetadata";
+import Link from "next/link";
 import { Metadata } from "next";
-import Image from "next/image";
 import { JsonLd } from "../../components/JsonLd";
 import { breadcrumbJsonLd } from "../../data/jsonLd";
 import { SITE_URL } from "../../data/company";
 
-export const metadata: Metadata = {
-    title: "Leadership",
-    description:
-        "Dave is Managing Director of Buddhicintaka (OPC) Private Limited, a technology company in Muzaffarpur, Bihar.",
-    alternates: { canonical: "/leadership" },
-    openGraph: {
-        title: "Leadership | Buddhicintaka",
-        description:
-            "Dave, Managing Director of Buddhicintaka (OPC) Private Limited, Muzaffarpur, Bihar.",
-        url: "/leadership",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/leadership",
+    "Leadership and the open-source community in Bihar",
+    "Meet Dave, Managing Director of Buddhicintaka, and the developers who maintain its open-source community, publishing platform and software projects in Bihar.",
+);
 
 export default function LeadershipPage() {
     return (
@@ -39,7 +32,6 @@ export default function LeadershipPage() {
                         url: SITE_URL,
                     },
                     url: `${SITE_URL}/leadership`,
-                    image: `${SITE_URL}/team/dave.jpg`,
                     address: {
                         "@type": "PostalAddress",
                         addressLocality: "Muzaffarpur",
@@ -48,8 +40,8 @@ export default function LeadershipPage() {
                     },
                 }}
             />
-            <section className="grid lg:grid-cols-12 lg:min-h-[100svh]">
-                <div className="lg:col-span-5 flex flex-col justify-end px-6 sm:px-8 lg:px-12 xl:px-16 pt-32 pb-14 lg:py-24">
+            <section className="pt-28 pb-16 sm:pt-36 sm:pb-20">
+                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <p className="section-label mb-5">Leadership</p>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.08] text-[var(--text-primary)]">
                         Dave
@@ -58,22 +50,35 @@ export default function LeadershipPage() {
                         Managing Director
                     </p>
                     <span className="mt-8 block w-10 h-[2px] bg-[var(--brand)]" />
-                    <p className="mt-8 text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)] max-w-md">
-                        Dave leads Buddhicintaka (OPC) Private Limited from
-                        Muzaffarpur, Bihar. The company designs, develops, and
-                        operates software used across India, including Monkeys
-                        and Aasriva.
+                    <p className="mt-8 text-lg sm:text-xl leading-relaxed text-[var(--text-secondary)] max-w-2xl">
+                        Dave leads Buddhicintaka, the software company behind Monkeys and
+                        FreeRange Notify. His work brings together product engineering,
+                        technical education and the company’s open-source community.
                     </p>
                 </div>
-                <div className="lg:col-span-7 relative h-[62vh] sm:h-[70vh] lg:h-auto lg:min-h-[100svh]">
-                    <Image
-                        src="/team/dave.jpg"
-                        alt="Dave, Managing Director of Buddhicintaka"
-                        fill
-                        priority
-                        className="object-cover object-[82%_16%]"
-                        sizes="(max-width: 1024px) 100vw, 58vw"
-                    />
+            </section>
+            <section className="bg-[var(--bg-secondary)] py-16 sm:py-20">
+                <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:px-12">
+                    <h2 className="mb-6 text-3xl font-medium tracking-tight sm:text-4xl">
+                        Open-source leadership in Bihar
+                    </h2>
+                    <div className="max-w-2xl space-y-5 leading-relaxed text-[var(--text-secondary)]">
+                        <p>
+                            We lead Monkeys, which we consider Bihar’s largest open-source
+                            technology community. Its maintainers develop the publishing platform,
+                            review contributions and organise events where people can
+                            share their work.
+                        </p>
+                        <p>
+                            The work is public. A developer can follow a feature from its
+                            first discussion through code review, or contribute to the
+                            frontend, backend and notification services.
+                        </p>
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 font-medium text-[var(--text-primary)] underline underline-offset-4">
+                            <Link href="/team">Meet the maintainers</Link>
+                            <a href="https://github.com/the-monkeys">Explore the repositories</a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

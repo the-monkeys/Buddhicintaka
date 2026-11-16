@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import { COMPANY_X_URL } from "../../data/company";
 
 const Footer = () => {
     return (
@@ -10,24 +11,25 @@ const Footer = () => {
                             BUDDHICINTAKA
                         </Link>
                         <p className="text-sm text-[#7a7a7a]">
-                            Software from Muzaffarpur, Bihar. Building for India.
+                            Software engineering, cloud infrastructure and applied AI.
                         </p>
                     </div>
                     <div>
                         <h3 className="text-white text-sm font-semibold mb-4">Company</h3>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="/about" className="hover:text-white">About us</a></li>
-                            <li><a href="/careers" className="hover:text-white">Careers</a></li>
-                            <li><a href="/contact" className="hover:text-white">Contact</a></li>
+                            <li><Link href="/about" className="hover:text-white">About us</Link></li>
+                            <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
+                            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+                            <li><a href={COMPANY_X_URL} className="hover:text-white">Buddhicintaka on X</a></li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-white text-sm font-semibold mb-4">What we do</h3>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="/products" className="hover:text-white">Products</a></li>
-                            <li><a href="/consulting" className="hover:text-white">Consulting</a></li>
-                            <li><a href="/technology" className="hover:text-white">Technology</a></li>
-                            <li><a href="/industries" className="hover:text-white">Industries</a></li>
+                            <li><Link href="/products" className="hover:text-white">Products</Link></li>
+                            <li><Link href="/consulting" className="hover:text-white">Consulting</Link></li>
+                            <li><Link href="/technology" className="hover:text-white">Technology</Link></li>
+                            <li><Link href="/industries" className="hover:text-white">Industries</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -43,8 +45,8 @@ const Footer = () => {
                                     Articles
                                 </a>
                             </li>
-                            <li><a href="/press" className="hover:text-white">Press releases</a></li>
-                            <li><a href="/investors" className="hover:text-white">Investors</a></li>
+                            <li><Link href="/press" className="hover:text-white">Press releases</Link></li>
+                            <li><Link href="/investors" className="hover:text-white">Investors</Link></li>
                         </ul>
                     </div>
                 </div>

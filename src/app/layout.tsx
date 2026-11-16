@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import { Navbar } from "../components/navbar/Navbar";
@@ -10,17 +10,20 @@ import {
     COMPANY_DEFAULT_TITLE,
     COMPANY_DESCRIPTION,
     COMPANY_SHORT_NAME,
+    COMPANY_X_HANDLE,
     SITE_URL,
 } from "../data/company";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -32,16 +35,14 @@ export const metadata: Metadata = {
   description: COMPANY_DESCRIPTION,
   keywords: [
     "Buddhicintaka",
-    "Muzaffarpur",
-    "Bihar",
-    "India",
     "software company",
     "open source",
     "Monkeys",
     "Aasriva",
     "GeM",
     "Orbitor",
-    "software company Bihar",
+    "software engineering",
+    "AI workflow automation",
   ],
   authors: [{ name: COMPANY_SHORT_NAME, url: SITE_URL }],
   creator: COMPANY_SHORT_NAME,
@@ -56,9 +57,8 @@ export const metadata: Metadata = {
     siteName: COMPANY_SHORT_NAME,
   },
   twitter: {
+    site: COMPANY_X_HANDLE,
     card: "summary_large_image",
-    title: COMPANY_DEFAULT_TITLE,
-    description: COMPANY_DESCRIPTION,
   },
 };
 
@@ -68,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html lang="en-IN" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

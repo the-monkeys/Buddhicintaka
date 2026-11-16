@@ -1,28 +1,21 @@
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { CollectionJsonLd } from "../../components/JsonLd";
 import { consultingPages, whatWeOffer } from "../../data/consulting";
 
-export const metadata: Metadata = {
-    title: "Consulting",
-    description:
-        "Software, training, application security, AI workflows, and product engineering from Buddhicintaka in Muzaffarpur, Bihar.",
-    alternates: { canonical: "/consulting" },
-    openGraph: {
-        title: "Consulting | Buddhicintaka",
-        description:
-            "Software, training, security, and AI workflows from Muzaffarpur, Bihar.",
-        url: "/consulting",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/consulting",
+    "Software consulting, AI engineering and training",
+    "Explore software development, cloud hosting and cost reviews, AI agents, technical education and maintenance contracts for businesses and institutions.",
+);
 
 export default function ConsultingPage() {
     return (
         <div>
             <CollectionJsonLd
                 name="Consulting"
-                description="Software, training, application security, AI workflows, and product engineering from Buddhicintaka in Muzaffarpur, Bihar."
+                description="Software architecture, application security, AI workflows and technical training from Buddhicintaka."
                 path="/consulting"
                 items={consultingPages.map((page) => ({
                     name: page.title,
@@ -33,10 +26,10 @@ export default function ConsultingPage() {
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <p className="section-label mb-5">Consulting</p>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-[var(--text-primary)] mb-6 tracking-tight leading-[1.1] max-w-3xl">
-                        Software, training, and the systems around them.
+                        Technology consulting
                     </h1>
                     <p className="text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                        From Muzaffarpur, Bihar. Built for use across India.
+                        We build and maintain software for businesses and institutions, connect their systems and train the people who use them.
                     </p>
                 </div>
             </section>
@@ -61,10 +54,10 @@ export default function ConsultingPage() {
                 </div>
             </section>
 
-            <section className="bg-[var(--bg-primary)] py-20 sm:py-28">
+            <section id="offerings" className="scroll-mt-20 bg-[var(--bg-primary)] py-20 sm:py-28">
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--text-primary)] max-w-2xl mb-14">
-                        What we can take on
+                        Our services
                     </h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
                         {whatWeOffer.map((item) => (

@@ -4,8 +4,8 @@
 :root {
   --brand: #ff4f3a;
   --brand-hover: #e64532;
-  --cta: #2ebf4f;
-  --cta-hover: #28a946;
+  --cta: #177333;
+  --cta-hover: #125e29;
 
   --navy: #1a1a1a;
   --navy-mid: #2a2a2a;
@@ -41,8 +41,8 @@
 [data-theme="dark"] {
   --brand: #ff6b5a;
   --brand-hover: #ff4f3a;
-  --cta: #2ebf4f;
-  --cta-hover: #28a946;
+  --cta: #177333;
+  --cta-hover: #125e29;
 
   --navy: #0d0d0d;
   --navy-mid: #1a1a1a;
@@ -92,6 +92,12 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 a:focus-visible,

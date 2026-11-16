@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../../data/pageMetadata";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TopicPageLayout } from "../../../components/services/TopicPageLayout";
@@ -15,17 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const page = getIndustryPage(slug);
     if (!page) return {};
-    return {
-        title: page.title,
-        description: page.description,
-        alternates: { canonical: `/industries/${page.slug}` },
-        openGraph: {
-            title: `${page.title} | Buddhicintaka`,
-            description: page.description,
-            url: `/industries/${page.slug}`,
-            locale: "en_IN",
-        },
-    };
+    return pageMetadata(`/industries/${page.slug}`, page.title, page.description);
 }
 
 export default async function IndustryTopicPage({ params }: PageProps) {
@@ -39,6 +30,7 @@ export default async function IndustryTopicPage({ params }: PageProps) {
             title={page.title}
             lede={page.lede}
             focus={page.focus}
+            related={page.related}
             path={`/industries/${page.slug}`}
             parent={{ name: "Industries", path: "/industries" }}
         />

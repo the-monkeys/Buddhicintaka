@@ -40,7 +40,7 @@ export const megaMenus: MegaPanel[] = [
                     { name: "Agentic modernization", href: "/consulting/agentic-modernization" },
                     { name: "Business workflow transformation", href: "/consulting/workflow-transformation" },
                     { name: "Cybersecurity", href: "/consulting/cybersecurity" },
-                    { name: "People and performance", href: "/consulting/people-and-performance" },
+                    { name: "Technical education and AI training", href: "/consulting/people-and-performance" },
                 ],
             },
             {
@@ -49,6 +49,8 @@ export const megaMenus: MegaPanel[] = [
                 links: [
                     { name: "Monkeys", href: "/products/monkeys" },
                     { name: "Aasriva", href: "/products/aasriva" },
+                    { name: "FreeRange Notify", href: "/products/freerange-notify" },
+                    { name: "Monkeys Identity", href: "/products/monkeys-identity" },
                 ],
             },
             {
@@ -89,16 +91,16 @@ export const megaMenus: MegaPanel[] = [
             title: "How we work",
             href: "/how-we-work",
             links: [
-                { name: "Collaborative", href: "/how-we-work/collaborative" },
-                { name: "Bridge", href: "/how-we-work/bridge" },
-                { name: "Vital", href: "/how-we-work/vital" },
+                { name: "Project planning and reviews", href: "/how-we-work/collaborative" },
+                { name: "Remote collaboration", href: "/how-we-work/bridge" },
+                { name: "Handover and support", href: "/how-we-work/vital" },
             ],
         },
         spotlight: {
             label: "Spotlight",
             title: "What we can take on",
             description:
-                "Software, training, security, and AI workflows from Muzaffarpur, used across India.",
+                "Application development, technical training, security reviews and AI workflow automation.",
             href: "/consulting",
             art: "consulting",
         },
@@ -149,7 +151,7 @@ export const megaMenus: MegaPanel[] = [
         spotlight: {
             label: "Spotlight",
             title: "Work with us",
-            description: "Remote-first roles at a software company based in Muzaffarpur, Bihar.",
+            description: "Explore roles on our fully remote engineering team.",
             href: "/careers",
             art: "people",
         },

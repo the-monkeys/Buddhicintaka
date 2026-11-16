@@ -1,22 +1,16 @@
+import { pageMetadata } from "../../data/pageMetadata";
+import Link from "next/link";
+import { ActionLink } from "../../components/ActionLink";
 import { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { CollectionJsonLd } from "../../components/JsonLd";
-import { whatWeOffer } from "../../data/consulting";
 import { industryPages } from "../../data/industries";
 
-export const metadata: Metadata = {
-    title: "Industries",
-    description:
-        "Buddhicintaka work in consumer retail, manufacturing, government, and technology media: Aasriva, GeM, and Monkeys, from Muzaffarpur, Bihar.",
-    alternates: { canonical: "/industries" },
-    openGraph: {
-        title: "Industries | Buddhicintaka",
-        description:
-            "Retail, manufacturing, government, and technology media work from Muzaffarpur, Bihar.",
-        url: "/industries",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/industries",
+    "Software for retail, manufacturing and government",
+    "See how our engineering work supports sellers, manufacturers, public-sector buyers and publishers through marketplaces, integrations and content platforms.",
+);
 
 export default function IndustriesPage() {
     return (
@@ -68,34 +62,12 @@ export default function IndustriesPage() {
                 </div>
             </section>
 
-            <section className="bg-[var(--bg-primary)] py-20 sm:py-28">
-                <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                    <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[var(--text-primary)] max-w-2xl mb-14">
-                        What we can take on
-                    </h2>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
-                        {whatWeOffer.map((item) => (
-                            <div key={item.title}>
-                                <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2">
-                                    {item.title}
-                                </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed">
-                                    {item.body}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                    <a
-                        href="/contact"
-                        className="mt-16 inline-flex items-center gap-2 pl-6 pr-2 py-2.5 text-sm font-semibold text-white rounded-full bg-[var(--cta)] hover:bg-[var(--cta-hover)] transition-colors"
-                    >
-                        Talk to us
-                        <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                            <ArrowRight className="w-4 h-4" />
-                        </span>
-                    </a>
-                </div>
-            </section>
+            <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-4 px-6 py-16 sm:px-8 lg:px-12">
+                <ActionLink href="/contact">Talk to us</ActionLink>
+                <Link href="/consulting#offerings" className="font-medium underline underline-offset-4">
+                    View all services
+                </Link>
+            </div>
         </div>
     );
 }

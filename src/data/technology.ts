@@ -3,10 +3,10 @@ import type { TopicPage } from "./consulting";
 export const technologyPages: TopicPage[] = [
     {
         slug: "applications",
-        title: "Applications",
-        description:
-            "Custom web applications and product engineering from Buddhicintaka in Muzaffarpur, Bihar. Go, TypeScript, and Next.js.",
+        title: "Custom applications and API development",
+        description: "Build customer portals, internal dashboards and APIs in Go and TypeScript. Explore our approach to application development and ongoing maintenance.",
         lede: "We design, build, and run web applications: the screens people use, the APIs behind them, and the admin tools that keep work moving.",
+        related: { label: "Software workflow automation", href: "/consulting/workflow-transformation" },
         focus: [
             {
                 title: "Customer-facing products",
@@ -24,52 +24,52 @@ export const technologyPages: TopicPage[] = [
     },
     {
         slug: "ai-and-data",
-        title: "Artificial intelligence and data",
-        description:
-            "Practical AI features and data in the software Buddhicintaka builds: search, drafting, routing, and document Q&A.",
-        lede: "We add AI where the work already lives, and we keep the data in systems we can inspect, not a pile of unmanaged files.",
+        title: "AI engineering and document search",
+        description: "Build knowledge assistants that cite sources, extract information from documents and automate routine work with supervised AI agents.",
+        lede: "We build document search, knowledge assistants and supervised workflows for organisations that need to use information across files and applications.",
+        related: { label: "AI agent consulting", href: "/consulting/agentic-modernization" },
         focus: [
             {
-                title: "Features in the product",
-                body: "Drafting, summaries, document Q&A, and routing inside the application your team already opens.",
+                title: "Knowledge search",
+                body: "A knowledge assistant searches permitted documents and links answers to source passages so the reader can check them.",
             },
             {
-                title: "Data that belongs to the app",
-                body: "Store, search, and show the records the product needs: users, content, orders, events, with clear ownership.",
+                title: "Document processing",
+                body: "We extract agreed fields from forms and reports and send uncertain results to a person for review.",
             },
             {
-                title: "Automation around delivery",
-                body: "Use AI on the edges of the build: labelling, first-pass review, and the boring steps between tickets.",
+                title: "Supervised agents",
+                body: "Agents can prepare updates or route requests between applications. We agree which steps need approval and evaluate the pilot against real examples.",
             },
         ],
     },
     {
         slug: "cloud",
-        title: "Cloud",
-        description:
-            "Package and run Buddhicintaka software with Docker on infrastructure we operate, or on infrastructure you name.",
-        lede: "We package what we ship so it can run on servers we operate and on infrastructure you already have. The application is the unit, not a lock-in to one vendor console.",
+        title: "Cloud hosting, DevOps and cost reviews",
+        description: "Review cloud costs, plan migrations and set up deployment pipelines, monitoring and backups for an application on your chosen infrastructure.",
+        lede: "We review how an application is hosted, compare options against its usage and budget, and plan the migration with the team that operates it.",
+        related: { label: "Software maintenance and handover", href: "/how-we-work/vital" },
         focus: [
             {
-                title: "Containers and deploys",
-                body: "Docker images, environment config, and a repeatable path from repository to a running service.",
+                title: "Deployment pipelines",
+                body: "We package applications in containers and set up pipelines to test changes and deploy releases.",
             },
             {
-                title: "Infrastructure we operate",
-                body: "Run the stack on servers we control, including data that stays on those machines when that is the requirement.",
+                title: "Managed infrastructure",
+                body: "We configure servers, monitoring, logging and backups, and agree on what ongoing support covers.",
             },
             {
-                title: "The same build elsewhere",
-                body: "If you name the host, we aim for the same application, same logs, same backup path.",
+                title: "Cloud cost reviews",
+                body: "We compare hosting costs against the resources the workload uses. The recommendation accounts for storage, traffic and support as well as compute.",
             },
         ],
     },
     {
         slug: "cyber-resilience",
-        title: "Cyber resilience",
-        description:
-            "Keep login, data, and recovery intact on software Buddhicintaka delivers: identity, application security, backups.",
-        lede: "Resilience here means the application still authenticates the right people, keeps data, and can be brought back after a failure.",
+        title: "Application resilience and recovery",
+        description: "Plan for service interruptions with reliable access controls, application hardening and tested backup and recovery procedures.",
+        lede: "We help teams protect access to their applications and recover data after an interruption. The work covers identity, secure configuration and restoring the systems that hold customer records.",
+        related: { label: "Application security consulting", href: "/consulting/cybersecurity" },
         focus: [
             {
                 title: "Identity that holds",
@@ -87,10 +87,10 @@ export const technologyPages: TopicPage[] = [
     },
     {
         slug: "digital-workplace",
-        title: "Digital workplace",
-        description:
-            "Internal tools, writing platforms, events, and digital cards so teams can work in one place. Buddhicintaka, Bihar.",
-        lede: "A digital workplace, for us, is software your people open every day: writing, events, groups, and the admin around them.",
+        title: "Digital workplace and collaboration software",
+        description: "Explore tools for shared writing, knowledge publishing, events and groups. See how these workflows work in our open-source community platform.",
+        lede: "We build software for people who write together, organise events and manage groups. The same workflows are available on our open-source publishing platform.",
+        related: { label: "Explore the community platform", href: "/products/monkeys" },
         focus: [
             {
                 title: "Writing and knowledge",
@@ -108,31 +108,31 @@ export const technologyPages: TopicPage[] = [
     },
     {
         slug: "mainframe",
-        title: "Mainframe",
-        description:
-            "Applications, APIs, and identity around the core systems you already run. Buddhicintaka does not operate mainframes.",
-        lede: "We do not take over a mainframe. If records still live there, we build the applications, APIs, and identity that sit around it.",
+        title: "Legacy application and mainframe integration",
+        description: "Connect web applications to existing mainframe systems through approved interfaces. Add modern sign-in and access rules around the records your business relies on.",
+        lede: "When records live on a mainframe, we can build a web application or API that uses the interfaces its operator provides. The existing operations team retains responsibility for the host.",
+        related: { label: "Application and API development", href: "/technology/applications" },
         focus: [
             {
                 title: "Around the core",
-                body: "Web apps and APIs that read and write through interfaces you already trust, without pretending we own the host.",
+                body: "Web applications can read or update records through the interfaces approved by the team operating the host.",
             },
             {
                 title: "Identity in front",
                 body: "Modern login and roles for the new layer, so access is explicit before a request reaches the core system.",
             },
             {
-                title: "A honest boundary",
+                title: "Operational scope",
                 body: "COBOL estates, capacity, and operations of the mainframe stay with whoever runs them today.",
             },
         ],
     },
     {
         slug: "networks",
-        title: "Networks",
-        description:
-            "How Buddhicintaka software talks: APIs, service-to-service auth, and notification paths. Not campus cabling or telecom.",
-        lede: "Network work here is how services connect: APIs, authentication between them, and the path a notification takes. We do not pull cable or run a carrier.",
+        title: "Service integration and notification APIs",
+        description: "Connect software services with APIs, service authentication and notification delivery. Explore email, SMS, push and live application updates.",
+        lede: "We connect applications to one another and to the services that deliver their messages. We agree on the API contract, access rules and delivery channel for each integration.",
+        related: { label: "Explore FreeRange Notify", href: "/products/freerange-notify" },
         focus: [
             {
                 title: "APIs between systems",

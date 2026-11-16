@@ -55,7 +55,7 @@ const EcosystemTree = () => {
 
                     {/* Branches */}
                     <div className="grid grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        {ecosystemTree.branches.map((branch, branchIdx) => (
+                        {ecosystemTree.branches.map((branch) => (
                             <div key={branch.label} className="flex flex-col items-center">
                                 {/* Vertical connector to branch */}
                                 <div className="w-px h-8 bg-[var(--border-secondary)]" />

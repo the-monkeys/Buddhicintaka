@@ -1,20 +1,15 @@
+import Link from "next/link";
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
+import { COMPANY_EMAIL } from "../../data/company";
 import * as motion from "motion/react-client";
 import { ArrowRight, Users, Heart, Zap } from "lucide-react";
 
-export const metadata: Metadata = {
-    title: "Careers",
-    description:
-        "Careers at Buddhicintaka (OPC) Private Limited. Remote-first roles at a software company based in Muzaffarpur, Bihar.",
-    alternates: { canonical: "/careers" },
-    openGraph: {
-        title: "Careers | Buddhicintaka",
-        description:
-            "Remote-first roles at Buddhicintaka, a software company based in Muzaffarpur, Bihar.",
-        url: "/careers",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/careers",
+    "Remote engineering and technology careers",
+    "Explore remote roles in backend engineering, frontend development, DevOps and technical writing. Read each role description and apply directly by email.",
+);
 
 const jobs = [
     {
@@ -64,7 +59,7 @@ const perks = [
     {
         icon: Heart,
         title: "Inclusive Culture",
-        description: "Remote-first, diverse, and supportive.",
+        description: "We welcome colleagues of all backgrounds and value their skills and contributions.",
     },
 ];
 
@@ -72,8 +67,8 @@ const Careers = () => {
     return (
         <section className="pt-28 pb-20 sm:pb-28 bg-[var(--bg-primary)]">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-                <div className="flex flex-col md:flex-row gap-16 mb-16">
-                    <div className="md:w-1/3">
+                <div className="flex flex-col lg:flex-row gap-16 mb-16">
+                    <div className="lg:w-1/3">
                         <p className="section-label mb-5">
                             Careers
                         </p>
@@ -81,8 +76,12 @@ const Careers = () => {
                             Build something meaningful with us.
                         </h1>
                         <p className="text-lg text-[var(--text-secondary)] mb-10 leading-relaxed">
-                            Join the team in Muzaffarpur, Bihar. Remote-first.
+                            We work entirely remotely. Most of our developers are based in Patna and Bangalore.
                         </p>
+
+                        <Link href="/early-careers" className="mb-8 inline-block font-medium underline underline-offset-4">
+                            Workshops and early-career opportunities
+                        </Link>
 
                         <div className="space-y-6">
                             {perks.map((perk) => {
@@ -106,7 +105,7 @@ const Careers = () => {
                         </div>
                     </div>
 
-                    <div className="md:w-2/3 grid gap-4">
+                    <div className="lg:w-2/3 grid gap-4">
                         {jobs.map((job, index) => (
                             <motion.div
                                 key={job.title}
@@ -136,7 +135,7 @@ const Careers = () => {
                                     </p>
                                 </div>
                                 <a
-                                    href={`mailto:mail.themonkeys.life@gmail.com?subject=Application: ${job.title}`}
+                                    href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(`Application: ${job.title}`)}`}
                                     className="px-5 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-hover)] transition-colors flex items-center gap-2 whitespace-nowrap"
                                 >
                                     Apply Now

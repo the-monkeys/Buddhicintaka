@@ -1,3 +1,4 @@
+import { pageMetadata } from "../../data/pageMetadata";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Github } from "lucide-react";
@@ -5,19 +6,11 @@ import { JsonLd } from "../../components/JsonLd";
 import { breadcrumbJsonLd } from "../../data/jsonLd";
 import { maintainers } from "../../data/people";
 
-export const metadata: Metadata = {
-    title: "Team",
-    description:
-        "Open-source maintainers of the Monkeys community at Buddhicintaka. Events by Gautam. Instagram marketing by Rohit Kumar Singh.",
-    alternates: { canonical: "/team" },
-    openGraph: {
-        title: "Team | Buddhicintaka",
-        description:
-            "Maintainers of the open-source Monkeys community. Events by Gautam. Instagram by Rohit Kumar Singh.",
-        url: "/team",
-        locale: "en_IN",
-    },
-};
+export const metadata: Metadata = pageMetadata(
+    "/team",
+    "Open-source maintainers and community team",
+    "Meet the people who maintain our open-source software, review contributions, organise community events and support Monkeys. Find their public profiles.",
+);
 
 export default function TeamPage() {
     return (
@@ -52,13 +45,16 @@ export default function TeamPage() {
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                     <p className="section-label mb-5">People</p>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-[var(--text-primary)] mb-6 tracking-tight leading-[1.1] max-w-3xl">
-                        The people around Monkeys.
+                        Meet the Monkeys maintainers
                     </h1>
                     <p className="text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                        Maintainers keep github.com/the-monkeys moving. Monkeys
-                        events are managed by Gautam. Rohit Kumar Singh runs the
-                        Monkeys Instagram for marketing and promotion.
+                        Our maintainers review code, improve documentation and develop the community’s
+                        publishing and developer tools. Gautam Kumar organises events, and
+                        Rohit Kumar Singh manages the community’s Instagram account.
                     </p>
+                    <a href="https://github.com/the-monkeys" className="mt-6 inline-block font-medium underline underline-offset-4">
+                        Explore the community’s repositories and contributions
+                    </a>
                 </div>
             </section>
             <section className="bg-[var(--bg-secondary)] py-20 sm:py-28">

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Buddhicintaka, software from Muzaffarpur, Bihar";
+export const alt = "Buddhicintaka | Software platforms and AI systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,7 +40,7 @@ export default function OpenGraphImage() {
                             maxWidth: 900,
                         }}
                     >
-                        Software from Muzaffarpur, Bihar
+                        Software platforms and AI systems
                     </div>
                     <div
                         style={{
@@ -51,7 +51,7 @@ export default function OpenGraphImage() {
                             lineHeight: 1.35,
                         }}
                     >
-                        Building products used across India. Monkeys. Aasriva.
+                        Product engineering, cloud infrastructure and workflow automation.
                     </div>
                 </div>
             </div>

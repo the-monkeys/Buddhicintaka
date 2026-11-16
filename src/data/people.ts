@@ -1,6 +1,9 @@
+import { COMPANY_MOTTO } from "./company";
+
 export interface CompanySection {
     title: string;
     body: string;
+    link?: { label: string; href: string };
 }
 
 export interface CompanyStory {
@@ -16,88 +19,93 @@ export const companyStories: CompanyStory[] = [
     {
         slug: "culture",
         eyebrow: "Company",
-        title: "Our culture",
-        description:
-            "Open source, shared repos, and software built in Muzaffarpur, Bihar. How Buddhicintaka works day to day.",
-        lede: "We write software in the open when we can, we review in public, and we stay close to the people who run what we ship.",
+        title: "Engineering culture and open-source contributions",
+        description: "Learn how our remote software team collaborates through written decisions, shared repositories and code reviews, and how to contribute to Monkeys.",
+        lede: "Our team works entirely remotely. Much of our engineering work happens in shared repositories, where colleagues can see what changed, ask questions and review one another’s work.",
         sections: [
             {
-                title: "Transparent by default",
-                body: "The founding principle is that software should be transparent, community-driven, and built to last, not locked behind walls. That is why the Monkeys organisation lives on GitHub.",
+                title: "Working across locations",
+                body: "Most of our developers are based in Patna and Bangalore. Written decisions and code reviews give colleagues the context they need wherever they work.",
+                link: { label: "How we work", href: "/how-we-work" },
             },
             {
-                title: "Work you can see",
-                body: "Contributors maintain the open-source community. Repositories, reviews, and event work are visible. You can inspect the code and join the same channels.",
+                title: "Learning through contribution",
+                body: "A contribution might be a documentation correction, a useful bug report or a new feature. Monkeys gives people a place to learn from the maintainers who review their work.",
+                link: { label: "Explore our repositories", href: "https://github.com/the-monkeys" },
             },
             {
-                title: "Rooted in Bihar",
-                body: "The company is registered in Muzaffarpur. Programming, application work, security, and training are done in India.",
+                title: "Respect at work",
+                body: "We value colleagues for the quality of their work and how they treat other people. That expectation extends to workshops, project meetings and community discussions.",
+                link: { label: "Our approach to inclusion", href: "/company/inclusion" },
             },
         ],
     },
     {
         slug: "history",
         eyebrow: "Company",
-        title: "History",
-        description:
-            "Buddhicintaka (OPC) Private Limited was incorporated in 2025 in Muzaffarpur, Bihar, and ships Monkeys and Aasriva.",
-        lede: "Buddhicintaka (OPC) Private Limited was incorporated in 2025 in Muzaffarpur, Bihar. The work that followed is software people already use.",
+        title: "Company history and early software products",
+        description: "Buddhicintaka was incorporated in Muzaffarpur, Bihar, in 2025. Explore the company's early work on publishing, notifications and marketplaces.",
+        lede: "Buddhicintaka was incorporated in 2025 in Muzaffarpur, Bihar. Our early work has centred on building software products and maintaining the open-source community around Monkeys.",
         sections: [
             {
                 title: "The company",
-                body: "Registered office: Phulwaria, Paroo, Muzaffarpur 843107. GSTIN 10AANCB2931M1ZQ. Class-I local supplier, 100% local content. Registered vendor on the Government e-Marketplace.",
+                body: "Buddhicintaka began as a software company registered in Bihar. Today our developers work remotely, primarily from Patna and Bangalore.",
             },
             {
-                title: "Products that shipped",
-                body: "Monkeys is an open-source community and content platform. Aasriva is a marketplace for Indian manufacturers and local artisans, a joint venture with OSDuo Tech LLP.",
+                title: "Our early products",
+                body: "Monkeys supports publishing, groups and events. FreeRange Notify handles application notifications. We also work with OSDuo Tech LLP on Aasriva, a marketplace for manufacturers and artisans.",
+                link: { label: "Explore our products", href: "/products" },
             },
             {
-                title: "The community around it",
-                body: "Open-source work sits under github.com/the-monkeys. Maintainers keep the repos moving. Monkeys events are run by Gautam.",
+                title: "The Monkeys community",
+                body: "Contributors develop the platform in public, review code and maintain its frontend and backend. Others help with documentation and community events.",
+                link: { label: "Meet the maintainers", href: "/team" },
             },
         ],
     },
     {
         slug: "purpose",
-        eyebrow: "How we work",
-        title: "Our purpose",
-        description:
-            "Inspire, Inform, Innovate. Buddhicintaka builds software from Muzaffarpur, Bihar, for use across India.",
-        lede: "Inspire, Inform, Innovate. We build software from Muzaffarpur that people across India can actually run.",
+        eyebrow: "Company",
+        title: "Our purpose in open source and technology education",
+        description: "Discover how our motto, Inspire, inform and innovate, guides open-source participation, knowledge publishing and software development.",
+        lede: COMPANY_MOTTO,
         sections: [
             {
                 title: "Inspire",
-                body: "Show that production software can come from Bihar: live products, open repositories, and training that uses the same stack.",
+                body: "Give students and developers a place to make their first contribution to software that people use.",
+                link: { label: "Explore Monkeys on GitHub", href: "https://github.com/the-monkeys" },
             },
             {
                 title: "Inform",
-                body: "Monkeys is built for research, articles, events, and groups. The point is accurate writing, not volume for its own sake.",
+                body: "Help people publish research and articles, share what they know in groups and learn from one another at events.",
+                link: { label: "Explore Monkeys", href: "/products/monkeys" },
             },
             {
                 title: "Innovate",
-                body: "Ship the next piece: identity, notifications, marketplaces, and AI inside tools people already open. Keep the code inspectable.",
+                body: "Build software that solves a specific problem, from delivering application notifications to helping a team find information in its own documents.",
+                link: { label: "Explore our services", href: "/consulting#offerings" },
             },
         ],
     },
     {
         slug: "inclusion",
-        eyebrow: "How we work",
-        title: "Inclusion",
-        description:
-            "Buddhicintaka open-source community on GitHub: inspect, fork, and contribute. Workshops for campuses and professionals across India.",
-        lede: "Anyone who can work in the open can take part. The door is the repository, the workshop room, and the event, not a closed office list.",
+        eyebrow: "Company",
+        title: "Diversity, inclusion and equal opportunity",
+        description: "Read our approach to hiring and fair treatment, and our commitment to a respectful workplace and open-source community for women and LGBTQ+ people.",
+        lede: "Everyone deserves to be safe and respected at work. We welcome women and LGBTQ+ people as colleagues, leaders and contributors across our company and open-source community.",
         sections: [
             {
-                title: "Open source is the entry",
-                body: "github.com/the-monkeys is public. Maintainers review work from people we have not met in person. That is how the community grows.",
+                title: "Equal opportunity",
+                body: "We base hiring and opportunities for growth on skills, experience and the requirements of the role. We do not tolerate discrimination based on gender, gender identity, sexual orientation, caste, religion, disability or background.",
             },
             {
-                title: "Rooms and campuses",
-                body: "We run tech classes and workshops for students and professionals, on-site or remote, across India.",
+                title: "Respect in everyday work",
+                body: "We expect respectful conduct in team calls, messages, code reviews and community events. Harassment, intimidation and discriminatory remarks have no place in our work.",
             },
             {
-                title: "What we do not claim",
-                body: "This is not a corporate inclusion programme with a separate office. It is the way the community already works.",
+                title: "Participation in our community",
+                body: "We welcome people at different stages of their careers. Contributors can ask questions, report an issue, improve documentation or submit code for review.",
+                link: { label: "Explore our open-source community", href: "https://github.com/the-monkeys" },
             },
         ],
     },
@@ -105,21 +113,23 @@ export const companyStories: CompanyStory[] = [
         slug: "early-careers",
         eyebrow: "People",
         title: "Early careers",
-        description:
-            "Campus workshops, first contributions on GitHub, and training on the stack Buddhicintaka uses in Muzaffarpur, Bihar.",
-        lede: "If you are early in engineering, the path here is a workshop, a first pull request, or a class on the stack we actually ship.",
+        description: "Engineering workshops, practical AI training and open-source opportunities for students and early-career developers.",
+        lede: "Students and early-career developers can learn with us through workshops, project mentoring and contributions to Monkeys.",
         sections: [
             {
-                title: "Workshops",
-                body: "Hands-on sessions on modern web, APIs, and practical AI for campuses and working groups.",
+                title: "Training and workshops",
+                body: "Engineering sessions cover software development and applied AI. Practical AI workshops help students and faculty use these tools in research and everyday work.",
+                link: { label: "Explore the training tracks", href: "/consulting/people-and-performance" },
             },
             {
-                title: "Contribute in public",
-                body: "Open issues and pull requests on github.com/the-monkeys. Maintainers review the work. That is real delivery, not a mock assignment.",
+                title: "Contribute to Monkeys",
+                body: "Start by exploring a repository and its open issues. Documentation, bug reports and code changes are all ways to contribute.",
+                link: { label: "Find the Monkeys repositories", href: "https://github.com/the-monkeys" },
             },
             {
-                title: "Roles when they exist",
-                body: "Full-time openings are listed on Careers. Early work often starts in the community and in training rooms, not a separate graduate scheme.",
+                title: "Work with us",
+                body: "Visit Careers for roles and application details. Our engineering team works entirely remotely.",
+                link: { label: "View careers", href: "/careers" },
             },
         ],
     },

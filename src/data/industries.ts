@@ -3,10 +3,10 @@ import type { TopicPage } from "./consulting";
 export const industryPages: TopicPage[] = [
     {
         slug: "consumer-and-retail",
-        title: "Consumer and retail",
-        description:
-            "Marketplace software for Indian manufacturers and local artisans. Aasriva, a Buddhicintaka joint venture, sells across India.",
+        title: "Retail and marketplace software",
+        description: "See how Aasriva supports product listings, seller onboarding, orders, payouts and shipping for Indian manufacturers and independent artisans.",
         lede: "Retail here means a live marketplace: sellers list, orders move, and goods reach customers across India.",
+        related: { label: "Explore the Aasriva marketplace", href: "/products/aasriva" },
         focus: [
             {
                 title: "Aasriva is live",
@@ -24,10 +24,10 @@ export const industryPages: TopicPage[] = [
     },
     {
         slug: "government",
-        title: "Government",
-        description:
-            "GeM-registered software, training, and application security work from Buddhicintaka (OPC) Private Limited, Muzaffarpur, Bihar.",
+        title: "Government software procurement and GeM services",
+        description: "Review our scope as a GeM vendor for software development, IT training and application security, and contact our team about eligible tenders.",
         lede: "We are a registered vendor on the Government e-Marketplace. Public work we take on is software, training, and application security, delivered in India.",
+        related: { label: "Discuss a tender or RFP", href: "/contact" },
         focus: [
             {
                 title: "GeM vendor",
@@ -38,17 +38,17 @@ export const industryPages: TopicPage[] = [
                 body: "Class-I local supplier under the Public Procurement (Preference to Make in India) Order, with 100% local content.",
             },
             {
-                title: "What stays in scope",
-                body: "Programming, applications, security, and training performed in India. We do not claim every ministry vertical.",
+                title: "Procurement enquiries",
+                body: "Share the tender reference, delivery requirements and submission deadline so we can review the scope and eligibility.",
             },
         ],
     },
     {
         slug: "manufacturing",
-        title: "Manufacturing",
-        description:
-            "Software for Indian manufacturers who need to sell beyond their town. Aasriva and custom vendor portals from Buddhicintaka.",
+        title: "Vendor portals and software for manufacturers",
+        description: "Connect product catalogues, vendor registrations, order updates and shipping workflows through a marketplace or a custom manufacturer portal.",
         lede: "Manufacturers already sell on Aasriva. The same pattern, vendor portals, catalogues, and shipping, can sit on software we build for a single factory or a group of makers.",
+        related: { label: "Manufacturer and vendor features", href: "/products/aasriva" },
         focus: [
             {
                 title: "Sellers on Aasriva",
@@ -66,10 +66,10 @@ export const industryPages: TopicPage[] = [
     },
     {
         slug: "technology-media-telecom",
-        title: "Technology, media and telecom",
-        description:
-            "Technology products and content platforms from Buddhicintaka, including Monkeys. We do not operate telecom networks.",
-        lede: "We are a technology company. Media, for us, is the Monkeys platform: research, articles, events, groups, and Studio. We do not run a telecom network.",
+        title: "Publishing platforms and communications software",
+        description: "Explore open-source publishing, identity and notification infrastructure for technology and media teams, with examples from our own products.",
+        lede: "We build the software behind publishing and digital communications. Examples include collaborative writing on Monkeys and multi-channel alerts through FreeRange Notify.",
+        related: { label: "Browse our software products", href: "/products" },
         focus: [
             {
                 title: "Technology products",
@@ -80,7 +80,7 @@ export const industryPages: TopicPage[] = [
                 body: "Monkeys is live for writing, co-authors, events, groups, and shareable cards for Instagram, X, and LinkedIn.",
             },
             {
-                title: "A honest boundary",
+                title: "Operational scope",
                 body: "Spectrum, carriers, and last-mile telecom stay with operators. We connect software and notifications, not the tower.",
             },
         ],

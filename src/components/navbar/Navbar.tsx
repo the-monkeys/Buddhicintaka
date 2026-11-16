@@ -1,37 +1,50 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Bookmark, ChevronDown, ChevronRight, Menu, Plus, Search, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { ActionLink } from "../ActionLink";
 import { Logo } from "./Logo";
 import { MegaMenuPanel } from "./MegaMenuPanel";
 import { MobileMenu } from "./MobileMenu";
 import { megaMenus, topLinks } from "../../data/megaMenu";
 
 export function Navbar() {
+    const pathname = usePathname();
+    return <Navigation key={pathname} />;
+}
+
+function Navigation() {
     const [openMenu, setOpenMenu] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const pathname = usePathname();
+    const menuTrigger = useRef<HTMLButtonElement | null>(null);
     const activePanel = megaMenus.find((menu) => menu.id === openMenu) ?? null;
 
     useEffect(() => {
-        setOpenMenu(null);
-        setIsMobileMenuOpen(false);
-    }, [pathname]);
+        const desktop = window.matchMedia("(min-width: 64rem)");
+        const closeMenus = () => {
+            setOpenMenu(null);
+            setIsMobileMenuOpen(false);
+        };
+        desktop.addEventListener("change", closeMenus);
+        return () => desktop.removeEventListener("change", closeMenus);
+    }, []);
 
     useEffect(() => {
         const onKey = (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
+            if (event.key === "Escape" && (openMenu || isMobileMenuOpen)) {
                 setOpenMenu(null);
                 setIsMobileMenuOpen(false);
+                menuTrigger.current?.focus();
             }
         };
         window.addEventListener("keydown", onKey);
         return () => window.removeEventListener("keydown", onKey);
-    }, []);
+    }, [openMenu, isMobileMenuOpen]);
 
-    const toggleMenu = (id: string) => {
+    const toggleMenu = (id: string, trigger: HTMLButtonElement) => {
+        menuTrigger.current = trigger;
         setOpenMenu((current) => (current === id ? null : id));
         setIsMobileMenuOpen(false);
     };
@@ -42,16 +55,23 @@ export function Navbar() {
                 <button
                     type="button"
                     aria-label="Close menu overlay"
-                    className="fixed inset-0 z-40 bg-black/30"
+                    className="fixed inset-0 z-40 hidden bg-black/30 lg:block"
                     onClick={() => setOpenMenu(null)}
                 />
             )}
 
-            <header className="fixed top-3 left-3 right-3 z-50">
-                <nav className="bg-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-                    <div className="h-[3.6rem] sm:h-[3.85rem] px-4 sm:px-5 flex items-center justify-between gap-3">
+            <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-[0_1px_0_rgba(17,32,31,0.12)]">
+                <nav aria-label="Main navigation">
+                    <div className="mx-auto flex h-16 max-w-[88rem] items-center justify-between gap-3 px-[clamp(1.25rem,5vw,5rem)] sm:h-[4.5rem]">
                         <div className="flex items-center min-w-0">
-                            <Link href="/" className="shrink-0 pr-3 sm:pr-5" onClick={() => setOpenMenu(null)}>
+                            <Link
+                                href="/"
+                                className="shrink-0 pr-4 lg:pr-10"
+                                onClick={() => {
+                                    setOpenMenu(null);
+                                    setIsMobileMenuOpen(false);
+                                }}
+                            >
                                 <Logo size="sm" />
                             </Link>
 
@@ -63,7 +83,7 @@ export function Navbar() {
                                             key={menu.id}
                                             type="button"
                                             aria-expanded={isOpen}
-                                            onClick={() => toggleMenu(menu.id)}
+                                            onClick={(event) => toggleMenu(menu.id, event.currentTarget)}
                                             className={[
                                                 "inline-flex items-center gap-1 px-2.5 py-2 text-[14px] font-medium transition-colors",
                                                 isOpen
@@ -95,44 +115,17 @@ export function Navbar() {
                         </div>
 
                         <div className="hidden lg:flex items-center gap-2">
-                            <span className="px-2 text-[13px] text-[#5c5c5c]">IN - EN</span>
-                            <a
-                                href="/contact"
-                                className="inline-flex items-center gap-2 pl-4 pr-1.5 py-1.5 text-sm font-semibold text-white rounded-full bg-[var(--cta)] hover:bg-[var(--cta-hover)] transition-colors"
-                            >
-                                Consult an expert
-                                <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
-                                    <Plus className="w-3.5 h-3.5" />
-                                </span>
-                            </a>
-                            <button
-                                type="button"
-                                aria-label="Bookmarks"
-                                className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#1a1a1a]"
-                            >
-                                <Bookmark className="w-4 h-4" />
-                            </button>
-                            <button
-                                type="button"
-                                aria-label="Forward"
-                                className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#1a1a1a]"
-                            >
-                                <ChevronRight className="w-4 h-4" />
-                            </button>
-                            <button
-                                type="button"
-                                aria-label="Search"
-                                className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-[#1a1a1a]"
-                            >
-                                <Search className="w-4 h-4" />
-                            </button>
+                            <ActionLink href="/contact">Talk to us</ActionLink>
                         </div>
 
                         <div className="lg:hidden flex items-center">
                             <button
                                 className="w-10 h-10 rounded-full flex items-center justify-center text-[#1a1a1a]"
                                 aria-label="Toggle menu"
-                                onClick={() => {
+                                aria-expanded={isMobileMenuOpen}
+                                aria-controls={isMobileMenuOpen ? "mobile-navigation" : undefined}
+                                onClick={(event) => {
+                                    menuTrigger.current = event.currentTarget;
                                     setIsMobileMenuOpen((open) => !open);
                                     setOpenMenu(null);
                                 }}
@@ -169,7 +162,7 @@ export function Navbar() {
                 )}
 
                 {activePanel?.kind === "mega" && (
-                    <div className="hidden lg:block mt-2 z-50">
+                    <div className="hidden lg:block mt-2 z-50 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl">
                         <MegaMenuPanel panel={activePanel} onClose={() => setOpenMenu(null)} />
                     </div>
                 )}
